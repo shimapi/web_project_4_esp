@@ -35,10 +35,10 @@ body{
 .owner__avatar{
 }
 .owner__avatar_img{
-  border-radius: 100%;
+  border-radius: 50%;
   height: 120px;
   width: 120px;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 .owner__info{
   display: flex;
@@ -58,7 +58,10 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-
+}
+.owner__info_edit:hover{
+  opacity: 0.6;
+  cursor: pointer;
 }
 .owner__about{
   font-size: 14px;
@@ -79,6 +82,10 @@ body{
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
+}
+.main__add-photo:hover{
+  opacity: 0.6;
+  cursor: pointer;
 }
 .main__add-photo_img{
   height: 16px;
@@ -108,8 +115,16 @@ body{
   white-space: nowrap;
   overflow: hidden;
 }
-.main__card_like{
+.main__card_like{}
+.main__card_like:hover{
+  opacity: 0.6;
+  cursor: pointer;
 }
+.main__card_like:active{
+  cursor: pointer;
+  background-image: url(/images/like-fill.svg) no-repeat;
+}
+
 
 .main__footer{
   padding: 19px;
