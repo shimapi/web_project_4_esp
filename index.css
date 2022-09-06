@@ -68,7 +68,7 @@ body{
 .main{
   flex-flow: nowrap;
   padding: 0 19px;
-  width: 100%;
+  width: 282px;
 }
 .main__add-photo{
   width: 100%;
@@ -104,6 +104,9 @@ body{
   font-weight: 900;
   margin:0;
   padding: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .main__card_like{
 }
