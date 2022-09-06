@@ -1,0 +1,119 @@
+@import url(/vendor/normalize.css);
+@import url(/vendor/fonts.css);
+
+body{
+  color: #fff;
+  background-color: rgb(168, 102, 184);
+  font-family: inter, sans-serif;
+}
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  width: 320px;
+  margin: auto;
+  max-width: 880px;
+  background-color: #000;
+}
+
+.header{
+  padding: 28px 27px;
+  border-bottom: rgba(84, 84, 84, 0.7) 1px solid;
+  width: 100%;
+}
+.header__logo{}
+.header__logo_img{
+  width: 126px;
+  height: 24px;
+}
+
+.owner{
+  width: 100%;
+  text-align: center;
+  padding: 38px 19px 15px;
+}
+.owner__avatar{
+}
+.owner__avatar_img{
+  border-radius: 100%;
+  height: 120px;
+  width: 120px;
+  padding-bottom: 20px;
+}
+.owner__info{
+  display: flex;
+  justify-content: center;
+}
+.owner__info_owner-name{
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0 10px;
+}
+.owner__info_edit{
+  height: 18px;
+  width: 18px;
+  margin: 5px 0 0 0;
+  background-color: #000;
+  border: 1px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.owner__about{
+  font-size: 14px;
+  font-weight: 400;
+  margin: 10px 0;
+}
+.main{
+  flex-flow: nowrap;
+  padding: 0 19px;
+  width: 100%;
+}
+.main__add-photo{
+  width: 100%;
+  height: 50px;
+  background-color: #000;
+  border: 1px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.main__add-photo_img{
+  height: 16px;
+  width: 16px;
+}
+
+.main__card{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.post-image{}
+.main__card_photo-name{
+  background-color: #fff;
+  border-radius: 0 0 12px 12px;
+  display: flex;
+  justify-content: space-between;
+  padding:  20px;
+}
+.main__card_photo-title{
+  color: #000;
+  font-size: 24px;
+  font-weight: 900;
+  margin:0;
+  padding: 0;
+}
+.main__card_like{
+}
+
+.main__footer{
+  padding: 19px;
+}
+
+.main__footer_about{
+  font-size: 14px;
+  font-weight: 400;
+  color: #545454;
+}
