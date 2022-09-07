@@ -8,13 +8,12 @@
 }
 body{
   color: #fff;
-  background-color: rgb(168, 102, 184);
   font-family: inter, sans-serif;
+  background-color: #000;
 }
 
 @media only screen and (max-width: 320px) {
   .container{
-    background-color: #000;
     display: flex;
     flex-wrap: wrap;
     width: 320px;
@@ -24,7 +23,6 @@ body{
 
 @media only screen and (min-width: 321px) and (max-width: 879px) {
   .container{
-    background-color: rgb(196, 120, 167);
     display: flex;
     flex-wrap: wrap;
     max-width: 768px;
@@ -35,7 +33,6 @@ body{
 
 @media only screen and (min-width: 880px) {
   .container{
-    background-color: rgb(128, 0, 60);
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
@@ -46,7 +43,6 @@ body{
 
 .header{
   padding: 28px 27px;
-  border-bottom: rgba(84, 84, 84, 0.7) 1px solid;
   width: 100%;
 }
 .header__logo{}
@@ -114,17 +110,13 @@ body{
     text-align: left;
     width: 80%;
   }
-  .owner__avatar{
-    background-color: aquamarine;
-  }
+  .owner__avatar{}
   .owner__info{
-    background-color: chocolate;
     display: flex;
     justify-content: center;
     flex-wrap: nowrap;
     flex-direction: column;
     padding: 0 20px;
-
   }
   .owner__info_container{
     display: flex;
@@ -198,7 +190,6 @@ body{
     display: flex;
     padding: 38px 0 15px;
     width: 20%;
-    background-color: antiquewhite;
     align-items: center;
   }
   .upload__add-photo{
@@ -247,11 +238,11 @@ body{
 }
 
 
-.main__footer{
+.container__footer{
   padding: 19px;
 }
 
-.main__footer_about{
+.container__footer_about{
   font-size: 14px;
   font-weight: 400;
   color: #545454;
