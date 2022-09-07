@@ -21,16 +21,16 @@
 
       <section class="owner">
         <div class="owner__avatar">
-          <img src="/images/avatar.jpg" alt="FOTO PERFIL DE JSS" class="owner__avatar_img">
+          <img class="owner__avatar_img" src="/images/avatar.jpg" alt="Foto de perfil" >
         </div>
         <div class="owner__info">
           <div class="owner__info_container">
-            <h1 class="owner__info_name">JSS Jacques Cousteau</h1>
-            <button class="owner__info_edit">
+            <h1 class="owner__info_name"></h1>
+            <button class="owner__info_edit" onclick="">
               <img src="/images/edit.svg" alt="Editar perfil">
             </button>
           </div>
-          <h3 class="owner__about">Explorador</h3>
+          <h3 class="owner__about"></h3>
         </div>
       </section>
 
@@ -105,6 +105,24 @@
         </p>
       </footer>
   </div>
+
+
+  <!-- The Modal -->
+  <div class="editProfile modal">
+
+    <!-- Modal content -->
+    <div class="editProfile__container">
+      <span class="close">&times;</span>
+      <form class="editProfile__form" action="#" >
+        <h2 class="title">Editar Perfil</h2>
+        <input type="text" name='editName' class="editProfile__name">
+        <input type="text" name='editAbout' class="editProfile__about">
+        <button type="submit" class="editProfile__save">Guardar</button>
+      </form>
+    </div>
+
+  </div>
+
 <script src="/scripts/index.js"></script>
 </body>
 </html>
