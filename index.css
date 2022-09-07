@@ -22,7 +22,7 @@ body{
   }
 }
 
-@media only screen and (min-width: 321px) and (max-width: 887px) {
+@media only screen and (min-width: 321px) and (max-width: 879px) {
   .container{
     background-color: rgb(196, 120, 167);
     display: flex;
@@ -54,13 +54,23 @@ body{
   width: 126px;
   height: 24px;
 }
+@media only screen and (min-width: 880px) {
+  .header{
+    padding: 28px 0;
+    border-bottom: rgba(84, 84, 84, 0.7) 1px solid;
+    width: 100%;
+  }
+  .header__logo_img{
+    width: 173px;
+    height: 33px;
+  }
+}
+
 
 .owner{
   width: 100%;
   text-align: center;
   padding: 38px 19px 15px;
-}
-.owner__avatar{
 }
 .owner__avatar_img{
   border-radius: 50%;
@@ -68,11 +78,11 @@ body{
   width: 120px;
   margin-bottom: 20px;
 }
-.owner__info{
+.owner__info_container{
   display: flex;
   justify-content: center;
 }
-.owner__info_owner-name{
+.owner__info_name{
   font-size: 22px;
   font-weight: 500;
   margin: 0 10px;
@@ -96,13 +106,52 @@ body{
   font-weight: 400;
   margin: 10px 0;
 }
+
+@media only screen and (min-width: 881px) {
+  .owner{
+    display: flex;
+    padding: 38px 0 15px;
+    text-align: left;
+    width: 80%;
+  }
+  .owner__avatar{
+    background-color: aquamarine;
+  }
+  .owner__info{
+    background-color: chocolate;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    padding: 0 20px;
+
+  }
+  .owner__info_container{
+    display: flex;
+    align-items: center;
+  }
+  .owner__info_name{
+    margin: 0;
+    font-size: 42px;
+    font-weight: 500;
+  }
+  .owner__info_edit{
+    height: 24px;
+    width: 24px;
+    margin: 10px ;
+  }
+  .owner__about{
+    font-size: 18px;
+    font-weight: 400;
+  }
+}
 @media only screen and (max-width: 320px) {
   .main{
     flex-flow: nowrap;
     padding: 0 19px;
   }
 }
-@media only screen and (min-width: 321px) and (max-width: 887px) {
+@media only screen and (min-width: 321px) and (max-width: 879px) {
   .main{
     display: flex;
     flex-wrap: wrap;
@@ -120,7 +169,12 @@ body{
     justify-content: space-between;
   }
 }
-.main__add-photo{
+.upload{
+  padding: 0 19px;
+  width: 100%;
+}
+
+.upload__add-photo{
   width: 100%;
   height: 50px;
   background-color: #000;
@@ -130,13 +184,26 @@ body{
   align-items: center;
   margin-bottom: 30px;
 }
-.main__add-photo:hover{
+.upload__add-photo:hover{
   opacity: 0.6;
   cursor: pointer;
 }
-.main__add-photo_img{
+.upload__add-photo_img{
   height: 16px;
   width: 16px;
+}
+
+@media only screen and (min-width: 880px) {
+  .upload{
+    display: flex;
+    padding: 38px 0 15px;
+    width: 20%;
+    background-color: antiquewhite;
+    align-items: center;
+  }
+  .upload__add-photo{
+    width: 150px;
+  }
 }
 
 .main__card{
