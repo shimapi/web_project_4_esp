@@ -166,7 +166,7 @@ body{
   width: 100%;
 }
 
-.upload__add-photo{
+.button{
   width: 100%;
   height: 50px;
   background-color: #000;
@@ -175,8 +175,9 @@ body{
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
+  color: #fff;
 }
-.upload__add-photo:hover{
+.button:hover{
   opacity: 0.6;
   cursor: pointer;
 }
@@ -191,7 +192,7 @@ body{
     width: 20%;
     align-items: center;
   }
-  .upload__add-photo{
+  .button{
     width: 150px;
   }
 }
@@ -240,44 +241,79 @@ body{
   color: #545454;
 }
 
-
-
-
-
-/* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none;
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
-/* Modal Content/Box */
-.editProfile__container {
+.edit-profile__container {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
+  margin: 0 auto;
+  padding: 30px 20px;
   border: 1px solid #888;
-  width: 430px; /* Could be more or less, depending on screen size */
+  max-width: 282px;
   color: #000;
+  position: relative;
+  top: 35%;
+  border-radius: 10px;
 }
-
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+.edit-profile__button-close{
+  transform: rotate(45deg);
+  position: absolute;
+  top: -40px;
+  right: 0;
 }
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
+.edit-profile__button-close:hover {
   cursor: pointer;
+  opacity: 0.6;
+}
+
+.edit-profile__form{}
+.edit-profile__title{
+  font-size: 18px;
+  font-weight: 900;
+  margin-bottom: 30px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.edit-input{
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 5px 0;
+  margin: 15px 0;
+}
+.edit-profile__save{
+  margin: 30px 0 0 0;
+  font-size: 14px;
+  font-weight: 400;
+}
+@media only screen and (min-width: 768px)  {
+  .edit-profile__container {
+    max-width: 430px;
+  }
+  .edit-profile__button-close{
+    top: -40px;
+    right: -40px;
+  }
+  .edit-profile__button-img{
+    width: 40px;
+    height: 40px;
+  }
+  .edit-profile__title{
+    font-size: 24px;
+  }
+  .edit-profile__save{
+    font-size: 18px;
+  }
 }

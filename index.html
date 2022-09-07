@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,7 +25,7 @@
         <div class="owner__info">
           <div class="owner__info_container">
             <h1 class="owner__info_name"></h1>
-            <button class="owner__info_edit" onclick="">
+            <button class="owner__info_edit">
               <img src="/images/edit.svg" alt="Editar perfil">
             </button>
           </div>
@@ -35,8 +34,8 @@
       </section>
 
       <section class="upload">
-        <button class="upload__add-photo">
-          <img class="upload__add-photo_img" src="/images/add.svg" alt="Añadir foto">
+        <button class="upload__add-photo button">
+          <img class="upload__add-photo_img " src="/images/add.svg" alt="Añadir foto">
         </button>
       </section>
 
@@ -106,23 +105,20 @@
       </footer>
   </div>
 
-
-  <!-- The Modal -->
-  <div class="editProfile modal">
-
-    <!-- Modal content -->
-    <div class="editProfile__container">
-      <span class="close">&times;</span>
-      <form class="editProfile__form" action="#" >
-        <h2 class="title">Editar Perfil</h2>
-        <input type="text" name='editName' class="editProfile__name">
-        <input type="text" name='editAbout' class="editProfile__about">
-        <button type="submit" class="editProfile__save">Guardar</button>
+  <div class="edit-profile modal">
+    <div class="edit-profile__container">
+      <span class="close edit-profile__button-close">
+        <img class="edit-profile__button-img" src="/images/add.svg" alt="Cerrar">
+      </span>
+      <form class="edit-profile__form" action="#" >
+        <h2 class="edit-profile__title">Editar Perfil</h2>
+        <input type="text" name='edit-profile__name' class="edit-profile__name edit-input">
+        <input type="text" name='edit-profile__about' class="edit-profile__about edit-input">
+        <button type="submit" class="edit-profile__save button">Guardar</button>
       </form>
     </div>
-
   </div>
 
-<script src="/scripts/index.js"></script>
-</body>
+  <script src="/scripts/index.js"></script>
+  </body>
 </html>
