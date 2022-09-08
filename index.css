@@ -45,7 +45,6 @@ body{
   padding: 28px 27px;
   width: 100%;
 }
-.header__logo{}
 .header__logo_img{
   width: 126px;
   height: 24px;
@@ -110,7 +109,6 @@ body{
     text-align: left;
     width: 80%;
   }
-  .owner__avatar{}
   .owner__info{
     display: flex;
     justify-content: center;
@@ -137,12 +135,11 @@ body{
     font-weight: 400;
   }
 }
-@media only screen and (max-width: 320px) {
-  .main{
-    flex-flow: nowrap;
-    padding: 0 19px;
-  }
+.main{
+  flex-flow: nowrap;
+  padding: 0 19px;
 }
+
 @media only screen and (min-width: 321px) and (max-width: 879px) {
   .main{
     display: flex;
@@ -202,13 +199,12 @@ body{
   margin-bottom: 20px;
   max-width: 282px;
 }
-.post-image{}
 .main__card_photo-name{
   background-color: #fff;
   border-radius: 0 0 12px 12px;
   display: flex;
   justify-content: space-between;
-  padding:  20px;
+  padding: 20px;
 }
 .main__card_photo-title{
   color: #000;
@@ -220,7 +216,6 @@ body{
   white-space: nowrap;
   overflow: hidden;
 }
-.main__card_like{}
 .main__card_like:hover{
   opacity: 0.6;
   cursor: pointer;
@@ -274,8 +269,6 @@ body{
   cursor: pointer;
   opacity: 0.6;
 }
-
-.edit-profile__form{}
 .edit-profile__title{
   font-size: 18px;
   font-weight: 900;
