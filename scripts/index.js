@@ -1,3 +1,6 @@
+ //@import openEdit from "./editOwner.js";
+
+
 let openEdit = document.querySelector(".owner__info_edit");
 let saveInfo = document.querySelector(".edit-profile__save")
 let originalName = 'Jacques Cousteau';

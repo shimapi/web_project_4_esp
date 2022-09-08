@@ -1,0 +1,9 @@
+@media only screen and (min-width: 881px) {
+  .owner__info{
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    padding: 0 20px;
+  }
+}

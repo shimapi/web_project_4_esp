@@ -1,0 +1,20 @@
+@import url(/blocks/owner/__about/__about.css);
+@import url(/blocks/owner/__avatar_img/__avatar_img.css);
+@import url(/blocks/owner/__info/__info.css);
+@import url(/blocks/owner/__info_container/__info_container.css);
+@import url(/blocks/owner/__info_edit/__info_edit.css);
+@import url(/blocks/owner/__info_name/__info_name.css);
+
+.owner{
+  width: 100%;
+  text-align: center;
+  padding: 38px 19px 15px;
+}
+@media only screen and (min-width: 881px) {
+  .owner{
+    display: flex;
+    padding: 38px 0 15px;
+    text-align: left;
+    width: 80%;
+  }
+}

@@ -1,0 +1,16 @@
+.edit-profile__button-close{
+  transform: rotate(45deg);
+  position: absolute;
+  top: -40px;
+  right: 0;
+}
+.edit-profile__button-close:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+@media only screen and (min-width: 768px)  {
+  .edit-profile__button-close{
+    right: -40px;
+  }
+}

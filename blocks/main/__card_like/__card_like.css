@@ -1,0 +1,8 @@
+.main__card_like:hover{
+  opacity: 0.6;
+  cursor: pointer;
+}
+.main__card_like:active{
+  cursor: pointer;
+  background-image: url(/images/like-fill.svg) no-repeat;
+}

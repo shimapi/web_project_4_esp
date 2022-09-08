@@ -1,0 +1,10 @@
+.header__logo_img{
+  width: 126px;
+  height: 24px;
+}
+@media only screen and (min-width: 880px) {
+  .header__logo_img{
+    width: 173px;
+    height: 33px;
+  }
+}
