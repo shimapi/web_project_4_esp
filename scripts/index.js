@@ -37,7 +37,7 @@ function handleCloseModal(){
   modal.style.display = "none";
 }
 
-openEdit.addEventListener('click', handleEditOwner); //abre modal
+openEdit.addEventListener('click', handleEditOwner);
 formElement.addEventListener('submit', handleProfileFormSubmit);
 modal.addEventListener('click', handleCloseModalOut); 
 formElement.addEventListener('submit', handleCloseModal); 

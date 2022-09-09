@@ -1,9 +1,3 @@
-@import url(/blocks/owner/__about/__about.css);
-@import url(/blocks/owner/__info/__info.css);
-@import url(/blocks/owner/__info_container/__info_container.css);
-@import url(/blocks/owner/__info_edit/__info_edit.css);
-@import url(/blocks/owner/__info_name/__info_name.css);
-
 .owner{
   width: 100%;
   text-align: center;
