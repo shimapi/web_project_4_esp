@@ -7,8 +7,8 @@ let buttonCloseX = document.querySelector(".edit-profile__button-close");
 let formElement = document.querySelector('.edit-profile__form');
 
 function infoInicial(){
-  document.querySelector(".owner__info_name").innerHTML = originalName;
-  document.querySelector(".owner__about").innerHTML = originalAbout;
+  document.querySelector(".owner__info_name").textContent = originalName;
+  document.querySelector(".owner__about").textContent = originalAbout;
   document.querySelector(".edit-profile__name").value = originalName;
   document.querySelector(".edit-profile__about").value = originalAbout;
 }
@@ -16,8 +16,8 @@ function handleEditOwner(){
   modal.style.display = "block";
   let newName = document.querySelector(".edit-profile__name").value;
   let newAbout = document.querySelector(".edit-profile__about").value;
-  document.querySelector(".owner__info_name").innerHTML = newName;
-  document.querySelector(".owner__about").innerHTML = newAbout;
+  document.querySelector(".owner__info_name").textContent = newName;
+  document.querySelector(".owner__about").textContent = newAbout;
 }
 function handleProfileFormSubmit(event) {
   event.preventDefault();
@@ -33,17 +33,14 @@ function handleCloseModalOut(){
     }
   }
 }
-function handleCloseModalSubmit(){
-  modal.style.display = "none";
-}
-function handleCloseModalX(){
+function handleCloseModal(){
   modal.style.display = "none";
 }
 
 openEdit.addEventListener('click', handleEditOwner); //abre modal
 formElement.addEventListener('submit', handleProfileFormSubmit);
 modal.addEventListener('click', handleCloseModalOut); 
-formElement.addEventListener('submit', handleCloseModalSubmit); 
-buttonCloseX.addEventListener('click', handleCloseModalX);
+formElement.addEventListener('submit', handleCloseModal); 
+buttonCloseX.addEventListener('click', handleCloseModal);
 
 infoInicial();
