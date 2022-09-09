@@ -1,9 +1,3 @@
-@import url(/blocks/main/__card/__card.css);
-@import url(/blocks/main/__card_like/__card_like.css);
-@import url(/blocks/main/__card_photo-name/__card_photo-name.css);
-@import url(/blocks/main/__card_photo-title/__card_photo-title.css);
-
-
 .main{
   flex-flow: nowrap;
   padding: 0 19px;

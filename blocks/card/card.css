@@ -1,0 +1,10 @@
+@import url(/blocks/card/__photo-name/__photo-name.css);
+@import url(/blocks/card/__photo-title/__photo-title.css);
+
+
+.card{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  max-width: 282px;
+}

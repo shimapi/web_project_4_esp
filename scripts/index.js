@@ -3,7 +3,7 @@ let saveInfo = document.querySelector(".button__save")
 let originalName = 'Jacques Cousteau';
 let originalAbout = 'Explorer';
 let modal = document.querySelector(".edit-profile");
-let buttonCloseX = document.querySelector(".edit-profile__button-close");
+let buttonCloseX = document.querySelector(".button__close");
 let formElement = document.querySelector('.edit-profile__form');
 
 function infoInicial(){

@@ -41,57 +41,57 @@
 
       <main class="main">
 
-        <article class="main__card">
-          <img src="/images/ph_lago-di-braies.png" alt="JS Lago di Braies" class="post-image">
-          <section class="main__card_photo-name">
-            <h3 class="main__card_photo-title">Lago di Braies</h3>
-            <img class="main__card_like" src="/images/like.svg" alt="JS Like">
+        <article class="card">
+          <img src="/images/ph_lago-di-braies.png" alt="JS Lago di Braies" >
+          <section class="card__photo-name">
+            <h3 class="card__photo-title">Lago di Braies</h3>
+            <button class="card__like"></button>
           </section>
         </article>
         
-        <article class="main__card">
-          <img src="/images/ph_valle-de-yosemite.png" alt="JS Valle de Yosemite" class="post-image">
-          <section class="main__card_photo-name">
-            <h3 class="main__card_photo-title">Valle de Yosemite</h3>
-            <img class="main__card_like" src="/images/like.svg" alt="JS Like">
+        <article class="card">
+          <img src="/images/ph_valle-de-yosemite.png" alt="JS Valle de Yosemite" >
+          <section class="card__photo-name">
+            <h3 class="card__photo-title">Valle de Yosemite</h3>
+            <button class="card__like"></button>
           </section>
         </article>
 
-        <article class="main__card">
-          <img src="/images/ph_lago-louise.png" alt="JS Lago Louise" class="post-image">
-          <section class="main__card_photo-name">
-            <h3 class="main__card_photo-title">Lago Louise</h3>
-            <img class="main__card_like" src="/images/like.svg" alt="JS Like">
+        <article class="card">
+          <img src="/images/ph_lago-louise.png" alt="JS Lago Louise" >
+          <section class="card__photo-name">
+            <h3 class="card__photo-title">Lago Louise</h3>
+            <button class="card__like"></button>
           </section>
         </article>
 
-        <article class="main__card">
-          <img src="/images/ph_montanas-calvas.png" alt="JS Montañas Calvas" class="post-image">
-          <section class="main__card_photo-name">
-            <h3 class="main__card_photo-title">Montañas Calvas</h3>
-            <img class="main__card_like" src="/images/like.svg" alt="JS Like">
+        <article class="card">
+          <img src="/images/ph_montanas-calvas.png" alt="JS Montañas Calvas" >
+          <section class="card__photo-name">
+            <h3 class="card__photo-title">Montañas Calvas</h3>
+            <button class="card__like"></button>
           </section>
         </article>
 
-        <article class="main__card">
-          <img src="/images/ph_vanoise-national-park.png" alt="JS Vanoise National Park" class="post-image">
-          <section class="main__card_photo-name">
-            <h3 class="main__card_photo-title">Vanoise National Park</h3>
-            <img class="main__card_like" src="/images/like.svg" alt="JS Like">
+        <article class="card">
+          <img src="/images/ph_vanoise-national-park.png" alt="JS Vanoise National Park" >
+          <section class="card__photo-name">
+            <h3 class="card__photo-title">Vanoise National Park</h3>
+            <button class="card__like"></button>
           </section>
         </article>
 
-        <article class="main__card">
-          <img src="/images/ph_latemar.png" alt="JS Latemar" class="post-image">
-          <section class="main__card_photo-name">
-            <h3 class="main__card_photo-title">Latemar</h3>
-            <img class="main__card_like" src="/images/like.svg" alt="JS Like">
+        <article class="card">
+          <img src="/images/ph_latemar.png" alt="JS Latemar" >
+          <section class="card__photo-name">
+            <h3 class="card__photo-title">Latemar</h3>
+            <button class="card__like"></button>
           </section>
         </article>
         
       </main>
-      <footer class="container__footer">
-        <p class="container__footer_about">
+      <footer class="footer">
+        <p class="footer__about">
           © 2022 Alrededor de los EEUU
         </p>
       </footer>
@@ -99,14 +99,12 @@
 
   <div class="edit-profile modal">
     <div class="edit-profile__container">
-      <span class="close edit-profile__button-close">
-        <img class="edit-profile__button-img" src="/images/add.svg" alt="Cerrar">
-      </span>
+      <button class="close button__close"></button>
       <form class="edit-profile__form" action="#" >
         <h2 class="edit-profile__title">Editar Perfil</h2>
         <input type="text" name='edit-profile__name' class="edit-profile__name edit-input">
         <input type="text" name='edit-profile__about' class="edit-profile__about edit-input">
-        <button type="submit" class="edit-profile__save button">Guardar</button>
+        <button type="submit" class="button button__save">Guardar</button>
       </form>
     </div>
   </div>
