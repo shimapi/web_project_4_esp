@@ -1,0 +1,13 @@
+.button__edit{
+  height: 18px;
+  width: 18px;
+  margin: 5px 0 0 0;
+}
+
+@media only screen and (min-width: 881px) {
+  .button__edit{
+    height: 24px;
+    width: 24px;
+    margin: 16px 15px 0;
+  }
+}

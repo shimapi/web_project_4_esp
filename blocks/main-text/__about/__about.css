@@ -1,11 +1,11 @@
-.owner__about{
+.main-text__about{
   font-size: 14px;
   font-weight: 400;
   margin: 10px 0;
 }
 
 @media only screen and (min-width: 881px) {
-  .owner__about{
+  .main-text__about{
     font-size: 18px;
   }
 }
