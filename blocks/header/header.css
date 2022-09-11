@@ -1,4 +1,4 @@
-@import url('/web_project_4_esp/blocks/header/__logo/__logo.css');
+@import url(/blocks/header/__logo/__logo.css);
 
 .header{
   padding: 28px 27px;

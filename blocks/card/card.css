@@ -1,5 +1,5 @@
-@import url('/web_project_4_esp/blocks/card/__photo-name/__photo-name.css');
-@import url('/web_project_4_esp/blocks/card/__photo-title/__photo-title.css');
+@import url(/blocks/card/__photo-name/__photo-name.css);
+@import url(/blocks/card/__photo-title/__photo-title.css);
 
 
 .card{
