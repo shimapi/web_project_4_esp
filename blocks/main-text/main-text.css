@@ -1,6 +1,6 @@
-@import url(/blocks/main-text/__about/__about.css);
-@import url(/blocks/main-text/__container/__container.css);
-@import url(/blocks/main-text/__name/__name.css);
+@import url('https://shimapi.github.io/web_project_4_esp/blocks/main-text/__about/__about.css');
+@import url('https://shimapi.github.io/web_project_4_esp/blocks/main-text/__container/__container.css');
+@import url('https://shimapi.github.io/web_project_4_esp/blocks/main-text/__name/__name.css');
 
 @media only screen and (min-width: 881px) {
   .main-text{
