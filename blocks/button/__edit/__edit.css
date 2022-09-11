@@ -2,7 +2,7 @@
   height: 18px;
   width: 18px;
   margin: 5px 0 0 0;
-  background: url('https://shimapi.github.io/web_project_4_esp/images/edit.svg') no-repeat center center;
+  background: url('/web_project_4_esp/images/edit.svg') no-repeat center center;
 }
 
 @media only screen and (min-width: 881px) {

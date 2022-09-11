@@ -1,5 +1,5 @@
 .card__like{
-  background: url('https://shimapi.github.io/web_project_4_esp/images/like.svg') no-repeat center center;
+  background: url('/web_project_4_esp/images/like.svg') no-repeat center center;
   background-size: contain;
   width: 25px;
   height: 20px;
@@ -10,5 +10,5 @@
 }
 .card__like:active{
   cursor: pointer;
-  background: url('https://shimapi.github.io/web_project_4_esp/images/like-fill.svg') no-repeat center center;
+  background: url('/web_project_4_esp/images/like-fill.svg') no-repeat center center;
 }

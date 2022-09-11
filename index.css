@@ -1,18 +1,18 @@
-@import url('https://shimapi.github.io/web_project_4_esp/vendor/normalize.css');
-@import url('https://shimapi.github.io/web_project_4_esp/vendor/fonts.css');
-@import url('https://shimapi.github.io/web_project_4_esp/blocks/container/container.css');
-@import url('https://shimapi.github.io/web_project_4_esp/blocks/header/header.css');
-@import url('https://shimapi.github.io/web_project_4_esp/blocks/owner/owner.css');
-@import url('https://shimapi.github.io/web_project_4_esp/blocks/avatar/avatar__circle.css');
-@import url('https://shimapi.github.io/web_project_4_esp/blocks/main-text/main-text.css');
-@import url('https://shimapi.github.io/web_project_4_esp/blocks/main/main.css');
-@import url('https://shimapi.github.io/web_project_4_esp/blocks/card/card.css');
-@import url('https://shimapi.github.io/web_project_4_esp/blocks/upload/upload.css');
-@import url('https://shimapi.github.io/web_project_4_esp/blocks/button/button.css');
-@import url('https://shimapi.github.io/web_project_4_esp/blocks/modal/modal.css');
-@import url('https://shimapi.github.io/web_project_4_esp/blocks/edit-profile/edit-profile.css');
-@import url('https://shimapi.github.io/web_project_4_esp/blocks/edit-input/edit-input.css');
-@import url('https://shimapi.github.io/web_project_4_esp/blocks/footer/footer.css');
+@import url('/web_project_4_esp/vendor/normalize.css');
+@import url('/web_project_4_esp/vendor/fonts.css');
+@import url('/web_project_4_esp/blocks/container/container.css');
+@import url('/web_project_4_esp/blocks/header/header.css');
+@import url('/web_project_4_esp/blocks/owner/owner.css');
+@import url('/web_project_4_esp/blocks/avatar/avatar__circle.css');
+@import url('/web_project_4_esp/blocks/main-text/main-text.css');
+@import url('/web_project_4_esp/blocks/main/main.css');
+@import url('/web_project_4_esp/blocks/card/card.css');
+@import url('/web_project_4_esp/blocks/upload/upload.css');
+@import url('/web_project_4_esp/blocks/button/button.css');
+@import url('/web_project_4_esp/blocks/modal/modal.css');
+@import url('/web_project_4_esp/blocks/edit-profile/edit-profile.css');
+@import url('/web_project_4_esp/blocks/edit-input/edit-input.css');
+@import url('/web_project_4_esp/blocks/footer/footer.css');
 
 *{
   padding:0;

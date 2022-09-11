@@ -1,5 +1,5 @@
-@import url('https://shimapi.github.io/web_project_4_esp/blocks/card/__photo-name/__photo-name.css');
-@import url('https://shimapi.github.io/web_project_4_esp/blocks/card/__photo-title/__photo-title.css');
+@import url('/web_project_4_esp/blocks/card/__photo-name/__photo-name.css');
+@import url('/web_project_4_esp/blocks/card/__photo-title/__photo-title.css');
 
 
 .card{
