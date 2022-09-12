@@ -1,14 +1,14 @@
-.card__like{
+.button__like{
   background: url('/images/like.svg') no-repeat center center;
   background-size: contain;
   width: 25px;
   height: 20px;
 }
-.card__like:hover{
+.button__like:hover{
   opacity: 0.6;
   cursor: pointer;
 }
-.card__like:active{
+.button__like:active{
   cursor: pointer;
   background: url('/images/like-fill.svg') no-repeat center center;
 }

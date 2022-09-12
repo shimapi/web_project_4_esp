@@ -12,6 +12,10 @@
   cursor: pointer;
   opacity: 0.6;
 }
+.button__close:active {
+  cursor: pointer;
+  opacity: 0.8;
+}
 
 @media only screen and (min-width: 768px)  {
   .button__close{
