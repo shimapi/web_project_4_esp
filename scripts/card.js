@@ -55,3 +55,16 @@ Cardss();*/
 
 
 //probando de nuevo
+
+const main = document.querySelector(".main-cards");
+
+const cardElements = initialCards.map( initialCard => {
+  const cardDiv = document.createElement("div");
+  const cardLink = document.createElement("div");
+  cardDiv.textContent = initialCard.name;
+  cardLink.textContent = initialCard.link;
+  console.log(initialCard.link)
+  return cardDiv
+});
+
+main.append(...cardElements)
