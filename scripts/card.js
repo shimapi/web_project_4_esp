@@ -36,12 +36,13 @@ function createCard() {
     const newImg = document.createElement("img");
     newImg.src = place.link;
     newImg.alt = place.name;
+    newImg.className = "card__image"
 
     const newSection = document.createElement("section")
     newSection.className = "card__name";
 
     const newTitle = document.createElement('h3');
-    newTitle.classList.add("card__title");
+    newTitle.className = "card__title";
     newTitle.textContent = place.name;
 
     const newButton = document.createElement("button");

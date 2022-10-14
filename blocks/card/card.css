@@ -1,5 +1,6 @@
 @import url(/blocks/card/__name/__name.css);
 @import url(/blocks/card/__title/__title.css);
+@import url(/blocks/card/__image/__image.css);
 
 
 .card{
@@ -7,4 +8,6 @@
   flex-direction: column;
   margin-bottom: 20px;
   max-width: 282px;
+  width: 282px;
+  height: 361px;
 }
