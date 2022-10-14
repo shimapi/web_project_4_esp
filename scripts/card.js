@@ -25,46 +25,34 @@ const initialCards = [
   }
 ];
 
-//import { initialCards } from "./initialCards.js";
-//let main = document.querySelector(".main");
-/*
+const cardsContainer = document.querySelector(".main-cards");
 
-function Cardss(){
-  document.querySelector(".main-cards").textContent = (
-    initialCards.forEach(function (item) {
-      console.log(item.name);
-      console.log(item.link);
-      let divOK = document.createElement("div");
-      divOK.textContent = item.name;
-      let cardOk = (`
-        <article class="card">
-          <img src="${item.link}" alt="${item.name}" >
-          <section class="card__name">
-            <h3 class="card__title">${item.name}</h3>
-            <button class="button__like"></button>
-          </section>
-        </article>
-      `)
-      return divOK;
-    })
-  );
+function createCard() {
+  initialCards.forEach((place) => {
 
+    const newCard = document.createElement("article");
+    newCard.classList.add("card");
+
+    const newImg = document.createElement("img");
+    newImg.src = place.link;
+    newImg.alt = place.name;
+
+    const newSection = document.createElement("section")
+    newSection.className = "card__name";
+
+    const newTitle = document.createElement('h3');
+    newTitle.classList.add("card__title");
+    newTitle.textContent = place.name;
+
+    const newButton = document.createElement("button");
+    newButton.className = "button__like";
+
+    cardsContainer.appendChild(newCard)
+    newCard.appendChild(newImg)
+    newCard.appendChild(newSection)
+    newSection.appendChild(newTitle)
+    newSection.appendChild(newButton)
+  })
 }
 
-Cardss();*/
-
-
-//probando de nuevo
-
-const main = document.querySelector(".main-cards");
-
-const cardElements = initialCards.map( initialCard => {
-  const cardDiv = document.createElement("div");
-  const cardLink = document.createElement("div");
-  cardDiv.textContent = initialCard.name;
-  cardLink.textContent = initialCard.link;
-  console.log(initialCard.link)
-  return cardDiv
-});
-
-main.append(...cardElements)
+createCard();
