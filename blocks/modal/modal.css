@@ -1,5 +1,8 @@
+@import url(/blocks/modal/__container/__container.css);
+@import url(/blocks/modal/__input/__input.css);
+
 .modal {
-  display: none;
+  /*display: none;*/
   position: fixed;
   z-index: 1;
   left: 0;

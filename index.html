@@ -37,7 +37,10 @@
       <main class="main main-cards">
 
         <article class="card" id="card-template">
-          <img src="/images/ph_lago-di-braies.png" alt="JS Lago di Braies" >
+          <section class="card__photo">
+            <img src="/images/ph_lago-di-braies.png" alt="JS Lago di Braies">
+            <button class="button__delete"></button>
+          </section>
           <section class="card__name">
             <h3 class="card__title">Lago di Braies</h3>
             <button class="button__like"></button>
@@ -54,13 +57,25 @@
   </div>
 
   <div class="edit-profile modal">
-    <div class="edit-profile__container">
+    <div class="edit-profile__container modal__container">
       <button class="close button__close"></button>
       <form class="edit-profile__form" action="#" >
         <h2 class="edit-profile__title">Editar Perfil</h2>
         <input type="text" name='edit-profile__name' class="edit-profile__input edit-profile__name">
         <input type="text" name='edit-profile__about' class="edit-profile__input edit-profile__about">
         <button type="submit" class="button button__save">Guardar</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="add-place modal">
+    <div class="add-place__container modal__container">
+      <button class="close button__close"></button>
+      <form class="add-place__form" action="#" >
+        <h2 class="add-place__title">Nuevo Lugar</h2>
+        <input type="text" name='add-place__name' class="modal__input add-place__name">
+        <input type="text" name='add-place__link' class="modal__input add-place__link">
+        <button type="submit" class="button button__save">Crear</button>
       </form>
     </div>
   </div>

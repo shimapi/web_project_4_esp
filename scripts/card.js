@@ -33,26 +33,34 @@ function createCard() {
     const newCard = document.createElement("article");
     newCard.classList.add("card");
 
+    const newSectionPhoto = document.createElement("section")
+    newSectionPhoto.className = "card__photo";
+
+    const newButtonDelete = document.createElement("button");
+    newButtonDelete.className = "button__delete";
+
     const newImg = document.createElement("img");
     newImg.src = place.link;
     newImg.alt = place.name;
     newImg.className = "card__image"
 
-    const newSection = document.createElement("section")
-    newSection.className = "card__name";
+    const newSectionName = document.createElement("section")
+    newSectionName.className = "card__name";
 
     const newTitle = document.createElement('h3');
     newTitle.className = "card__title";
     newTitle.textContent = place.name;
 
-    const newButton = document.createElement("button");
-    newButton.className = "button__like";
+    const newButtonLike = document.createElement("button");
+    newButtonLike.className = "button__like";
 
     cardsContainer.appendChild(newCard)
-    newCard.appendChild(newImg)
-    newCard.appendChild(newSection)
-    newSection.appendChild(newTitle)
-    newSection.appendChild(newButton)
+    newCard.appendChild(newSectionPhoto)
+    newSectionPhoto.appendChild(newButtonDelete)
+    newSectionPhoto.appendChild(newImg)
+    newCard.appendChild(newSectionName)
+    newSectionName.appendChild(newTitle)
+    newSectionName.appendChild(newButtonLike)
   })
 }
 
