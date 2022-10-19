@@ -25,12 +25,6 @@ function handleEditOwner(){
   document.querySelector(".main-text__about").textContent = newAbout;
 }
 
-function handleAddPlace(){
-  addPlace.style.display = "block";
-  const newName = document.querySelector(".add-place__name").value;
-  const newLink = document.querySelector(".add-place__link").value;
-}
-
 function handleProfileFormSubmit(event) {
   event.preventDefault();
   const newName = document.querySelector(".edit-profile__name").value;
@@ -38,6 +32,19 @@ function handleProfileFormSubmit(event) {
   document.querySelector(".main-text__name").textContent = newName;
   document.querySelector(".main-text__about").textContent = newAbout;
 }
+
+
+
+function handleAddPlace(event) {
+  event.preventDefault();
+  addPlace.style.display = "block";
+  const newPhoto = document.querySelector(".add-place__name").value;
+  const newLink = document.querySelector(".add-place__link").value;
+  document.querySelector(".add-place__name").textContent = newPhoto;
+  document.querySelector(".add-place__link").textContent = newLink;
+  //return createCard(newPhoto,newLink)
+}
+
 function handleCloseModalOut(){
   window.onclick = function(event) {
     if (event.target == modal) {
@@ -56,7 +63,6 @@ function handleCloseModal(event){
 
 
 openEdit.addEventListener('click', handleEditOwner);
-openAdd.addEventListener('click', handleAddPlace);
 formElement.addEventListener('submit', handleProfileFormSubmit);
 formElement.addEventListener('submit', handleCloseModal); 
 modalContainer.addEventListener('click', handleCloseModalOut); 
@@ -68,5 +74,9 @@ buttonsCloseX.forEach((button)=>{
 modalsClose.forEach((modal)=>{	
   modal.addEventListener('click', handleCloseModal);
 })
+
+openAdd.addEventListener('click', handleAddPlace);
+addPlace.addEventListener('submit', handleAddPlace);
+
 
 infoInicial();
