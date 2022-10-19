@@ -1,6 +1,7 @@
 .main{
   flex-flow: nowrap;
   padding: 0 19px;
+  gap: 20px 17px;
 }
 
 @media only screen and (min-width: 321px) and (max-width: 879px) {
@@ -8,7 +9,6 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    justify-content: space-around;
   }
 }
 @media only screen and (min-width: 881px) {
@@ -17,6 +17,5 @@
     flex-wrap: wrap;
     padding: 0px;
     width: 880px;
-    justify-content: space-between;
   }
 }

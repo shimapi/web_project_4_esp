@@ -96,6 +96,9 @@ function createCard() {
       e.target.classList.toggle("button__like-active");
     })
     
+    newButtonDelete.addEventListener("click", () =>{
+      newCard.remove();
+    })
   })
 }
 
