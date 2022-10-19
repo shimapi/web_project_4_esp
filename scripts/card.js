@@ -26,6 +26,9 @@ const initialCards = [
 ];
 
 const cardsContainer = document.querySelector(".main-cards");
+const openPhoto = document.querySelector(".photo-popup");
+const openPhotoPopUp = document.querySelector(".photo-popup__container");
+
 
 function createCard() {
   initialCards.forEach((place) => {
@@ -61,6 +64,38 @@ function createCard() {
     newCard.appendChild(newSectionName)
     newSectionName.appendChild(newTitle)
     newSectionName.appendChild(newButtonLike)
+
+    newImg.addEventListener('click', handleOpenPhoto);
+    
+
+    function handleOpenPhoto(event){
+      openPhoto.style.display = "block";
+      console.log(newImg.alt);
+    
+      const newImgPopup = document.createElement("img");
+      newImgPopup.src = place.link;
+      newImgPopup.alt = place.name;
+      newImgPopup.className = "photo-popup__image";
+
+      const newTitlePopup = document.createElement('p');
+      newTitlePopup.className = "photo-popup__title";
+      newTitlePopup.textContent = place.name;
+
+      openPhotoPopUp.appendChild(newImgPopup);
+      openPhotoPopUp.appendChild(newTitlePopup);
+
+      if (openPhoto.style.display = "block"){
+         //openPhotoPopUp.remove();
+        console.log("remove")
+      }else{
+        console.log("no remove")
+      }
+    }
+
+    newButtonLike.addEventListener("click",(e)=>{
+      e.target.classList.toggle("button__like-active");
+    })
+    
   })
 }
 

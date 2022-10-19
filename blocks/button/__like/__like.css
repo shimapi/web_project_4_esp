@@ -12,3 +12,7 @@
   cursor: pointer;
   background: url('/images/like-fill.svg') no-repeat center center;
 }
+.button__like-active{
+  cursor: pointer;
+  background: url('/images/like-fill.svg') no-repeat center center;
+}
