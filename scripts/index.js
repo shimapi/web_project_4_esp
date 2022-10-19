@@ -1,5 +1,6 @@
 const openEdit = document.querySelector(".button__edit");
 const openAdd = document.querySelector(".button__add");
+const openPhoto = document.querySelector(".card__image");
 const saveInfo = document.querySelector(".button__save")
 const originalName = 'Jacques Cousteau';
 const originalAbout = 'Explorer';
@@ -7,7 +8,7 @@ const modal = document.querySelector(".modal");
 const modalContainer = document.querySelector(".modal__container");
 const editProfile = document.querySelector(".edit-profile");
 const addPlace = document.querySelector(".add-place");
-const buttonCloseX = document.querySelector(".button__close");
+const buttonsCloseX = document.querySelectorAll(".button__close"); //Array!
 const formElement = document.querySelector('.edit-profile__form');
 
 function infoInicial(){
@@ -45,16 +46,27 @@ function handleCloseModalOut(){
     }
   }
 }
-function handleCloseModal(){
-  modalContainer.style.display = "none";
+function handleCloseModal(event){
+  const buttonX = event.target;
+  const modal = buttonX.closest(".modal");
   modal.style.display = "none";
+  modalContainer.style.display = "none";
+}
+
+function handleOpenPhoto(event){
+  const modalPhoto = event.target.closest(".card__image");
+  console.log(modalPhoto);
 }
 
 openEdit.addEventListener('click', handleEditOwner);
 openAdd.addEventListener('click', handleAddPlace);
+openPhoto.addEventListener('click', handleOpenPhoto);
 formElement.addEventListener('submit', handleProfileFormSubmit);
-modalContainer.addEventListener('click', handleCloseModalOut); 
 formElement.addEventListener('submit', handleCloseModal); 
-buttonCloseX.addEventListener('click', handleCloseModal);
+modalContainer.addEventListener('click', handleCloseModalOut); 
+
+buttonsCloseX.forEach((button)=>{	
+  button.addEventListener('click', handleCloseModal)	
+})
 
 infoInicial();

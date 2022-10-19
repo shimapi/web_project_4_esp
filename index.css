@@ -13,6 +13,7 @@
 @import url(/blocks/edit-profile/edit-profile.css);
 @import url(/blocks/footer/footer.css);
 @import url(/blocks/add-place/add-place.css);
+@import url(/blocks/photo-popup/photo-popup.css);
 
 *{
   padding:0;

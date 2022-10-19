@@ -1,0 +1,15 @@
+.photo-popup__container {
+  margin: 0 auto;
+  max-height: 299px;
+  max-width: 299px;
+  color: #000;
+  position: relative;
+  top: 25%;
+}
+
+@media only screen and (min-width: 768px)  {
+  .photo-popup__container {
+    max-width: 540px;
+    max-height: 540px;
+  }
+}

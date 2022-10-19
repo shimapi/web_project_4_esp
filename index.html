@@ -34,21 +34,8 @@
         <button class="button button__add"></button>
       </section>
 
-      <main class="main main-cards">
+      <main class="main main-cards"></main>
 
-        <article class="card" id="card-template">
-          <section class="card__photo">
-            <img src="/images/ph_lago-di-braies.png" alt="JS Lago di Braies">
-            <button class="button__delete"></button>
-          </section>
-          <section class="card__name">
-            <h3 class="card__title">Lago di Braies</h3>
-            <button class="button__like"></button>
-          </section>
-        </article>
-        
-               
-      </main>
       <footer class="footer">
         <p class="footer__about">
           © 2022 Alrededor de los EEUU
@@ -73,10 +60,18 @@
       <button class="close button__close"></button>
       <form class="add-place__form" action="#" >
         <h2 class="add-place__title">Nuevo Lugar</h2>
-        <input type="text" name='add-place__name' class="modal__input add-place__name">
-        <input type="text" name='add-place__link' class="modal__input add-place__link">
+        <input type="text" name='add-place__name' class="modal__input add-place__name" placeholder="Ingresa el Nombre del Lugar">
+        <input type="text" name='add-place__link' class="modal__input add-place__link" placeholder="Ingresa la URL directa a la foto">
         <button type="submit" class="button button__save">Crear</button>
       </form>
+    </div>
+  </div>
+
+  <div class="photo-popup modal">
+    <div class="photo-popup__container">
+      <button class="close button__close"></button>
+      <img class="photo-popup__image" src="https://code.s3.yandex.net/web-code/lago.jpg"/>
+      <p class="photo-popup__title">Lago di Braies</p>
     </div>
   </div>
 
