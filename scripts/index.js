@@ -3,6 +3,7 @@ const openAddPlaceButton = document.querySelector(".button__add");
 
 const closeModalButtons = document.querySelectorAll(".button__close");
 const modals = document.querySelectorAll(".modal");
+const selectedModals = document.querySelectorAll("[data-target]");
 
 const originalName = 'Jacques Cousteau';
 const originalAbout = 'Explorer';
@@ -11,13 +12,11 @@ const openEditProfilePopUp = document.querySelector(".edit-profile");
 const openAddPlacePopUp = document.querySelector(".add-place");
 const openPhotoPopUp = document.querySelector(".photo-popup");
 
-const buttons = document.querySelectorAll("[data-target]");
 
-buttons.forEach((btn)=>{
-  btn.addEventListener("click", () => {
-    document.querySelector(btn.dataset.target).classList.remove("modal__inactive");
-    document.querySelector(btn.dataset.target).classList.add("modal__active");
-    console.log(btn)
+selectedModals.forEach((selectedModal)=>{
+  selectedModal.addEventListener("click", () => {
+    document.querySelector(selectedModal.dataset.target).classList.remove("modal__inactive");
+    document.querySelector(selectedModal.dataset.target).classList.add("modal__active");
   })
 })
 
