@@ -24,14 +24,14 @@
         <div class="main-text">
           <div class="main-text__container">
             <h1 class="main-text__name"></h1>
-            <button class="button button__edit"></button>
+            <button class="button button__edit" data-target="#editProfile"></button>
           </div>
           <h2 class="main-text__about"></h2>
         </div>
       </section>
 
       <section class="upload">
-        <button class="button button__add"></button>
+        <button class="button button__add"  data-target="#addPlace"></button>
       </section>
 
       <main class="main main-cards"></main>
@@ -43,9 +43,9 @@
       </footer>
   </div>
 
-  <div class="modal modal__inactive edit-profile">
+  <div class="modal modal__inactive edit-profile" id="editProfile">
     <div class="edit-profile__container modal__container">
-      <button class="close button__close"></button>
+      <button class="close button__close" data-target="#editProfile"></button>
       <form class="edit-profile__form" action="#" >
         <h2 class="edit-profile__title">Editar Perfil</h2>
         <input type="text" name='edit-profile__name' class="edit-profile__input edit-profile__name">
@@ -55,9 +55,9 @@
     </div>
   </div>
 
-  <div class="modal modal__inactive add-place">
+  <div class="modal modal__inactive add-place" id="addPlace">
     <div class="modal__container add-place__container ">
-      <button class="close button__close"></button>
+      <button class="close button__close" data-target="#addPlace"></button>
       <form class="add-place__form" action="#" >
         <h2 class="add-place__title">Nuevo Lugar</h2>
         <input type="text" name='add-place__name' class="modal__input add-place__name" placeholder="Ingresa el Nombre del Lugar">
@@ -67,10 +67,9 @@
     </div>
   </div>
 
-  <div class="modal modal__inactive photo-popup">
+  <div class="modal modal__inactive photo-popup" id="photoPopUp">
     <div class="photo-popup__container">
-      <button class="close button__close"></button>
-
+      <button class="close button__close" data-target="photoPopUp"></button>
     </div>
   </div>
 
