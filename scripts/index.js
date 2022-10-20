@@ -34,7 +34,7 @@ function infoInicial(){
   openEditProfilePopUp.classList.remove("modal__inactive");
   openEditProfilePopUp.classList.add("modal__active");
   //console.log(openEditProfilePopUp) -> funciona :D
-}*/
+}
 
 function handleOpenPopup(event){
   modals.forEach((modal) => {
@@ -48,7 +48,7 @@ function handleOpenPopup(event){
     modal.classList.add("modal__active");
     console.log(modal) //OK. -> 3 popups
   })
-}
+}*/
 
 //en esta funcion estan apareciendo los tres modales: editar perfil, añadir foto y photo popup -> debería mejorarse.
 function handleCloseModal(event){
@@ -61,7 +61,7 @@ function handleCloseModal(event){
 
 function handleProfileFormSubmit(event) {
   event.preventDefault();
- // handleOpenPopup();
+  //handleOpenPopup();
   const newName = document.querySelector(".edit-profile__name").value;
   const newAbout = document.querySelector(".edit-profile__about").value;
   document.querySelector(".main-text__name").textContent = newName;
@@ -70,7 +70,7 @@ function handleProfileFormSubmit(event) {
 
 
 function handleAddPlace() {
- // handleOpenPopup()
+  //handleOpenPopup()
   const newPhoto = document.querySelector(".add-place__name").value;
   const newLink = document.querySelector(".add-place__link").value;
   console.log(newPhoto);
