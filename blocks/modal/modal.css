@@ -1,6 +1,7 @@
 @import url(/blocks/modal/__container/__container.css);
 @import url(/blocks/modal/__input/__input.css);
 @import url(/blocks/modal/__active/__active.css);
+@import url(/blocks/modal/__inactive/__inactive.css);
 
 .modal {
   position: fixed;
