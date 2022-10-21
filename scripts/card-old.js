@@ -25,7 +25,7 @@ const initialCards = [
   }
 ];
 
-const cardsContainer = document.querySelector(".main-cards");
+//const cardsContainer = document.querySelector(".main-cards");
 const openPhoto = document.querySelector(".photo-popup");
 const openPhotoPopUp = document.querySelector(".photo-popup__container");
 

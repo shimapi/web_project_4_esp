@@ -1,8 +1,10 @@
 const openEdit = document.querySelector(".button__edit");
 const openAdd = document.querySelector(".button__add");
 const saveInfo = document.querySelector(".button__save")
+
 const originalName = 'Jacques Cousteau';
 const originalAbout = 'Explorer';
+
 const modal = document.querySelector(".modal");
 const modalsClose = document.querySelectorAll(".modal"); //array
 const modalContainer = document.querySelector(".modal__container");
@@ -17,6 +19,7 @@ function infoInicial(){
   document.querySelector(".edit-profile__name").value = originalName;
   document.querySelector(".edit-profile__about").value = originalAbout;
 }
+
 function handleEditOwner(){
   editProfile.style.display = "block";
   const newName = document.querySelector(".edit-profile__name").value;
