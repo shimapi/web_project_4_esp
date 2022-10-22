@@ -33,45 +33,15 @@ const openEditProfileButton = document.querySelector(".button__edit");
 const openAddPlaceButton = document.querySelector(".button__add");
 
 const closeModalButtons = document.querySelectorAll(".button__close");
+
 const modals = document.querySelectorAll(".modal");
-const selectedModals = document.querySelectorAll("[data-target]");
+const selectedModals = document.querySelectorAll("[data-target]"); //tomo cada modal de forma individual
 
 const openEditProfilePopUp = document.querySelector(".edit-profile");
 const openAddPlacePopUp = document.querySelector(".add-place");
 const openPhotoPopUp = document.querySelector(".photo-popup");
 
 const cardsContainer = document.querySelector(".main-cards");
-
-
-
-selectedModals.forEach((selectedModal)=>{
-  selectedModal.addEventListener("click", () => {
-    document.querySelector(selectedModal.dataset.target).classList.remove("modal__inactive");
-    document.querySelector(selectedModal.dataset.target).classList.add("modal__active");
-  })
-})
-
-function handleCloseModal(event){
-  modals.forEach((modal) => {
-    modal.classList.remove("modal__active");
-    modal.classList.add("modal__inactive");
-  })
-}
-
-function handleProfileFormSubmit(event) {
-  event.preventDefault();
-  const newName = document.querySelector(".edit-profile__name").value;
-  const newAbout = document.querySelector(".edit-profile__about").value;
-  document.querySelector(".main-text__name").textContent = newName;
-  document.querySelector(".main-text__about").textContent = newAbout;
-}
-
-function handleAddPlace() { //arreglaaaar
-  const newPhoto = document.querySelector(".add-place__name").value;
-  const newLink = document.querySelector(".add-place__link").value;
-  console.log(newPhoto);
-  console.log(newLink);
-}
 
 function createCard(name,link){
   const newCard = document.createElement("article");
@@ -107,6 +77,8 @@ function createCard(name,link){
   newSectionName.appendChild(newButtonLike)
 }
 
+
+
 function handleInitialCards(){
   initialCards.forEach((card) => {
     const name = card.name;
@@ -125,11 +97,43 @@ function infoInicial(){
 
 infoInicial();
 
+selectedModals.forEach((selectedModal)=>{
+  selectedModal.addEventListener("click", () => {
+    document.querySelector(selectedModal.dataset.target).classList.remove("modal__inactive");
+    document.querySelector(selectedModal.dataset.target).classList.add("modal__active");
+  })
+})
+
+function handleCloseModal(event){
+  modals.forEach((modal) => {
+    modal.classList.remove("modal__active");
+    modal.classList.add("modal__inactive");
+  })
+}
+
+function handleProfileFormSubmit(event) {
+  event.preventDefault();
+  const newName = document.querySelector(".edit-profile__name").value;
+  const newAbout = document.querySelector(".edit-profile__about").value;
+  document.querySelector(".main-text__name").textContent = newName;
+  document.querySelector(".main-text__about").textContent = newAbout;
+}
+
+function handleAddPlaceFormSubmit(event) {
+  event.preventDefault();
+  const newPhoto = document.querySelector(".add-place__name").value;
+  const newLink = document.querySelector(".add-place__link").value;
+  console.log(createCard(newPhoto,newLink));
+  //createCard(newPhoto,newLink);
+
+  cardsContainer.prepend(createCard(newPhoto,newLink));
+  //event.target.reset();
+}
+
+
 const buttonsLike = document.querySelectorAll(".button__like");
 const buttonsDelete = document.querySelectorAll(".button__delete");
 const cards = document.querySelectorAll(".card");
-
-console.log(cards)
 
 function handleLikeCard(e){
   e.target.classList.toggle("button__like-active");
@@ -140,7 +144,12 @@ function handleDeleteCard(e){
     //card.dataset.delete = "deletedCard";
     e.target.classList.add("deletedCard");
   })*/
-  buttonsDelete.closest(".card").remove();
+  //buttonsDelete.closest(".card").remove();
+  console.log(buttonsDelete.closest(".card"))
+  //e.target.classList.toggle("DELETE");
+  
+   // e.parentElement.remove();
+    console.log(e.parentElement)
 
 }
 
@@ -156,8 +165,8 @@ openEditProfileButton.addEventListener('click', handleProfileFormSubmit);
 openEditProfilePopUp.addEventListener('submit', handleProfileFormSubmit);
 openEditProfilePopUp.addEventListener('submit', handleCloseModal); 
 
-openAddPlaceButton.addEventListener('click', handleAddPlace);
-openAddPlaceButton.addEventListener('submit', handleAddPlace);
+openAddPlaceButton.addEventListener('click', handleAddPlaceFormSubmit);
+openAddPlaceButton.addEventListener('submit', handleAddPlaceFormSubmit);
 openAddPlaceButton.addEventListener('submit', handleCloseModal); 
 
 closeModalButtons.forEach((button) => {
