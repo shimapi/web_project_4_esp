@@ -44,25 +44,25 @@
   </div>
 
   <div class="modal modal__inactive edit-profile" id="editProfile">
-    <div class="edit-profile__container modal__container">
-      <button class="close button__close" data-target="#editProfile"></button>
+    <div class="modal__container edit-profile__container">
+      <button class="close button__close"></button>
       <form class="edit-profile__form" action="#" >
         <h2 class="edit-profile__title">Editar Perfil</h2>
         <input type="text" name='edit-profile__name' class="edit-profile__input edit-profile__name">
         <input type="text" name='edit-profile__about' class="edit-profile__input edit-profile__about">
-        <button type="submit" class="button button__save">Guardar</button>
+        <button type="submit" class="button button__save" data-target="#editProfile">Guardar</button>
       </form>
     </div>
   </div>
 
   <div class="modal modal__inactive add-place" id="addPlace">
-    <div class="modal__container add-place__container ">
-      <button class="close button__close" data-target="#addPlace"></button>
+    <div class="modal__container add-place__container">
+      <button class="close button__close"></button>
       <form class="add-place__form" action="#" >
         <h2 class="add-place__title">Nuevo Lugar</h2>
         <input type="text" name='add-place__name' class="modal__input add-place__name" placeholder="Ingresa el Nombre del Lugar">
         <input type="text" name='add-place__link' class="modal__input add-place__link" placeholder="Ingresa la URL directa a la foto">
-        <button type="submit" class="button button__create">Crear</button>
+        <button type="submit" class="button button__save" data-target="#addPlace">Crear</button>
       </form>
     </div>
   </div>

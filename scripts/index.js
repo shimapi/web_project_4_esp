@@ -43,6 +43,9 @@ const openPhotoPopUp = document.querySelector(".photo-popup");
 
 const cardsContainer = document.querySelector(".main-cards");
 
+
+
+
 function createCard(name,link){
   const newCard = document.createElement("article");
   newCard.classList.add("card");
@@ -52,6 +55,7 @@ function createCard(name,link){
 
   const newButtonDelete = document.createElement("button");
   newButtonDelete.className = "button__delete";
+  newButtonDelete.addEventListener("click", handleDeleteCard);
 
   const newImg = document.createElement("img");
   newImg.src = link;
@@ -67,14 +71,16 @@ function createCard(name,link){
 
   const newButtonLike = document.createElement("button");
   newButtonLike.className = "button__like";
+  newButtonLike.addEventListener("click", handleLikeCard);
 
-  cardsContainer.appendChild(newCard)
-  newCard.appendChild(newSectionPhoto)
-  newSectionPhoto.appendChild(newButtonDelete)
-  newSectionPhoto.appendChild(newImg)
-  newCard.appendChild(newSectionName)
-  newSectionName.appendChild(newTitle)
-  newSectionName.appendChild(newButtonLike)
+  newCard.appendChild(newSectionPhoto);
+  newSectionPhoto.appendChild(newButtonDelete);
+  newSectionPhoto.appendChild(newImg);
+  newCard.appendChild(newSectionName);
+  newSectionName.appendChild(newTitle);
+  newSectionName.appendChild(newButtonLike);
+
+  return newCard
 }
 
 
@@ -83,7 +89,8 @@ function handleInitialCards(){
   initialCards.forEach((card) => {
     const name = card.name;
     const link = card.link;
-    createCard(name,link);
+    const new_card = createCard(name,link);
+    cardsContainer.appendChild(new_card);
   })
 }
 
@@ -97,11 +104,30 @@ function infoInicial(){
 
 infoInicial();
 
-selectedModals.forEach((selectedModal)=>{
+
+
+
+
+
+
+
+/* selectedModals.forEach((selectedModal)=>{
   selectedModal.addEventListener("click", () => {
-    document.querySelector(selectedModal.dataset.target).classList.remove("modal__inactive");
-    document.querySelector(selectedModal.dataset.target).classList.add("modal__active");
+    console.log(selectedModal.dataset.target)
+    //document.querySelector(selectedModal.dataset.target).classList.remove("modal__inactive");
+    //document.querySelector(selectedModal.dataset.target).classList.add("modal__active");
   })
+})
+ */
+
+openEditProfileButton.addEventListener("click", () => {
+  document.querySelector(openEditProfileButton.dataset.target).classList.remove("modal__inactive");
+  document.querySelector(openEditProfileButton.dataset.target).classList.add("modal__active");
+})
+
+openAddPlaceButton.addEventListener("click", () => {
+  document.querySelector(openAddPlaceButton.dataset.target).classList.remove("modal__inactive");
+  document.querySelector(openAddPlaceButton.dataset.target).classList.add("modal__active");
 })
 
 function handleCloseModal(event){
@@ -123,57 +149,58 @@ function handleAddPlaceFormSubmit(event) {
   event.preventDefault();
   const newPhoto = document.querySelector(".add-place__name").value;
   const newLink = document.querySelector(".add-place__link").value;
-  console.log(createCard(newPhoto,newLink));
+  //console.log(createCard(newPhoto,newLink));
   //createCard(newPhoto,newLink);
+  const new_card = createCard(newPhoto,newLink)
 
-  cardsContainer.prepend(createCard(newPhoto,newLink));
-  //event.target.reset();
+  cardsContainer.prepend(new_card);
+  event.target.reset();
+
+  openEditProfileButton.addEventListener("click", () => {
+    document.querySelector(openEditProfileButton.dataset.target).classList.remove("modal__inactive");
+    document.querySelector(openEditProfileButton.dataset.target).classList.add("modal__active");
+  })
+  
+  openAddPlaceButton.addEventListener("click", () => {
+    document.querySelector(openAddPlaceButton.dataset.target).classList.remove("modal__inactive");
+    document.querySelector(openAddPlaceButton.dataset.target).classList.add("modal__active");
+  })
+  
 }
 
 
-const buttonsLike = document.querySelectorAll(".button__like");
-const buttonsDelete = document.querySelectorAll(".button__delete");
+//const buttonsLike = document.querySelectorAll(".button__like");
+//const buttonsDelete = document.querySelectorAll(".button__delete");
 const cards = document.querySelectorAll(".card");
 
 function handleLikeCard(e){
   e.target.classList.toggle("button__like-active");
 }
-function handleDeleteCard(e){
-  /*cards.forEach((card) => {
-    //e.target.card.remove();
-    //card.dataset.delete = "deletedCard";
-    e.target.classList.add("deletedCard");
-  })*/
-  //buttonsDelete.closest(".card").remove();
-  console.log(buttonsDelete.closest(".card"))
-  //e.target.classList.toggle("DELETE");
-  
-   // e.parentElement.remove();
-    console.log(e.parentElement)
 
+function handleDeleteCard(e){
+  cards.forEach((card) => {
+    e.target.classList.add("deletedCard");
+  })
+  const deletedCard = document.querySelector(".deletedCard");
+  const toRemoveCard = deletedCard.parentNode.parentNode;
+  toRemoveCard.remove();
 }
 
-buttonsLike.forEach((buttonLike) => {
+/* buttonsLike.forEach((buttonLike) => {
   buttonLike.addEventListener("click", handleLikeCard);
-})
+}) */
 
-buttonsDelete.forEach((buttonDelete) => {
+/* buttonsDelete.forEach((buttonDelete) => {
   buttonDelete.addEventListener("click", handleDeleteCard);
 })
-
-openEditProfileButton.addEventListener('click', handleProfileFormSubmit);
+ */
 openEditProfilePopUp.addEventListener('submit', handleProfileFormSubmit);
 openEditProfilePopUp.addEventListener('submit', handleCloseModal); 
 
-openAddPlaceButton.addEventListener('click', handleAddPlaceFormSubmit);
 openAddPlaceButton.addEventListener('submit', handleAddPlaceFormSubmit);
 openAddPlaceButton.addEventListener('submit', handleCloseModal); 
+//document.querySelector(".button.button__create").addEventListener('click', handleAddPlaceFormSubmit);
 
 closeModalButtons.forEach((button) => {
   button.addEventListener("click",handleCloseModal);
 })
-
-
-
-
-
