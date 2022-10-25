@@ -60,9 +60,7 @@ function createCard(name,link){
   const newImg = document.createElement("img");
   newImg.src = link;
   newImg.alt = name;
-  newImg.className = "card__image";
-  newImg.dataset.target = "#photoPopUp";
-  newImg.addEventListener('click', handleOpenPhoto);
+  newImg.className = "card__image"
 
   const newSectionName = document.createElement("section")
   newSectionName.className = "card__name";
@@ -75,15 +73,18 @@ function createCard(name,link){
   newButtonLike.className = "button__like";
   newButtonLike.addEventListener("click", handleLikeCard);
 
-  newCard.appendChild(newSectionPhoto);
-  newSectionPhoto.appendChild(newButtonDelete);
-  newSectionPhoto.appendChild(newImg);
-  newCard.appendChild(newSectionName);
-  newSectionName.appendChild(newTitle);
-  newSectionName.appendChild(newButtonLike);
+  newCard.appendChild(newSectionPhoto)//No modifica la pantalla
+  newSectionPhoto.appendChild(newButtonDelete)//No modifica la pantalla
+  newSectionPhoto.appendChild(newImg)//No modifica la pantalla
+  newCard.appendChild(newSectionName)//No modifica la pantalla
+  newSectionName.appendChild(newTitle)//No modifica la pantalla
+  newSectionName.appendChild(newButtonLike)//No modifica la pantalla
 
-  return newCard;
+  //cardsContainer.appendChild(newCard)//SI modifica la pantalla porque cardsContainer si existe en el HTML
+  return newCard
 }
+
+
 
 function handleInitialCards(){
   initialCards.forEach((card) => {
@@ -107,6 +108,29 @@ infoInicial();
 
 
 
+
+
+
+
+/* selectedModals.forEach((selectedModal)=>{
+  selectedModal.addEventListener("click", () => {
+    console.log(selectedModal.dataset.target)
+    //document.querySelector(selectedModal.dataset.target).classList.remove("modal__inactive");
+    //document.querySelector(selectedModal.dataset.target).classList.add("modal__active");
+  })
+})
+ */
+
+openEditProfileButton.addEventListener("click", () => {
+  document.querySelector(openEditProfileButton.dataset.target).classList.remove("modal__inactive");
+  document.querySelector(openEditProfileButton.dataset.target).classList.add("modal__active");
+})
+
+openAddPlaceButton.addEventListener("click", () => {
+  document.querySelector(openAddPlaceButton.dataset.target).classList.remove("modal__inactive");
+  document.querySelector(openAddPlaceButton.dataset.target).classList.add("modal__active");
+})
+
 function handleCloseModal(event){
   modals.forEach((modal) => {
     modal.classList.remove("modal__active");
@@ -115,12 +139,12 @@ function handleCloseModal(event){
 }
 
 function handleProfileFormSubmit(event) {
+  console.log("test")
   event.preventDefault();
   const newName = document.querySelector(".edit-profile__name").value;
   const newAbout = document.querySelector(".edit-profile__about").value;
   document.querySelector(".main-text__name").textContent = newName;
   document.querySelector(".main-text__about").textContent = newAbout;
-  handleCloseModal();
 }
 
 function handleAddPlaceFormSubmit(event) {
@@ -129,77 +153,69 @@ function handleAddPlaceFormSubmit(event) {
   const newLink = document.querySelector(".add-place__link").value;
   //console.log(createCard(newPhoto,newLink));
   //createCard(newPhoto,newLink);
-  const createNewCard = createCard(newPhoto,newLink)
+  const new_card = createCard(newPhoto,newLink)
 
-  cardsContainer.prepend(createNewCard);
+  cardsContainer.prepend(new_card);
+  //event.target.reset();
+
+  openEditProfileButton.addEventListener("click", () => {
+    document.querySelector(openEditProfileButton.dataset.target).classList.remove("modal__inactive");
+    document.querySelector(openEditProfileButton.dataset.target).classList.add("modal__active");
+  })
   
-  event.target.reset();
-  handleCloseModal();
+  openAddPlaceButton.addEventListener("click", () => {
+    document.querySelector(openAddPlaceButton.dataset.target).classList.remove("modal__inactive");
+    document.querySelector(openAddPlaceButton.dataset.target).classList.add("modal__active");
+  })
+  
 }
 
 
-
-
-
+//const buttonsLike = document.querySelectorAll(".button__like");
+//const buttonsDelete = document.querySelectorAll(".button__delete");
 const cards = document.querySelectorAll(".card");
-const photos = document.querySelectorAll(".card__image");
 
-//funciona OK
 function handleLikeCard(e){
   e.target.classList.toggle("button__like-active");
 }
 
-//funciona OK
-function handleDeleteCard(e){ 
-  cards.forEach((card) => {
+function handleDeleteCard(e){
+  /*cards.forEach((card) => {
+    //e.target.card.remove();
+    //card.dataset.delete = "deletedCard";
     e.target.classList.add("deletedCard");
-  })
-  const deletedCard = document.querySelector(".deletedCard");
-  const toRemoveCard = deletedCard.parentNode.parentNode;
-  toRemoveCard.remove();
-}
-
-function handleOpenPhoto(e){
-
-  document.querySelector(".photo-popup").classList.remove("modal__inactive");
-  document.querySelector(".photo-popup").classList.add("modal__active");
-
-  photos.forEach((photo) => {
-    e.target.classList.add("popUpPhoto");
-  })
-
-  const newImgPopup = document.createElement("img");
+  })*/
+  //buttonsDelete.closest(".card").remove();
+  //console.log(buttonsDelete.closest(".card"))
+  //e.target.classList.toggle("DELETE");
   
-  newImgPopup.src = document.querySelector(".popUpPhoto").getAttribute('src');
-  newImgPopup.alt = document.querySelector(".popUpPhoto").getAttribute('alt');
-  newImgPopup.className = "photo-popup__image";
+   // e.parentElement.remove();
+    console.log(e.parentElement)
 
-  const newTitlePopup = document.createElement('p');
-  newTitlePopup.className = "photo-popup__title";
-  newTitlePopup.textContent = document.querySelector(".popUpPhoto").getAttribute('alt');
-
-  console.log(openPhotoPopUp)
-
- // if (openPhotoPopUp == ""){
-    openPhotoPopUp.appendChild(newImgPopup);
-    openPhotoPopUp.appendChild(newTitlePopup);
- /* }else{
-    //openPhotoPopUp.children[0].remove()
-  }*/
 }
 
-const selectedPopUp = selectedModals.forEach((selectedModal)=>{
-  selectedModal.addEventListener("click", () => {
-    console.log(selectedModal.dataset.target)
-    document.querySelector(selectedModal.dataset.target).classList.remove("modal__inactive");
-    document.querySelector(selectedModal.dataset.target).classList.add("modal__active");
-  })
-})
+/* buttonsLike.forEach((buttonLike) => {
+  buttonLike.addEventListener("click", handleLikeCard);
+}) */
 
+/* buttonsDelete.forEach((buttonDelete) => {
+  buttonDelete.addEventListener("click", handleDeleteCard);
+})
+ */
+//openEditProfileButton.addEventListener('click', handleProfileFormSubmit);
 openEditProfilePopUp.addEventListener('submit', handleProfileFormSubmit);
-openAddPlaceButton.addEventListener('submit', handleAddPlaceFormSubmit);
-//document.querySelector(".button.button__create").addEventListener('click', handleAddPlaceFormSubmit);
+openEditProfilePopUp.addEventListener('submit', handleCloseModal); 
+
+//openAddPlaceButton.addEventListener('click', handleAddPlaceFormSubmit);
+//openAddPlaceButton.addEventListener('submit', handleAddPlaceFormSubmit);
+//openAddPlaceButton.addEventListener('submit', handleCloseModal); 
+document.querySelector(".button.button__create").addEventListener('click', handleAddPlaceFormSubmit);
 
 closeModalButtons.forEach((button) => {
   button.addEventListener("click",handleCloseModal);
 })
+
+
+
+
+

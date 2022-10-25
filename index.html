@@ -55,7 +55,7 @@
     </div>
   </div>
 
-  <div class="modal modal__inactive add-place" id="addPlace">
+  <div class="modal modal__inactive add-place" id="addPlace" onSubmit={this.handleAddPlaceFormSubmit}>
     <div class="modal__container add-place__container">
       <button class="close button__close"></button>
       <form class="add-place__form" action="#" >
@@ -69,7 +69,11 @@
 
   <div class="modal modal__inactive photo-popup" id="photoPopUp">
     <div class="photo-popup__container">
-      <button class="close button__close" data-target="photoPopUp"></button>
+      <button class="close button__close"></button>
+      <template id="photo-popup__template" >
+        <img src="" alt="" class="photo-popup__image">
+        <p class="photo-popup__title"></p>
+      </template>
     </div>
   </div>
 

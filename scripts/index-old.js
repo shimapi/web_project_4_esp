@@ -83,3 +83,23 @@ addPlace.addEventListener('submit', handleAddPlace);
 
 
 infoInicial();
+
+
+
+
+
+
+
+/* :::::::::::::::::::::::::::::::
+
+
+
+openEditProfileButton.addEventListener("click", () => {
+  document.querySelector(openEditProfileButton.dataset.target).classList.remove("modal__inactive");
+  document.querySelector(openEditProfileButton.dataset.target).classList.add("modal__active");
+})
+
+openAddPlaceButton.addEventListener("click", () => {
+  document.querySelector(openAddPlaceButton.dataset.target).classList.remove("modal__inactive");
+  document.querySelector(openAddPlaceButton.dataset.target).classList.add("modal__active");
+})*/
