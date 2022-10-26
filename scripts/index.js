@@ -28,7 +28,6 @@ const initialCards = [
   }
 ];
 
-
 const openEditProfileButton = document.querySelector(".button__edit");
 const openAddPlaceButton = document.querySelector(".button__add");
 
@@ -42,8 +41,6 @@ const openAddPlacePopUp = document.querySelector(".add-place");
 const openPhotoPopUp = document.querySelector(".photo-popup");
 
 const cardsContainer = document.querySelector(".main-cards");
-
-
 
 
 function createCard(name,link){
@@ -104,9 +101,6 @@ function infoInicial(){
 
 infoInicial();
 
-
-
-
 function handleCloseModal(event){
   modals.forEach((modal) => {
     modal.classList.remove("modal__active");
@@ -160,32 +154,23 @@ function handleDeleteCard(e){
 }
 
 function handleOpenPhoto(e){
-
   document.querySelector(".photo-popup").classList.remove("modal__inactive");
   document.querySelector(".photo-popup").classList.add("modal__active");
 
   photos.forEach((photo) => {
     e.target.classList.add("popUpPhoto");
   })
+  //console.log(e.target.alt)
 
-  const newImgPopup = document.createElement("img");
-  
-  newImgPopup.src = document.querySelector(".popUpPhoto").getAttribute('src');
-  newImgPopup.alt = document.querySelector(".popUpPhoto").getAttribute('alt');
-  newImgPopup.className = "photo-popup__image";
+  const newImgPopup = document.querySelector(".photo-popup__image");
+  //newImgPopup.src = document.querySelector(".popUpPhoto").getAttribute('src');
+  //newImgPopup.alt = document.querySelector(".popUpPhoto").getAttribute('alt');
+  newImgPopup.src = e.target.src;
+  newImgPopup.alt = e.target.alt;
 
-  const newTitlePopup = document.createElement('p');
-  newTitlePopup.className = "photo-popup__title";
-  newTitlePopup.textContent = document.querySelector(".popUpPhoto").getAttribute('alt');
-
-  console.log(openPhotoPopUp)
-
- // if (openPhotoPopUp == ""){
-    openPhotoPopUp.appendChild(newImgPopup);
-    openPhotoPopUp.appendChild(newTitlePopup);
- /* }else{
-    //openPhotoPopUp.children[0].remove()
-  }*/
+  const newTitlePopup = document.querySelector(".photo-popup__title");
+  //newTitlePopup.textContent = document.querySelector(".popUpPhoto").getAttribute('alt');
+  newTitlePopup.textContent = e.target.alt;
 }
 
 const selectedPopUp = selectedModals.forEach((selectedModal)=>{
