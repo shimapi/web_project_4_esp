@@ -1,6 +1,6 @@
-@import url(/blocks/photo-popup/__container/__container.css);
-@import url(/blocks/photo-popup/__image/__image.css);
-@import url(/blocks/photo-popup/__title/__title.css);
+@import url(./blocks/photo-popup/__container/__container.css);
+@import url(./blocks/photo-popup/__image/__image.css);
+@import url(./blocks/photo-popup/__title/__title.css);
 
 /*.photo-popup{
   display: none;
