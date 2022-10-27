@@ -18,7 +18,10 @@ console.log(template)
   openPhotoPopUp.appendChild(newTitlePopup);
 
 
-
+/*   enter.addEventListener('enter', (e) => {
+    console.log(`Key "${e.key}" pressed [event: keydown]`);
+  }) */
+  
 
   //funciona OK
 function handleDeleteCard(e){ 

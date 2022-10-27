@@ -121,13 +121,16 @@ function handleAddPlaceFormSubmit(event) {
   event.preventDefault();
   const newPhoto = document.querySelector(".add-place__name").value;
   const newLink = document.querySelector(".add-place__link").value;
+  const enter = document.querySelector(".add-place__name")
 
   const createNewCard = createCard(newPhoto,newLink)
   cardsContainer.prepend(createNewCard);
-  
+
   event.target.reset();
   handleCloseModal();
 }
+
+
 
 const cards = document.querySelectorAll(".card");
 const photos = document.querySelectorAll(".card__image");
