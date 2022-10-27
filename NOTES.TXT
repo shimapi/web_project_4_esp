@@ -1,0 +1,35 @@
+
+  const template = document.querySelector("#photoPopUp").content;
+  const fragment = document.createDocumentFragment();
+  
+console.log(template)
+
+  const newImgPopup = document.querySelector(".photo-popup__image");
+  newImgPopup.src = document.querySelector(".popUpPhoto").getAttribute('src');
+  newImgPopup.alt = document.querySelector(".popUpPhoto").getAttribute('alt');
+
+  const newTitlePopup = document.querySelector(".photo-popup__title");
+  newTitlePopup.textContent = document.querySelector(".popUpPhoto").getAttribute('alt');
+
+  const clone = template.cloneNode(true);
+  fragment.appendChild(clone)
+
+  openPhotoPopUp.appendChild(newImgPopup);
+  openPhotoPopUp.appendChild(newTitlePopup);
+
+
+
+
+  //funciona OK
+function handleDeleteCard(e){ 
+  //TODO ESTE BLOQUE, ES LO MISMO QUE LA LINEA 32
+  /*   cards.forEach((card) => {
+      e.target.classList.add("deletedCard");
+    })
+    const deletedCard = document.querySelector(".deletedCard");
+    const toRemoveCard = deletedCard.parentNode.parentNode;
+    toRemoveCard.remove(); */
+    e.target.parentNode.parentNode.remove();
+  /*  */
+  
+  }

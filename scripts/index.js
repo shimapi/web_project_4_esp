@@ -101,7 +101,7 @@ function infoInicial(){
 
 infoInicial();
 
-function handleCloseModal(event){
+function handleCloseModal(){
   modals.forEach((modal) => {
     modal.classList.remove("modal__active");
     modal.classList.add("modal__inactive");
@@ -132,38 +132,25 @@ function handleAddPlaceFormSubmit(event) {
 const cards = document.querySelectorAll(".card");
 const photos = document.querySelectorAll(".card__image");
 
-//funciona OK
 function handleLikeCard(e){
   e.target.classList.toggle("button__like-active");
 }
 
-//funciona OK
 function handleDeleteCard(e){ 
-  cards.forEach((card) => {
-    e.target.classList.add("deletedCard");
-  })
-  const deletedCard = document.querySelector(".deletedCard");
-  const toRemoveCard = deletedCard.parentNode.parentNode;
-  toRemoveCard.remove();
+  e.target.parentNode.parentNode.remove();
 }
 
-//funciona OK
 function handleOpenPhoto(e){
   document.querySelector(".photo-popup").classList.remove("modal__inactive");
   document.querySelector(".photo-popup").classList.add("modal__active");
 
-  photos.forEach((photo) => {
-    e.target.classList.add("popUpPhoto");
-  })
+  e.target.classList.add("popUpPhoto");
 
   const newImgPopup = document.querySelector(".photo-popup__image");
-  //newImgPopup.src = document.querySelector(".popUpPhoto").getAttribute('src');
-  //newImgPopup.alt = document.querySelector(".popUpPhoto").getAttribute('alt');
   newImgPopup.src = e.target.src;
   newImgPopup.alt = e.target.alt;
 
   const newTitlePopup = document.querySelector(".photo-popup__title");
-  //newTitlePopup.textContent = document.querySelector(".popUpPhoto").getAttribute('alt');
   newTitlePopup.textContent = e.target.alt;
 }
 
