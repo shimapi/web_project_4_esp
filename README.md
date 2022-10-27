@@ -1,11 +1,21 @@
 # Proyecto 4: Alrededor de los Estados Unidos
 
 ### GitHub Pages Link
-* [GitHub Pages Link]()
+* [GitHub Pages Link](https://shimapi.github.io/web_project_4_esp/)
 
 ### Descripción general
-Primera etapa de desarrollo de aplicación de Galería de Fotos.
-Puedes editar nombre y cargo.
+Desarrollo de aplicación de Galería de Fotos.
+
+Sprint 5:
+- puedes agregar cards
+- puedes dar like a las fotos
+- puedes eliminar una card
+- puedes editar nombre y cargo
+- se despliegan fotos de forma dinámica
+
+Sprint 4:
+- puedes editar nombre y cargo
+- se despliegan las fotos
 
 ### Tecnologías utilizadas:
 * CSS
