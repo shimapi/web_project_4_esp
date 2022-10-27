@@ -1,7 +1,7 @@
-@import url(./blocks/card/__name/__name.css);
-@import url(./blocks/card/__title/__title.css);
-@import url(./blocks/card/__image/__image.css);
-@import url(./blocks/card/__photo/__photo.css);
+@import url(/blocks/card/__name/__name.css);
+@import url(/blocks/card/__title/__title.css);
+@import url(/blocks/card/__image/__image.css);
+@import url(/blocks/card/__photo/__photo.css);
 
 
 .card{
