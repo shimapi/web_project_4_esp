@@ -1,18 +1,18 @@
-.button__like{
+.button-like{
   background: url('/images/like.svg') no-repeat center center;
   background-size: contain;
   width: 35px;
   height: 20px;
 }
-.button__like:hover{
+.button-like:hover{
   opacity: 0.6;
   cursor: pointer;
 }
-.button__like:active{
+.button-like:active{
   cursor: pointer;
   background: url('/images/like-fill.svg') no-repeat center center;
 }
-.button__like-active{
+.button-like-active{
   cursor: pointer;
   background: url('/images/like-fill.svg') no-repeat center center;
 }

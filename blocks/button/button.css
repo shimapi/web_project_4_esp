@@ -1,10 +1,3 @@
-@import url(/blocks/button/__edit/__edit.css);
-@import url(/blocks/button/__add/__add.css);
-@import url(/blocks/button/__close/__close.css);
-@import url(/blocks/button/__save/__save.css);
-@import url(/blocks/button/__like/__like.css);
-@import url(/blocks/button/__delete/delete.css);
-
 .button{
   background-color: #000;
   border: 2px solid #fff;

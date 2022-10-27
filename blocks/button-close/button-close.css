@@ -1,4 +1,4 @@
-.button__close{
+.button-close{
   transform: rotate(45deg);
   position: absolute;
   top: -40px;
@@ -8,17 +8,17 @@
   width: 26px;
   height: 26px;
 }
-.button__close:hover {
+.button-close:hover {
   cursor: pointer;
   opacity: 0.6;
 }
-.button__close:active {
+.button-close:active {
   cursor: pointer;
   opacity: 0.8;
 }
 
 @media only screen and (min-width: 768px)  {
-  .button__close{
+  .button-close{
     right: -40px;
     width: 40px;
     height: 40px;

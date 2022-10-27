@@ -13,6 +13,12 @@
 @import url(/blocks/edit-profile/edit-profile.css);
 @import url(/blocks/footer/footer.css);
 @import url(/blocks/photo-popup/photo-popup.css);
+@import url(/blocks/button-edit/button-edit.css);
+@import url(/blocks/button-add/button-add.css);
+@import url(/blocks/button-close/button-close.css);
+@import url(/blocks/button-save/button-save.css);
+@import url(/blocks/button-like/button-like.css);
+@import url(/blocks/button-delete/button-delete.css);
 
 *{
   padding:0;

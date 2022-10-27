@@ -28,10 +28,10 @@ const initialCards = [
   }
 ];
 
-const openEditProfileButton = document.querySelector(".button__edit");
-const openAddPlaceButton = document.querySelector(".button__add");
+const openEditProfileButton = document.querySelector(".button-edit");
+const openAddPlaceButton = document.querySelector(".button-add");
 
-const closeModalButtons = document.querySelectorAll(".button__close");
+const closeModalButtons = document.querySelectorAll(".button-close");
 
 const modals = document.querySelectorAll(".modal");
 const selectedModals = document.querySelectorAll("[data-target]");
@@ -51,7 +51,7 @@ function createCard(name,link){
   newSectionPhoto.className = "card__photo";
 
   const newButtonDelete = document.createElement("button");
-  newButtonDelete.className = "button__delete";
+  newButtonDelete.className = "button-delete";
   newButtonDelete.addEventListener("click", handleDeleteCard);
 
   const newImg = document.createElement("img");
@@ -69,7 +69,7 @@ function createCard(name,link){
   newTitle.textContent = name;
 
   const newButtonLike = document.createElement("button");
-  newButtonLike.className = "button__like";
+  newButtonLike.className = "button-like";
   newButtonLike.addEventListener("click", handleLikeCard);
 
   newCard.appendChild(newSectionPhoto);
@@ -136,7 +136,7 @@ const cards = document.querySelectorAll(".card");
 const photos = document.querySelectorAll(".card__image");
 
 function handleLikeCard(e){
-  e.target.classList.toggle("button__like-active");
+  e.target.classList.toggle("button-like-active");
 }
 
 function handleDeleteCard(e){ 

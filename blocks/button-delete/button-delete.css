@@ -1,4 +1,4 @@
-.button__delete{
+.button-delete{
   background: url('/images/trash.svg') no-repeat center center;
   background-size: contain;
   width: 25px;
@@ -7,10 +7,10 @@
   top: 15px;
   right: 15px;
 }
-.button__delete:hover{
+.button-delete:hover{
   opacity: 0.6;
   cursor: pointer;
 }
-.button__delete:active{
+.button-delete:active{
   cursor: pointer;
 }
