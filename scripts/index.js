@@ -103,8 +103,11 @@ infoInicial();
 
 function handleCloseModal(){
   modals.forEach((modal) => {
-    modal.classList.remove("modal__active");
-    modal.classList.add("modal__inactive");
+    setTimeout(()=>{
+      modal.style.display = "";
+    },300)
+    modal.classList.remove("modal-active");
+    modal.classList.add("modal-inactive");
   })
 }
 
@@ -121,7 +124,6 @@ function handleAddPlaceFormSubmit(event) {
   event.preventDefault();
   const newPhoto = document.querySelector(".add-place__name").value;
   const newLink = document.querySelector(".add-place__link").value;
-  const enter = document.querySelector(".add-place__name")
 
   const createNewCard = createCard(newPhoto,newLink)
   cardsContainer.prepend(createNewCard);
@@ -144,8 +146,8 @@ function handleDeleteCard(e){
 }
 
 function handleOpenPhoto(e){
-  document.querySelector(".photo-popup").classList.remove("modal__inactive");
-  document.querySelector(".photo-popup").classList.add("modal__active");
+  document.querySelector(".photo-popup").classList.remove("modal-inactive");
+  document.querySelector(".photo-popup").classList.add("modal-active");
 
   e.target.classList.add("popUpPhoto");
 
@@ -157,10 +159,10 @@ function handleOpenPhoto(e){
   newTitlePopup.textContent = e.target.alt;
 }
 
-const selectedPopUp = selectedModals.forEach((selectedModal)=>{
+selectedModals.forEach((selectedModal)=>{
   selectedModal.addEventListener("click", () => {
-    document.querySelector(selectedModal.dataset.target).classList.remove("modal__inactive");
-    document.querySelector(selectedModal.dataset.target).classList.add("modal__active");
+    document.querySelector(selectedModal.dataset.target).classList.remove("modal-inactive");
+    document.querySelector(selectedModal.dataset.target).classList.add("modal-active");
   })
 })
 
