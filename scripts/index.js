@@ -34,7 +34,7 @@ const openAddPlaceButton = document.querySelector(".button__add");
 const closeModalButtons = document.querySelectorAll(".button__close");
 
 const modals = document.querySelectorAll(".modal");
-const selectedModals = document.querySelectorAll("[data-target]"); //tomo cada modal de forma individual
+const selectedModals = document.querySelectorAll("[data-target]");
 
 const openEditProfilePopUp = document.querySelector(".edit-profile");
 const openAddPlacePopUp = document.querySelector(".add-place");
@@ -121,19 +121,13 @@ function handleAddPlaceFormSubmit(event) {
   event.preventDefault();
   const newPhoto = document.querySelector(".add-place__name").value;
   const newLink = document.querySelector(".add-place__link").value;
-  //console.log(createCard(newPhoto,newLink));
-  //createCard(newPhoto,newLink);
-  const createNewCard = createCard(newPhoto,newLink)
 
+  const createNewCard = createCard(newPhoto,newLink)
   cardsContainer.prepend(createNewCard);
   
   event.target.reset();
   handleCloseModal();
 }
-
-
-
-
 
 const cards = document.querySelectorAll(".card");
 const photos = document.querySelectorAll(".card__image");
@@ -153,6 +147,7 @@ function handleDeleteCard(e){
   toRemoveCard.remove();
 }
 
+//funciona OK
 function handleOpenPhoto(e){
   document.querySelector(".photo-popup").classList.remove("modal__inactive");
   document.querySelector(".photo-popup").classList.add("modal__active");
@@ -160,7 +155,6 @@ function handleOpenPhoto(e){
   photos.forEach((photo) => {
     e.target.classList.add("popUpPhoto");
   })
-  //console.log(e.target.alt)
 
   const newImgPopup = document.querySelector(".photo-popup__image");
   //newImgPopup.src = document.querySelector(".popUpPhoto").getAttribute('src');
@@ -175,15 +169,13 @@ function handleOpenPhoto(e){
 
 const selectedPopUp = selectedModals.forEach((selectedModal)=>{
   selectedModal.addEventListener("click", () => {
-    console.log(selectedModal.dataset.target)
     document.querySelector(selectedModal.dataset.target).classList.remove("modal__inactive");
     document.querySelector(selectedModal.dataset.target).classList.add("modal__active");
   })
 })
 
 openEditProfilePopUp.addEventListener('submit', handleProfileFormSubmit);
-openAddPlaceButton.addEventListener('submit', handleAddPlaceFormSubmit);
-//document.querySelector(".button.button__create").addEventListener('click', handleAddPlaceFormSubmit);
+openAddPlacePopUp.addEventListener('submit', handleAddPlaceFormSubmit);
 
 closeModalButtons.forEach((button) => {
   button.addEventListener("click",handleCloseModal);
