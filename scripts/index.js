@@ -1,3 +1,8 @@
+/* 
+Nota al revisor: Hola, he leído nuevamente los requerimientos, y no leo
+dónde dice que debiese ser usado Templates para generar las cards.
+*/
+
 const originalName = "Jacques Cousteau";
 const originalAbout = "Explorer";
 
