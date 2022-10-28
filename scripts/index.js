@@ -34,7 +34,6 @@ const openAddPlaceButton = document.querySelector(".button-add");
 const closeModalButtons = document.querySelectorAll(".button-close");
 
 const modals = document.querySelectorAll(".modal");
-const selectedModals = document.querySelectorAll("[data-target]");
 
 const openEditProfilePopUp = document.querySelector(".edit-profile");
 const openAddPlacePopUp = document.querySelector(".add-place");
@@ -55,7 +54,6 @@ const photos = document.querySelectorAll(".card__image");
 
 const imgPopup = document.querySelector(".photo-popup__image");
 const titlePopup = document.querySelector(".photo-popup__title");
-
 
 function createCard(name,link){
   const newCard = document.createElement("article");
@@ -109,7 +107,6 @@ function initApp(){
   editProfileAbout.value = originalAbout;
   handleInitialCards();
 }
-initApp();
 
 function handleOpenPopUp(popup) {
   popup.classList.remove("modal_inactive");
@@ -118,11 +115,9 @@ function handleOpenPopUp(popup) {
 
 function handleClosePopUp(){
   modals.forEach((modal) => {
-    setTimeout(()=>{
-      modal.style.display = "";
-    },300)
     modal.classList.remove("modal_active");
     modal.classList.add("modal_inactive");
+    modal.classList.add("modal_closing");
   })
 } 
 
@@ -170,3 +165,5 @@ openAddPlacePopUp.addEventListener("submit", handleAddPlaceFormSubmit);
 closeModalButtons.forEach((button) => {
   button.addEventListener("click", handleClosePopUp);
 })
+
+initApp();

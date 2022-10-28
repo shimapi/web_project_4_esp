@@ -1,3 +1,4 @@
 .modal_inactive{
-  display: none;
+  visibility: hidden;
+  opacity: 0;
 }
