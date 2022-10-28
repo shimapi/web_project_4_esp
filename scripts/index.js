@@ -145,7 +145,8 @@ function handleLikeCard(e){
 }
 
 function handleDeleteCard(e){ 
-  e.target.parentNode.parentNode.remove();
+  //e.target.parentNode.parentNode.remove();
+  e.target.closest(".card").remove();
 }
 
 function handleOpenPhoto(e){
@@ -155,14 +156,14 @@ function handleOpenPhoto(e){
   titlePopup.textContent = e.target.alt;
 }
 
-/* selectedModals.forEach((selectedModal)=>{
-  selectedModal.addEventListener("click", () => {
-    document.querySelector(selectedModal.dataset.target).classList.remove("modal_inactive");
-    document.querySelector(selectedModal.dataset.target).classList.add("modal_active");
-  })
-}) */
+openEditProfileButton.addEventListener("click", function (){
+  handleOpenPopUp(openEditProfilePopUp)
+})
 
-openEditProfilePopUp.addEventListener("click", handleOpenPopUp(openEditProfilePopUp));
+openAddPlaceButton.addEventListener("click", function (){
+  handleOpenPopUp(openAddPlacePopUp)
+})
+
 openEditProfilePopUp.addEventListener("submit", handleProfileFormSubmit);
 openAddPlacePopUp.addEventListener("submit", handleAddPlaceFormSubmit);
 
