@@ -10,8 +10,8 @@
 @import url(/blocks/upload/upload.css);
 @import url(/blocks/button/button.css);
 @import url(/blocks/modal/modal.css);
-@import url(/blocks/modal-active/modal-active.css);
-@import url(/blocks/modal-inactive/modal-inactive.css);
+@import url(/blocks/modal_active/modal_active.css);
+@import url(/blocks/modal_inactive/modal_inactive.css);
 @import url(/blocks/edit-profile/edit-profile.css);
 @import url(/blocks/footer/footer.css);
 @import url(/blocks/photo-popup/photo-popup.css);
