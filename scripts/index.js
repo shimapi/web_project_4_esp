@@ -89,12 +89,11 @@ function initApp(){
   handleInitialCards();
 }
 
-function handleOpenPopUp(popup) {
-  //popup.classList.remove("modal_inactive");
-  popup.classList.add("modal_active");
-  popup.style.visibility = "visible";
-  popup.style.opacity = "1";
-
+function handleOpenPopUp(modal) {
+  modal.classList.add("modal_active");
+  modal.style.visibility = "visible";
+  modal.style.opacity = "1";
+  modal.style.transition = "visibility 0.2s, opacity 0.2s linear";
 }
 
 function handleClosePopUp(){
@@ -102,8 +101,7 @@ function handleClosePopUp(){
     modal.classList.remove("modal_active");
     modal.style.visibility = "hidden";
     modal.style.opacity = "0";
-    //modal.classList.add("modal_inactive");
-    //modal.classList.add("modal_closing");
+    modal.style.transition = "visibility 0.2s, opacity 0.2s linear";
   })
 } 
 
