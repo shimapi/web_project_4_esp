@@ -1,6 +1,9 @@
 /* 
 Nota al revisor: hice los cambios en el modal, sin embargo, no consigo que se vea.
-Por eso había incluido las clases auxiliares inactive y closing
+Por eso había incluido las clases auxiliares inactive y closing.
+Agradecería alguna pista para solucionarlo.
+
+Template listo :)
 */
 
 const originalName = "Jacques Cousteau";
