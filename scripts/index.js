@@ -92,11 +92,16 @@ function initApp(){
 function handleOpenPopUp(popup) {
   //popup.classList.remove("modal_inactive");
   popup.classList.add("modal_active");
+  popup.style.visibility = "visible";
+  popup.style.opacity = "1";
+
 }
 
 function handleClosePopUp(){
   modals.forEach((modal) => {
     modal.classList.remove("modal_active");
+    modal.style.visibility = "hidden";
+    modal.style.opacity = "0";
     //modal.classList.add("modal_inactive");
     //modal.classList.add("modal_closing");
   })
