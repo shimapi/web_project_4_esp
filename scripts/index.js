@@ -46,10 +46,10 @@ const openPhotoPopUp = document.querySelector(".photo-popup");
 
 const cardsContainer = document.querySelector(".main-cards");
 
-let textName = document.querySelector(".main-text__name");
-let textAbout = document.querySelector(".main-text__about");
-let editProfileName = document.querySelector(".edit-profile__name");
-let editProfileAbout = document.querySelector(".edit-profile__about");
+const textName = document.querySelector(".main-text__name");
+const textAbout = document.querySelector(".main-text__about");
+const editProfileName = document.querySelector(".edit-profile__name");
+const editProfileAbout = document.querySelector(".edit-profile__about");
 
 const addPlaceName = document.querySelector(".add-place__name");
 const addPlaceLink = document.querySelector(".add-place__link");
