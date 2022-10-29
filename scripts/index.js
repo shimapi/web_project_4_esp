@@ -114,15 +114,15 @@ function initApp(){
 }
 
 function handleOpenPopUp(popup) {
-  popup.classList.remove("modal_inactive");
+  //popup.classList.remove("modal_inactive");
   popup.classList.add("modal_active");
 }
 
 function handleClosePopUp(){
   modals.forEach((modal) => {
     modal.classList.remove("modal_active");
-    modal.classList.add("modal_inactive");
-    modal.classList.add("modal_closing");
+    //modal.classList.add("modal_inactive");
+    //modal.classList.add("modal_closing");
   })
 } 
 
