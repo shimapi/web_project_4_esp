@@ -1,6 +1,6 @@
 /* 
-Nota al revisor: Hola, he leído nuevamente los requerimientos, y no leo
-dónde dice que debiese ser usado Templates para generar las cards.
+Nota al revisor: hice los cambios en el modal, sin embargo, no consigo que se vea.
+Por eso había incluido las clases auxiliares inactive y closing
 */
 
 const originalName = "Jacques Cousteau";
@@ -54,47 +54,28 @@ const editProfileAbout = document.querySelector(".edit-profile__about");
 const addPlaceName = document.querySelector(".add-place__name");
 const addPlaceLink = document.querySelector(".add-place__link");
 
-const cards = document.querySelectorAll(".card");
-const photos = document.querySelectorAll(".card__image");
+const card = document.querySelector(".card");
+const cardTemplate = document.getElementById("card-template").content;
 
 const imgPopup = document.querySelector(".photo-popup__image");
 const titlePopup = document.querySelector(".photo-popup__title");
 
 function createCard(name,link){
-  const newCard = document.createElement("article");
-  newCard.classList.add("card");
+  const newCard = cardTemplate.cloneNode(true);
 
-  const newSectionPhoto = document.createElement("section")
-  newSectionPhoto.className = "card__photo";
-
-  const newButtonDelete = document.createElement("button");
-  newButtonDelete.className = "button-delete";
-  newButtonDelete.addEventListener("click", handleDeleteCard);
-
-  const newImg = document.createElement("img");
+  const newImg = newCard.querySelector(".card__image");
   newImg.src = link;
   newImg.alt = name;
-  newImg.className = "card__image";
-  newImg.dataset.target = "#photoPopUp";
   newImg.addEventListener("click", handleOpenPhoto);
 
-  const newSectionName = document.createElement("section")
-  newSectionName.className = "card__name";
+  const newButtonDelete = newCard.querySelector(".button-delete");
+  newButtonDelete.addEventListener("click", handleDeleteCard);
 
-  const newTitle = document.createElement("h3");
-  newTitle.className = "card__title";
+  const newTitle = newCard.querySelector(".card__title");
   newTitle.textContent = name;
 
-  const newButtonLike = document.createElement("button");
-  newButtonLike.className = "button-like";
+  const newButtonLike = newCard.querySelector(".button-like");
   newButtonLike.addEventListener("click", handleLikeCard);
-
-  newCard.appendChild(newSectionPhoto);
-  newSectionPhoto.appendChild(newButtonDelete);
-  newSectionPhoto.appendChild(newImg);
-  newCard.appendChild(newSectionName);
-  newSectionName.appendChild(newTitle);
-  newSectionName.appendChild(newButtonLike);
 
   return newCard;
 }
