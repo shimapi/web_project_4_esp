@@ -36,3 +36,45 @@ function handleDeleteCard(e){
   /*  */
   
   }
+
+
+
+
+function createCard(name,link){
+  const newCard = document.createElement("article");
+  newCard.classList.add("card");
+
+  const newSectionPhoto = document.createElement("section")
+  newSectionPhoto.className = "card__photo";
+
+  const newButtonDelete = document.createElement("button");
+  newButtonDelete.className = "button-delete";
+  newButtonDelete.addEventListener("click", handleDeleteCard);
+
+  const newImg = document.createElement("img");
+  newImg.src = link;
+  newImg.alt = name;
+  newImg.className = "card__image";
+  newImg.dataset.target = "#photoPopUp";
+  newImg.addEventListener("click", handleOpenPhoto);
+
+  const newSectionName = document.createElement("section")
+  newSectionName.className = "card__name";
+
+  const newTitle = document.createElement("h3");
+  newTitle.className = "card__title";
+  newTitle.textContent = name;
+
+  const newButtonLike = document.createElement("button");
+  newButtonLike.className = "button-like";
+  newButtonLike.addEventListener("click", handleLikeCard);
+
+  newCard.appendChild(newSectionPhoto);
+  newSectionPhoto.appendChild(newButtonDelete);
+  newSectionPhoto.appendChild(newImg);
+  newCard.appendChild(newSectionName);
+  newSectionName.appendChild(newTitle);
+  newSectionName.appendChild(newButtonLike);
+
+  return newCard;
+}
