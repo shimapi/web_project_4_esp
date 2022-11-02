@@ -91,17 +91,11 @@ function initApp(){
 
 function handleOpenPopUp(modal) {
   modal.classList.add("modal_active");
-  modal.style.visibility = "visible";
-  modal.style.opacity = "1";
-  modal.style.transition = "visibility 0.2s, opacity 0.2s linear";
 }
 
 function handleClosePopUp(){
   modals.forEach((modal) => {
     modal.classList.remove("modal_active");
-    modal.style.visibility = "hidden";
-    modal.style.opacity = "0";
-    modal.style.transition = "visibility 0.2s, opacity 0.2s linear";
   })
 } 
 
