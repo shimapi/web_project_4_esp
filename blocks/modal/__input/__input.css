@@ -7,9 +7,3 @@
   padding: 5px 0;
   margin: 15px 0;
 }
-.modal__input:valid{
-  border-bottom: 1px solid rgb(11, 185, 11);
-}
-.modal__input:invalid{
-  border-bottom: 1px solid rgb(238, 0, 0);
-}

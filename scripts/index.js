@@ -160,7 +160,7 @@ document.addEventListener("keydown", handleEscapeKey);
 
 function handleClickOutsideModal(evt) {
   if (evt.target.classList.contains("modal_active")) {
-    console.log(evt.target)
+    //console.log(evt.target)
     handleClosePopUp();
   }
 }
@@ -169,3 +169,7 @@ modals.forEach((modal) => {
 })
 
 initApp();
+
+/* document.addEventListener("input", function (evt){
+  console.log(evt.target.validity.valid)
+}) */
