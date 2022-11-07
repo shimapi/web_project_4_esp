@@ -34,6 +34,8 @@ const openAddPlaceButton = document.querySelector(".button-add");
 const closeModalButtons = document.querySelectorAll(".button-close");
 
 const modals = document.querySelectorAll(".modal");
+const modalContainer = document.querySelector(".modal__container");
+const modalActive = document.querySelector(".modal_active");
 
 const openEditProfilePopUp = document.querySelector(".edit-profile");
 const openAddPlacePopUp = document.querySelector(".add-place");
@@ -97,7 +99,7 @@ function handleClosePopUp(){
   modals.forEach((modal) => {
     modal.classList.remove("modal_active");
   })
-} 
+}
 
 function handleProfileFormSubmit(event) {
   event.preventDefault();
@@ -118,7 +120,6 @@ function handleLikeCard(e){
 }
 
 function handleDeleteCard(e){ 
-  //e.target.parentNode.parentNode.remove();
   e.target.closest(".card").remove();
 }
 
@@ -145,3 +146,24 @@ closeModalButtons.forEach((button) => {
 })
 
 initApp();
+
+
+
+function handleEscapeKey(e) {
+  if (e.key === "Escape" || e.key === "esc") {
+    handleClosePopUp();
+  }
+}
+document.addEventListener("keydown", handleEscapeKey);
+
+
+
+function handleClickOutsideModal(evt) {
+  if (evt.target.classList.contains("modal_active")) {
+    console.log(evt.target)
+    handleClosePopUp();
+  }
+}
+modals.forEach((modal) => {
+  modal.addEventListener("click", handleClickOutsideModal);
+})

@@ -61,8 +61,10 @@
       <button class="close button-close"></button>
       <form class="edit-profile__form" action="#" >
         <h2 class="edit-profile__title">Editar Perfil</h2>
-        <input type="text" name='edit-profile__name' class="edit-profile__input edit-profile__name">
-        <input type="text" name='edit-profile__about' class="edit-profile__input edit-profile__about">
+        <input type="text" name='edit-profile__name' class="edit-profile__input edit-profile__name" 
+          required minlength="2" maxlength="40">
+        <input type="text" name='edit-profile__about' class="edit-profile__input edit-profile__about" 
+          required minlength="2" maxlength="200">
         <button type="submit" class="button button-save">Guardar</button>
       </form>
     </div>
@@ -73,8 +75,10 @@
       <button class="close button-close"></button>
       <form class="add-place__form" action="#" >
         <h2 class="add-place__title">Nuevo Lugar</h2>
-        <input type="text" name='add-place__name' class="modal__input add-place__name" placeholder="Ingresa el Nombre del Lugar">
-        <input type="text" name='add-place__link' class="modal__input add-place__link" placeholder="Ingresa la URL directa a la foto">
+        <input type="text" name='add-place__name' class="modal__input add-place__name"
+          placeholder="Ingresa el Nombre del Lugar" required minlength="2" maxlength="30">
+        <input type="URL" name='add-place__link' class="modal__input add-place__link"
+          placeholder="Ingresa la URL directa a la foto" required>
         <button type="submit" class="button button-save">Crear</button>
       </form>
     </div>
