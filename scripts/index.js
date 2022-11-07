@@ -98,6 +98,10 @@ function handleOpenPopUp(modal) {
 function handleClosePopUp(){
   modals.forEach((modal) => {
     modal.classList.remove("modal_active");
+    //si lo dejo activo, se borra, y sólo funciona
+    //para la primera vez que se cierra el modal. 
+    //buscar una mejor forma.
+    //modal.removeEventListener("click", handleClickOutsideModal);
   })
 }
 
@@ -145,9 +149,6 @@ closeModalButtons.forEach((button) => {
   button.addEventListener("click", handleClosePopUp);
 })
 
-initApp();
-
-
 
 function handleEscapeKey(e) {
   if (e.key === "Escape" || e.key === "esc") {
@@ -155,7 +156,6 @@ function handleEscapeKey(e) {
   }
 }
 document.addEventListener("keydown", handleEscapeKey);
-
 
 
 function handleClickOutsideModal(evt) {
@@ -167,3 +167,5 @@ function handleClickOutsideModal(evt) {
 modals.forEach((modal) => {
   modal.addEventListener("click", handleClickOutsideModal);
 })
+
+initApp();
