@@ -20,25 +20,51 @@ const checkInputValidity = (formElement, inputElement) => {
   }
 };
 
+const hasInvalidInput = (inputList) => {
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid;
+  });
+};
+
+const toggleButtonState = (inputList, buttonElement) => {
+  if (hasInvalidInput(inputList)) {
+    buttonElement.classList.add("button-inactive");
+    buttonElement.disabled = true;
+  } else {
+    buttonElement.classList.remove("button-inactive");
+    buttonElement.disabled = false;
+  }
+};
+
 const setEventListeners = (formElement) => {
   const inputList = Array.from(formElement.querySelectorAll(".form__input"));
+  const buttonElement = formElement.querySelector(".button-save");
+
+  // aquí, para comprobar el estado del botón al principio
+  toggleButtonState(inputList, buttonElement);
+
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
       checkInputValidity(formElement, inputElement);
+      // y aquí, para comprobarlo cada vez que haya cambios en la entrada de algún campo
+      toggleButtonState(inputList, buttonElement);
     });
   });
 };
 
-function enableValidation() {
+const enableValidation = () => {
   const formList = Array.from(document.querySelectorAll(".form"));
-  
   formList.forEach((formElement) => {
-  formElement.addEventListener("submit", (evt) => {
-    evt.preventDefault();
-  });
-  
-  setEventListeners(formElement);
-  });
-}
+    formElement.addEventListener("submit", function (evt) {
+      evt.preventDefault();
+    });
 
-enableValidation()
+    const fieldsetList = Array.from(formElement.querySelectorAll(".form__fieldset"));
+
+    fieldsetList.forEach((fieldset) => {
+      setEventListeners(fieldset);
+    });
+  });
+};
+
+enableValidation();

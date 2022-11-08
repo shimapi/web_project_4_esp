@@ -98,10 +98,6 @@ function handleOpenPopUp(modal) {
 function handleClosePopUp(){
   modals.forEach((modal) => {
     modal.classList.remove("modal_active");
-    //si lo dejo activo, se borra, y sólo funciona
-    //para la primera vez que se cierra el modal. 
-    //buscar una mejor forma.
-    //modal.removeEventListener("click", handleClickOutsideModal);
   })
 }
 
@@ -116,6 +112,7 @@ function handleAddPlaceFormSubmit(event) {
   event.preventDefault();
   cardsContainer.prepend(createCard(addPlaceName.value,addPlaceLink.value));
   event.target.reset();
+  //event.target.closest(".button").disabled = true;
   handleClosePopUp();
 }
 
@@ -160,7 +157,6 @@ document.addEventListener("keydown", handleEscapeKey);
 
 function handleClickOutsideModal(evt) {
   if (evt.target.classList.contains("modal_active")) {
-    //console.log(evt.target)
     handleClosePopUp();
   }
 }
@@ -169,7 +165,3 @@ modals.forEach((modal) => {
 })
 
 initApp();
-
-/* document.addEventListener("input", function (evt){
-  console.log(evt.target.validity.valid)
-}) */

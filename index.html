@@ -61,19 +61,20 @@
       <button class="close button-close"></button>
 
       <form class="edit-profile__form form" action="#" novalidate>
+        <fieldset class="form__fieldset">
+          <h2 class="edit-profile__title">Editar Perfil</h2>
+          <input type="text" id="edit-profile__name" name="edit-profile__name" 
+            class="form__input modal__input edit-profile__input edit-profile__name" 
+            required minlength="2" maxlength="40">
+            <span class="edit-profile__name-error form__input-error"></span>
 
-        <h2 class="edit-profile__title">Editar Perfil</h2>
-        <input type="text" id="edit-profile__name" name="edit-profile__name" 
-          class="form__input modal__input edit-profile__input edit-profile__name" 
-          required minlength="2" maxlength="40">
-          <span class="edit-profile__name-error form__input-error"></span>
+          <input type="text" id="edit-profile__about" name="edit-profile__about"
+            class="form__input modal__input edit-profile__input edit-profile__about" 
+            required minlength="2" maxlength="200">
+            <span class="edit-profile__about-error form__input-error"></span>
 
-        <input type="text" id="edit-profile__about" name="edit-profile__about"
-          class="form__input modal__input edit-profile__input edit-profile__about" 
-          required minlength="2" maxlength="200">
-          <span class="edit-profile__about-error form__input-error"></span>
-
-        <button type="submit" class="button button-save">Guardar</button>
+          <button type="submit" class="button button-save">Guardar</button>
+        </fieldset>
       </form>
 
     </div>
@@ -84,22 +85,23 @@
       <button class="close button-close"></button>
 
       <form class="add-place__form form" action="#" novalidate>
+        <fieldset class="form__fieldset">
+          <h2 class="add-place__title">Nuevo Lugar</h2>
 
-        <h2 class="add-place__title">Nuevo Lugar</h2>
+          <input type="text" id="add-place__name" name="add-place__name" 
+            class="form__input modal__input add-place__name"
+            placeholder="Título" required minlength="2" maxlength="30">
+            <span class="add-place__name-error form__input-error"></span>
 
-        <input type="text" id="add-place__name" name="add-place__name" 
-          class="form__input modal__input add-place__name"
-          placeholder="Título" required minlength="2" maxlength="30">
-          <span class="add-place__name-error form__input-error"></span>
+          <input type="URL" id="add-place__link" name="add-place__link" 
+            class="form__input modal__input add-place__link"
+            placeholder="URL de la imagen" required>
+            <span class="add-place__link-error form__input-error"></span>
 
-        <input type="URL" id="add-place__link" name="add-place__link" 
-          class="form__input modal__input add-place__link"
-          placeholder="URL de la imagen" required>
-          <span class="add-place__link-error form__input-error"></span>
-
-        <button type="submit" class="button button-save">Crear</button>
-
+          <button type="submit" class="button button-save">Crear</button>
+        </fieldset>
       </form>
+      
     </div>
   </div>
 <!-- Probando con este modal--> 

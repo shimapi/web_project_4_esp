@@ -20,6 +20,7 @@
 @import url(/blocks/button-save/button-save.css);
 @import url(/blocks/button-like/button-like.css);
 @import url(/blocks/button-delete/button-delete.css);
+@import url(/blocks/button-inactive/button-inactive.css);
 @import url(/blocks/form/__input/form__input.css);
 @import url(/blocks/form/__input/form__input-error.css);
 
