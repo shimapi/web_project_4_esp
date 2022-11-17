@@ -93,14 +93,12 @@ function initApp(){
 
 function handleOpenPopUp(modal) {
   modal.classList.add("modal_active");
-  document.addEventListener("keydown", handleEscapeKey);
 }
 
 function handleClosePopUp(){
   modals.forEach((modal) => {
     modal.classList.remove("modal_active");
-  });
-  document.removeEventListener("keydown", handleEscapeKey);
+  })
 }
 
 function handleProfileFormSubmit(event) {
@@ -110,16 +108,13 @@ function handleProfileFormSubmit(event) {
   handleClosePopUp();
 }
 
-
 function handleAddPlaceFormSubmit(event) {
   event.preventDefault();
   cardsContainer.prepend(createCard(addPlaceName.value,addPlaceLink.value));
   event.target.reset();
   //event.target.closest(".button").disabled = true;
   handleClosePopUp();
-  toggleButtonState()
 }
-
 
 function handleLikeCard(e){
   e.target.classList.toggle("button-like-active");
@@ -157,6 +152,8 @@ function handleEscapeKey(e) {
     handleClosePopUp();
   }
 }
+document.addEventListener("keydown", handleEscapeKey);
+
 
 function handleClickOutsideModal(evt) {
   if (evt.target.classList.contains("modal_active")) {
