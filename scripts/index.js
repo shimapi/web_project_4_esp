@@ -37,6 +37,8 @@ const modals = document.querySelectorAll(".modal");
 const modalContainer = document.querySelector(".modal__container");
 const modalActive = document.querySelector(".modal_active");
 
+const popups = document.querySelectorAll('.popup')
+
 const openEditProfilePopUp = document.querySelector(".edit-profile");
 const openAddPlacePopUp = document.querySelector(".add-place");
 const openPhotoPopUp = document.querySelector(".photo-popup");
@@ -166,5 +168,18 @@ function handleClickOutsideModal(evt) {
 modals.forEach((modal) => {
   modal.addEventListener("click", handleClickOutsideModal);
 })
+
+
+popups.forEach((popup) => {
+    popup.addEventListener('mousedown', (evt) => {
+        if (evt.target.classList.contains('popup_opened')) {
+            closePopup(popup)
+        }
+        if (evt.target.classList.contains('popup__close')) {
+          closePopup(popup)
+        }
+    })
+})
+
 
 initApp();

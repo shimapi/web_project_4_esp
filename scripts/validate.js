@@ -22,10 +22,11 @@ const checkInputValidity = (formElement, inputElement, config) => {
 };
 
 const hasInvalidInput = (inputListElement) => {
-  return inputListElement.some((inputElement) => {
+  //console.log(inputListElement)
+  return inputListElement.some((inputElement) => {/* 
     console.log(inputElement)
     console.log(inputElement.validity.valid);
-    console.log("---------------------------------------")
+    console.log("---------------------------------------") */
     return !inputElement.validity.valid;
   });
 };
