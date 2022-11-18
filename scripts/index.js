@@ -119,7 +119,7 @@ function handleAddPlaceFormSubmit(event) {
   event.target.reset();
   //event.target.closest(".button").disabled = true;
   handleClosePopUp();
-  toggleButtonState()
+  //toggleButtonState()
 }
 
 
@@ -170,7 +170,7 @@ modals.forEach((modal) => {
 })
 
 
-popups.forEach((popup) => {
+/* popups.forEach((popup) => {
     popup.addEventListener('mousedown', (evt) => {
         if (evt.target.classList.contains('popup_opened')) {
             closePopup(popup)
@@ -179,7 +179,7 @@ popups.forEach((popup) => {
           closePopup(popup)
         }
     })
-})
+}) */
 
 
 initApp();
