@@ -37,6 +37,8 @@ const modals = document.querySelectorAll(".modal");
 const modalContainer = document.querySelector(".modal__container");
 const modalActive = document.querySelector(".modal_active");
 
+const popups = document.querySelectorAll('.popup')
+
 const openEditProfilePopUp = document.querySelector(".edit-profile");
 const openAddPlacePopUp = document.querySelector(".add-place");
 const openPhotoPopUp = document.querySelector(".photo-popup");
@@ -93,12 +95,14 @@ function initApp(){
 
 function handleOpenPopUp(modal) {
   modal.classList.add("modal_active");
+  document.addEventListener("keydown", handleEscapeKey);
 }
 
 function handleClosePopUp(){
   modals.forEach((modal) => {
     modal.classList.remove("modal_active");
-  })
+  });
+  document.removeEventListener("keydown", handleEscapeKey);
 }
 
 function handleProfileFormSubmit(event) {
@@ -108,13 +112,16 @@ function handleProfileFormSubmit(event) {
   handleClosePopUp();
 }
 
+
 function handleAddPlaceFormSubmit(event) {
   event.preventDefault();
   cardsContainer.prepend(createCard(addPlaceName.value,addPlaceLink.value));
   event.target.reset();
   //event.target.closest(".button").disabled = true;
   handleClosePopUp();
+  //toggleButtonState()
 }
+
 
 function handleLikeCard(e){
   e.target.classList.toggle("button-like-active");
@@ -152,8 +159,6 @@ function handleEscapeKey(e) {
     handleClosePopUp();
   }
 }
-document.addEventListener("keydown", handleEscapeKey);
-
 
 function handleClickOutsideModal(evt) {
   if (evt.target.classList.contains("modal_active")) {
@@ -163,5 +168,18 @@ function handleClickOutsideModal(evt) {
 modals.forEach((modal) => {
   modal.addEventListener("click", handleClickOutsideModal);
 })
+
+
+/* popups.forEach((popup) => {
+    popup.addEventListener('mousedown', (evt) => {
+        if (evt.target.classList.contains('popup_opened')) {
+            closePopup(popup)
+        }
+        if (evt.target.classList.contains('popup__close')) {
+          closePopup(popup)
+        }
+    })
+}) */
+
 
 initApp();
