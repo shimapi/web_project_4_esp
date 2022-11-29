@@ -5,8 +5,6 @@ class Card {
     this._cardSelector = cardSelector;
   }
 
-
-
   _getTemplate(){
   /*   const cardTemplate = document.getElementById("card-template").content;
     const newCard = cardTemplate.cloneNode(true);
@@ -19,9 +17,9 @@ class Card {
     return cardTemplate; //devuelvo DOM
   }
  
-
   generateCard(){
     this._element = this._getTemplate();
+    this._setEventListeners();
 
     this._element.querySelector(".card__image").src = this._link;
     this._element.querySelector(".card__image").alt = this._name;
@@ -32,8 +30,27 @@ class Card {
 
 
 
- _eventListeners(){}
+  _setEventListeners(){
+    this._element.querySelector(".button-like")
+    .addEventListener("click", (e) => {
+      this._handleLikeCard(e);
+    })
 
+    this._element.querySelector(".button-delete")
+    .addEventListener("click", (e) => {
+      this._handleDeleteCard(e);
+    })
+
+  }
+
+  _handleLikeCard(e){ 
+    //this._element.querySelector(".button-like").classList.toggle("button-like-active");
+    e.target.classList.toggle("button-like-active");
+  }
+  
+  _handleDeleteCard(e){ 
+    e.target.closest(".card").remove();
+  }
 
   //static createCard(name,link){
   /* createCard(){
@@ -50,13 +67,7 @@ class Card {
     return newCard;
   } */
 
-  _handleLikeCard(e){
-    return e.target.classList.toggle("button-like-active");
-  }
-  
-  _handleDeleteCard(e){ 
-    return e.target.closest(".card").remove();
-  }
+
    
 /*   createCard(name,link){
     const newCard = cardTemplate.cloneNode(true);
