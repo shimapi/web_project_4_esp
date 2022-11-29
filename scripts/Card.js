@@ -1,7 +1,8 @@
 class Card {
-  constructor(name, link){ //selector de elemento de plantilla (?)
-    this._name = name;
-    this._link = link;
+  constructor(data, cardSelector){ //arrayItem, idTemplate
+    this._name = data.name;
+    this._link = data.link;
+    this._cardSelector = cardSelector;
   }
 
 
@@ -35,7 +36,7 @@ class Card {
 
 
   //static createCard(name,link){
-  createCard(){
+  /* createCard(){
    
     const newImg = newCard.querySelector(".card__image");
     const newTitle = newCard.querySelector(".card__title");
@@ -47,7 +48,7 @@ class Card {
     const newButtonDelete = newCard.querySelector(".button-delete");
     newButtonDelete.addEventListener("click", _handleDeleteCard);
     return newCard;
-  }
+  } */
 
   _handleLikeCard(e){
     return e.target.classList.toggle("button-like-active");

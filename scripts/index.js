@@ -68,8 +68,12 @@ const titlePopup = document.querySelector(".photo-popup__title");
 
 
 
+initialCards.forEach((cardItem) => {
+  const createNewCard = new Card(cardItem,"card-template");
+  cardsContainer.appendChild(createNewCard.generateCard());
+})
 
-function handleInitialCards(){
+/* function handleInitialCards(){
   initialCards.forEach((card) => {
     const createNewCard = new Card(card.name,card.link);
     cardsContainer.appendChild(createNewCard.generateCard());
@@ -85,3 +89,4 @@ function initApp(){
 }
 
 initApp();
+ */
