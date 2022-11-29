@@ -1,8 +1,8 @@
 import Card from "./Card.js";
-import FormValidator from "./FormValidator.js";
+//import FormValidator from "./FormValidator.js";
 
-console.log(FormValidator)
-console.log(Card)
+/* console.log(FormValidator)
+console.log(Card) */
 
 const originalName = "Jacques Cousteau";
 const originalAbout = "Explorer";
@@ -71,15 +71,8 @@ const titlePopup = document.querySelector(".photo-popup__title");
 
 function handleInitialCards(){
   initialCards.forEach((card) => {
-    const newCard = new Card(card.name,card.link,card.desc)
-    
-    cardsContainer.appendChild(newCard.createCard());
-
-
-
-    /* document.createElement()
-    document.querySelector()
-    document.createDocumentFragment() */
+    const createNewCard = new Card(card.name,card.link);
+    cardsContainer.appendChild(createNewCard.generateCard());
   })
 }
 
