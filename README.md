@@ -6,6 +6,9 @@
 ### Descripción general
 Desarrollo de aplicación de Galería de Fotos.
 
+Sprint 6:
+- se agregan validaciones a los formularios
+
 Sprint 5:
 - puedes agregar cards
 - puedes dar like a las fotos
