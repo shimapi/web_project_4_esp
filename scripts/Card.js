@@ -28,8 +28,6 @@ class Card {
     return this._element;
   }
 
-
-
   _setEventListeners(){
     this._element.querySelector(".button-like")
     .addEventListener("click", (e) => {
@@ -44,7 +42,7 @@ class Card {
   }
 
   _handleLikeCard(e){ 
-    //this._element.querySelector(".button-like").classList.toggle("button-like-active");
+    //no funciona -> this._element.querySelector(".button-like").classList.toggle("button-like-active");
     e.target.classList.toggle("button-like-active");
   }
   
