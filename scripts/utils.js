@@ -10,14 +10,9 @@ const openAddPlaceButton = document.querySelector(".button-add");
 const closeModalButtons = document.querySelectorAll(".button-close");
 
 const modals = document.querySelectorAll(".modal");
-const modalContainer = document.querySelector(".modal__container");
-const modalActive = document.querySelector(".modal_active");
-
-const popups = document.querySelectorAll('.popup')
 
 const openEditProfilePopUp = document.querySelector(".edit-profile");
 const openAddPlacePopUp = document.querySelector(".add-place");
-const openPhotoPopUp = document.querySelector(".photo-popup");
 
 const cardsContainer = document.querySelector(".main-cards");
 
@@ -30,10 +25,8 @@ const addPlaceName = document.querySelector(".add-place__name");
 const addPlaceLink = document.querySelector(".add-place__link");
 
 
-const imgPopup = document.querySelector(".photo-popup__image");
-const titlePopup = document.querySelector(".photo-popup__title");
 
-function handleOpenPopUp(modal) {
+export function handleOpenPopUp(modal) {
   modal.classList.add("modal_active");
   document.addEventListener("keydown", handleEscapeKey);
 }

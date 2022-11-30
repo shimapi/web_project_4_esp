@@ -1,3 +1,5 @@
+import {handleOpenPopUp} from './utils.js'
+
 class Card {
   constructor(data, cardSelector){ //arrayItem, idTemplate
     this._name = data.name;
@@ -6,7 +8,8 @@ class Card {
   }
 
   _getTemplate(){
-  /*   const cardTemplate = document.getElementById("card-template").content;
+  /* forma antigua:
+    const cardTemplate = document.getElementById("card-template").content;
     const newCard = cardTemplate.cloneNode(true);
     return newCard; */
     const cardTemplate = document
@@ -39,10 +42,14 @@ class Card {
       this._handleDeleteCard(e);
     })
 
+    this._element.querySelector(".card__image")
+    .addEventListener("click", (e) => {
+      this._handleOpenPhoto(e);
+    })
   }
 
   _handleLikeCard(e){ 
-    //no funciona -> this._element.querySelector(".button-like").classList.toggle("button-like-active");
+    //no sé porqué no funciona -> this._element.querySelector(".button-like").classList.toggle("button-like-active");
     e.target.classList.toggle("button-like-active");
   }
   
@@ -50,43 +57,18 @@ class Card {
     e.target.closest(".card").remove();
   }
 
-  //static createCard(name,link){
-  /* createCard(){
+  _handleOpenPhoto(e){
+    const openPhotoPopUp = document.querySelector(".photo-popup");
+    const imgPopup = document.querySelector(".photo-popup__image");
+    const titlePopup = document.querySelector(".photo-popup__title");
+    handleOpenPopUp(openPhotoPopUp);
+    imgPopup.src = e.target.src;
+    imgPopup.alt = e.target.alt;
+    titlePopup.textContent = e.target.alt;
+  }
+
+  //static método(){} -> se ejecuta sin ser llamado, sin crear new
    
-    const newImg = newCard.querySelector(".card__image");
-    const newTitle = newCard.querySelector(".card__title");
-    newImg.src = this.link;
-    newImg.alt = this.name;
-    //newImg.addEventListener("click", handleOpenPhoto);
-    newTitle.textContent = this.name;
-
-    const newButtonDelete = newCard.querySelector(".button-delete");
-    newButtonDelete.addEventListener("click", _handleDeleteCard);
-    return newCard;
-  } */
-
-
-   
-/*   createCard(name,link){
-    const newCard = cardTemplate.cloneNode(true);
-  
-    const newImg = newCard.querySelector(".card__image");
-    newImg.src = link;
-    newImg.alt = name;
-    //newImg.addEventListener("click", handleOpenPhoto);
-  
-    const newButtonDelete = newCard.querySelector(".button-delete");
-    //newButtonDelete.addEventListener("click", handleDeleteCard);
-  
-    const newTitle = newCard.querySelector(".card__title");
-    newTitle.textContent = name;
-  
-    const newButtonLike = newCard.querySelector(".button-like");
-    //newButtonLike.addEventListener("click", handleLikeCard);
-  
-    return newCard;
-  } */
-
 }
 
 export default Card;
