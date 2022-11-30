@@ -1,5 +1,5 @@
 import Card from "./Card.js";
-import FormValidator from "./FormValidator.js";
+import {FormValidator, config} from "./FormValidator.js";
 
 
 const originalName = "Jacques Cousteau";
@@ -52,6 +52,7 @@ function initApp(){
   editProfileName.value = originalName;
   editProfileAbout.value = originalAbout;
   handleInitialCards();
+  new FormValidator(config,formSelector).enableValidation();
 }
 
 initApp();

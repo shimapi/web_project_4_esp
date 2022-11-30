@@ -6,6 +6,10 @@
 ### Descripción general
 Desarrollo de aplicación de Galería de Fotos.
 
+Sprint 7:
+- se hace un refactor del código en Card y en FormValidator.
+- la aplicación se modulariza.
+
 Sprint 6:
 - se agregan validaciones a los formularios
 
