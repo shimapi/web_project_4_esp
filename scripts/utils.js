@@ -85,3 +85,14 @@ function handleClickOutsideModal(evt) {
 modals.forEach((modal) => {
   modal.addEventListener("click", handleClickOutsideModal);
 })
+
+
+export const config = {
+  formSelector: ".form",
+  inputSelector: ".form__input",
+  submitButtonSelector: ".button-save",
+  inactiveButtonClass: "button-inactive",
+  inputErrorClass: "form__input_type_error",
+  errorClass: "form__input-error_active",
+  errorSufix: "-error"
+}

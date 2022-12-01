@@ -1,5 +1,7 @@
 import Card from "./Card.js";
-import {FormValidator, config} from "./FormValidator.js";
+import FormValidator from "./FormValidator.js";
+import {config} from "./utils.js"
+
 
 
 const originalName = "Jacques Cousteau";
@@ -39,6 +41,9 @@ const textAbout = document.querySelector(".main-text__about");
 const editProfileName = document.querySelector(".edit-profile__name");
 const editProfileAbout = document.querySelector(".edit-profile__about");
 
+const formSelectorProfile = '.edit-profile__form';
+const formSelectorAddPlace = '.add-place__form';
+
 function handleInitialCards(){
   initialCards.forEach((cardItem) => {
     const createNewCard = new Card(cardItem,"card-template");
@@ -52,7 +57,8 @@ function initApp(){
   editProfileName.value = originalName;
   editProfileAbout.value = originalAbout;
   handleInitialCards();
-  new FormValidator(config,formSelector).enableValidation();
+  new FormValidator(config,formSelectorProfile).enableValidation();
+  new FormValidator(config,formSelectorAddPlace).enableValidation();
 }
 
 initApp();
