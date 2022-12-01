@@ -1,7 +1,7 @@
 import {handleOpenPopUp} from './utils.js'
 
 class Card {
-  constructor(data, cardSelector){ //arrayItem, idTemplate
+  constructor(data, cardSelector){
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
@@ -66,9 +66,7 @@ class Card {
     imgPopup.alt = e.target.alt;
     titlePopup.textContent = e.target.alt;
   }
-
   //static método(){} -> se ejecuta sin ser llamado, sin crear new
-   
 }
 
 export default Card;

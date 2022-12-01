@@ -2,8 +2,6 @@ import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 import {config} from "./utils.js"
 
-
-
 const originalName = "Jacques Cousteau";
 const originalAbout = "Explorer";
 
@@ -35,12 +33,10 @@ const initialCards = [
 ];
 
 const cardsContainer = document.querySelector(".main-cards");
-
 const textName = document.querySelector(".main-text__name");
 const textAbout = document.querySelector(".main-text__about");
 const editProfileName = document.querySelector(".edit-profile__name");
 const editProfileAbout = document.querySelector(".edit-profile__about");
-
 const formSelectorProfile = '.edit-profile__form';
 const formSelectorAddPlace = '.add-place__form';
 

@@ -1,8 +1,6 @@
 export default class FormValidator{
-  //constructor(objConfiguracion,formularioAValidar){
+  
   constructor(config,formSelector){
-    //obj: selectores y clases del formulario
-    //form: toma un elemento del form a validar
     this._config = config;
     this._formSelector = formSelector;
   }
@@ -21,7 +19,6 @@ export default class FormValidator{
     errorElement.textContent = "";
   };
   
-  //_comprobarValidezCampo(){}
   _checkInputValidity = (formElement, inputElement, config) => {
     if (!inputElement.validity.valid) {
       this._showInputError(formElement, inputElement, inputElement.validationMessage, config)
@@ -46,8 +43,6 @@ export default class FormValidator{
     }
   };
 
-
-  //Añade los eventos a TODOS los elementos
   _setEventListeners = (inputListElement, formElement, config) => {
     const buttonElement = formElement.querySelector(config.submitButtonSelector);
 
@@ -59,31 +54,22 @@ export default class FormValidator{
       })
     })
 
-    // aquí, para comprobar el estado del botón al principio
     this._toggleButtonState(inputListElement, buttonElement, config);
 
     formElement.addEventListener('reset', () => {
-      // 'setTimeout' es necesario para esperar a que se borre el formulario (la llamada desaparecerá al final de la pila) y solo entonces llamar a `toggleButtonState`
       setTimeout(() => {
         this._toggleButtonState(inputListElement, buttonElement, config);    
-      }, 0); // basta con especificar 0 milisegundos para que después de `reset` se active la acción
+      }, 0);
     });
 
 
   };
 
-
-  //_agregarControladoresNecesarios(){}
-
   enableValidation(){
     const formElement = document.querySelector(this._formSelector);
-        //activa validacion del formulario
-   
-      const inputList = Array.from(formElement.querySelectorAll(this._config.inputSelector));
-      this._setEventListeners(inputList, formElement,this._config);
-    
+    const inputList = Array.from(formElement.querySelectorAll(this._config.inputSelector));
+    this._setEventListeners(inputList, formElement,this._config);
   }
-
 }
 
 

@@ -24,8 +24,6 @@ const editProfileAbout = document.querySelector(".edit-profile__about");
 const addPlaceName = document.querySelector(".add-place__name");
 const addPlaceLink = document.querySelector(".add-place__link");
 
-
-
 export function handleOpenPopUp(modal) {
   modal.classList.add("modal_active");
   document.addEventListener("keydown", handleEscapeKey);
@@ -44,7 +42,6 @@ function handleProfileFormSubmit(event) {
   textAbout.textContent = editProfileAbout.value;
   handleClosePopUp();
 }
-
 
 function handleAddPlaceFormSubmit(event) {
   event.preventDefault();
@@ -70,22 +67,20 @@ closeModalButtons.forEach((button) => {
   button.addEventListener("click", handleClosePopUp);
 })
 
-
-function handleEscapeKey(e) {
-  if (e.key === "Escape" || e.key === "esc") {
+function handleEscapeKey(event) {
+  if (event.key === "Escape" || event.key === "esc") {
     handleClosePopUp();
   }
 }
 
-function handleClickOutsideModal(evt) {
-  if (evt.target.classList.contains("modal_active")) {
+function handleClickOutsideModal(event) {
+  if (event.target.classList.contains("modal_active")) {
     handleClosePopUp();
   }
 }
 modals.forEach((modal) => {
   modal.addEventListener("click", handleClickOutsideModal);
 })
-
 
 export const config = {
   formSelector: ".form",
