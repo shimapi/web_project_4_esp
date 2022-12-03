@@ -1,4 +1,4 @@
-import {handleOpenPopUp} from './utils.js'
+import { handleOpenPopUp } from "./utils.js";
 
 class Card {
   constructor(data, cardSelector){
@@ -8,53 +8,45 @@ class Card {
   }
 
   _getTemplate(){
-  /* forma antigua:
-    const cardTemplate = document.getElementById("card-template").content;
-    const newCard = cardTemplate.cloneNode(true);
-    return newCard; */
     const cardTemplate = document
-      .getElementById("card-template")
+      .querySelector(`.${this._cardSelector}`)
       .content
       .cloneNode(true);
-
-    return cardTemplate; //devuelvo DOM
+    return cardTemplate; 
   }
  
   generateCard(){
     this._element = this._getTemplate();
     this._setEventListeners();
 
-    this._element.querySelector(".card__image").src = this._link;
-    this._element.querySelector(".card__image").alt = this._name;
-    this._element.querySelector(".card__title").textContent = this._name;
+    const cardImage = this._element.querySelector('.card__image');
+    const cardTitle = this._element.querySelector('.card__title');
+    cardImage.src = this._link;
+    cardImage.alt = this._name;
+    cardTitle.textContent = this._name;
 
     return this._element;
   }
 
   _setEventListeners(){
     this._element.querySelector(".button-like")
-    .addEventListener("click", (e) => {
-      this._handleLikeCard(e);
-    })
+      .addEventListener("click", this._handleLikeCard)
 
     this._element.querySelector(".button-delete")
-    .addEventListener("click", (e) => {
-      this._handleDeleteCard(e);
-    })
+      .addEventListener("click", this._handleDeleteCard)
 
     this._element.querySelector(".card__image")
-    .addEventListener("click", (e) => {
-      this._handleOpenPhoto(e);
-    })
+      .addEventListener("click", this._handleOpenPhoto)
   }
 
-  _handleLikeCard(e){ 
-    //no sé porqué no funciona -> this._element.querySelector(".button-like").classList.toggle("button-like-active");
-    e.target.classList.toggle("button-like-active");
+  _handleLikeCard(){ 
+    this._element.querySelector(".button-like").classList.toggle("button-like-active");
+   // e.target.classList.toggle("button-like-active");
   }
   
-  _handleDeleteCard(e){ 
-    e.target.closest(".card").remove();
+  _handleDeleteCard(){ 
+    this._element.querySelector(".button-delete").closest(".card").remove();
+   // e.target.closest(".card").remove();
   }
 
   _handleOpenPhoto(e){
@@ -66,7 +58,6 @@ class Card {
     imgPopup.alt = e.target.alt;
     titlePopup.textContent = e.target.alt;
   }
-  //static método(){} -> se ejecuta sin ser llamado, sin crear new
 }
 
 export default Card;
