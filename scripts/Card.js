@@ -30,16 +30,23 @@ class Card {
 
   _setEventListeners(){
     this._element.querySelector(".button-like")
-      .addEventListener("click", this._handleLikeCard)
+      .addEventListener("click", ()=>{
+        this._handleLikeCard()
+      })
+
+
 
     this._element.querySelector(".button-delete")
-      .addEventListener("click", this._handleDeleteCard)
+      .addEventListener("click", ()=>{
+        this._handleDeleteCard()
+      })
 
     this._element.querySelector(".card__image")
       .addEventListener("click", this._handleOpenPhoto)
   }
-
+//Cuando una funcion se ejecuta y el "this" que tiene dentro no funciona el debugging es ir a ver donde se esta ejecuntando la funcion
   _handleLikeCard(){ 
+    console.log(this._element.querySelector(".button-like"))
     this._element.querySelector(".button-like").classList.toggle("button-like-active");
    // e.target.classList.toggle("button-like-active");
   }

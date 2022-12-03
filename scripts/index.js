@@ -1,6 +1,6 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
-import { config } from "./utils.js"
+import { config } from "./utils.js";
 
 const originalName = "Jacques Cousteau";
 const originalAbout = "Explorer";

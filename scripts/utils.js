@@ -1,8 +1,5 @@
-// controladores de eventos
-// función abre/cierra popup
-
 import Card from "./Card.js";
-
+import FormValidator from "./FormValidator.js";
 
 const openEditProfileButton = document.querySelector(".button-edit");
 const openAddPlaceButton = document.querySelector(".button-add");
@@ -47,16 +44,18 @@ function handleAddPlaceFormSubmit(event) {
   event.preventDefault();
   const cardNewItem = JSON.parse(`{"name": "${addPlaceName.value}", "link": "${addPlaceLink.value}"}`);
   const createNewCard = new Card(cardNewItem,"card-template");
+  const formSelectorAddPlace = ".add-place__form";
   cardsContainer.prepend(createNewCard.generateCard());
-  event.target.reset();
   handleClosePopUp();
+  event.target.reset();
+  new FormValidator(config,formSelectorAddPlace).enableValidation();
 }
 
 openEditProfileButton.addEventListener("click", function (){
   handleOpenPopUp(openEditProfilePopUp)
 })
 
-openAddPlaceButton.addEventListener("click", function (){
+openAddPlaceButton.addEventListener("click", function (event){
   handleOpenPopUp(openAddPlacePopUp)
 })
 
