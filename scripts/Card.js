@@ -1,7 +1,7 @@
 import { handleOpenPopUp } from "./utils.js";
 
 class Card {
-  constructor(data, cardSelector){
+  constructor(data,cardSelector){
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
@@ -30,30 +30,24 @@ class Card {
 
   _setEventListeners(){
     this._element.querySelector(".button-like")
-      .addEventListener("click", ()=>{
-        this._handleLikeCard()
+      .addEventListener("click", (e) => {
+        this._handleLikeCard(e)
       })
-
-
-
     this._element.querySelector(".button-delete")
-      .addEventListener("click", ()=>{
-        this._handleDeleteCard()
+      .addEventListener("click", (e) => {
+        this._handleDeleteCard(e)
       })
 
     this._element.querySelector(".card__image")
       .addEventListener("click", this._handleOpenPhoto)
   }
-//Cuando una funcion se ejecuta y el "this" que tiene dentro no funciona el debugging es ir a ver donde se esta ejecuntando la funcion
-  _handleLikeCard(){ 
-    console.log(this._element.querySelector(".button-like"))
-    this._element.querySelector(".button-like").classList.toggle("button-like-active");
-   // e.target.classList.toggle("button-like-active");
+
+  _handleLikeCard(e){ 
+    e.target.classList.toggle("button-like-active");
   }
   
-  _handleDeleteCard(){ 
-    this._element.querySelector(".button-delete").closest(".card").remove();
-   // e.target.closest(".card").remove();
+  _handleDeleteCard(e){
+    e.target.closest(".card").remove();
   }
 
   _handleOpenPhoto(e){
