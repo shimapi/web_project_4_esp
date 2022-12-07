@@ -55,7 +55,7 @@ openEditProfileButton.addEventListener("click", function (){
   handleOpenPopUp(openEditProfilePopUp)
 })
 
-openAddPlaceButton.addEventListener("click", function (event){
+openAddPlaceButton.addEventListener("click", function (){
   handleOpenPopUp(openAddPlacePopUp)
 })
 
