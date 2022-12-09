@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="/web_project_4_esp/">
+  <link rel="stylesheet" href="/index.css">
+  <title>Alrededor de los EEUU</title>
+</head>
+
+<body class="body">
+
+  <div class="container">
+
+      <header class="header">
+        <div class="header__logo"></div>
+      </header>
+
+      <section class="owner">
+        <div class="avatar">
+          <img class="avatar__circle" src="/images/avatar.jpg" alt="Foto de perfil" >
+        </div>
+        <div class="main-text">
+          <div class="main-text__container">
+            <h1 class="main-text__name"></h1>
+            <button class="button button-edit" data-target="#editProfile"></button>
+          </div>
+          <h2 class="main-text__about"></h2>
+        </div>
+      </section>
+
+      <section class="upload">
+        <button class="button button-add"  data-target="#addPlace"></button>
+      </section>
+
+      <main class="main main-cards">
+        <template class="card-template">
+          <article class="card">
+            <section class="card__photo">
+              <button class="button-delete"></button>
+              <img src=" " alt="" class="card__image" data-target="#photoPopUp">
+            </section>
+            <section class="card__name">
+              <h3 class="card__title"></h3>
+              <button class="button-like"></button>
+            </section>
+          </article>
+        </template>
+      </main>
+
+      <footer class="footer">
+        <p class="footer__about">
+          © 2022 Alrededor de los EEUU
+        </p>
+      </footer>
+  </div>
+
+  <div class="modal edit-profile" id="editProfile">
+    <div class="modal__container edit-profile__container">
+      <button class="close button-close"></button>
+
+      <form class="edit-profile__form form" action="#" novalidate>
+        <fieldset class="form__fieldset">
+          <h2 class="edit-profile__title">Editar Perfil</h2>
+          <input type="text" id="edit-profile__name" name="edit-profile__name" 
+            class="form__input modal__input edit-profile__input edit-profile__name" 
+            required minlength="2" maxlength="40">
+            <span class="edit-profile__name-error form__input-error"></span>
+
+          <input type="text" id="edit-profile__about" name="edit-profile__about"
+            class="form__input modal__input edit-profile__input edit-profile__about" 
+            required minlength="2" maxlength="200">
+            <span class="edit-profile__about-error form__input-error"></span>
+
+          <button type="submit" class="button button-save">Guardar</button>
+        </fieldset>
+      </form>
+
+    </div>
+  </div>
+
+  <div class="modal add-place" id="addPlace">
+    <div class="modal__container add-place__container">
+      <button class="close button-close"></button>
+
+      <form class="add-place__form form" action="#" novalidate>
+        <fieldset class="form__fieldset">
+          <h2 class="add-place__title">Nuevo Lugar</h2>
+
+          <input type="text" id="add-place__name" name="add-place__name" 
+            class="form__input modal__input add-place__name"
+            placeholder="Título" required minlength="2" maxlength="30">
+            <span class="add-place__name-error form__input-error"></span>
+
+          <input type="URL" id="add-place__link" name="add-place__link" 
+            class="form__input modal__input add-place__link"
+            placeholder="URL de la imagen" required>
+            <span class="add-place__link-error form__input-error"></span>
+
+          <button type="submit" class="button button-save" disabled>Crear</button>
+        </fieldset>
+      </form>
+      
+    </div>
+  </div>
+  
+  <div class="modal photo-popup" id="photoPopUp">
+    <div class="photo-popup__container">
+      <button class="close button-close"></button>
+      <img src=" " alt=" " class="photo-popup__image">
+      <p class="photo-popup__title"></p>
+    </div>
+  </div>
+
+  <script type="module" src="/scripts/index.js"></script>
+
+  </body>
+</html>
