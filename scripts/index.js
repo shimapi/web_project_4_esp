@@ -1,60 +1,43 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
-import { config } from "./utils.js";
+import { originalAbout, originalName, initialCards, formSelectorAddPlace, formSelectorProfile, cardsContainer, editProfileName, editProfileAbout, textAbout, textName, config } 
+  from "./constants.js";
+import Section from "./Section.js";
 
-const originalName = "Jacques Cousteau";
-const originalAbout = "Explorer";
 
-const initialCards = [
-  {
-    name: "Valle de Yosemite",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
-  },
-  {
-    name: "Lago Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
-  },
-  {
-    name: "Montañas Calvas",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
-  },
-  {
-    name: "Latemar",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg"
-  },
-  {
-    name: "Parque Nacional de la Vanoise",
-    link: "https://code.s3.yandex.net/web-code/vanoise.jpg"
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg"
-  }
-];
-
-const cardsContainer = document.querySelector(".main-cards");
-const textName = document.querySelector(".main-text__name");
-const textAbout = document.querySelector(".main-text__about");
-const editProfileName = document.querySelector(".edit-profile__name");
-const editProfileAbout = document.querySelector(".edit-profile__about");
-const formSelectorProfile = ".edit-profile__form";
-const formSelectorAddPlace = ".add-place__form";
-
-function handleInitialCards(){
+const handleInitialCards0 = () => {
   initialCards.forEach((cardItem) => {
     const createNewCard = new Card(cardItem,"card-template");
     cardsContainer.appendChild(createNewCard.generateCard());
   })
 }
 
-function initApp(){
+const initApp = () => {
   textName.textContent = originalName;
   textAbout.textContent = originalAbout;
   editProfileName.value = originalName;
   editProfileAbout.value = originalAbout;
-  handleInitialCards();
+  //handleInitialCards0();
   new FormValidator(config,formSelectorProfile).enableValidation();
   new FormValidator(config,formSelectorAddPlace).enableValidation();
+  console.log("initt")
 }
 
-initApp();
+//initApp();
+
+const handleInitialCards = new Section ({
+  data: initialCards,
+  renderer: (cardItem) => { // observa el parámetro cardItem
+    const createNewCard = 
+      new Card(cardItem, "card-template")
+
+      cardsContainer.appendChild(createNewCard.generateCard());
+      
+    //const cardElement = card.generateCard();
+    //handleInitialCards.setItem(cardElement);
+  }
+},
+//cardListSection
+);
+
+handleInitialCards.renderItems(); 

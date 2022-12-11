@@ -1,9 +1,6 @@
-//conecta Card a Popup
-//haz que card lleve la funcion handleCardClick() al constructor
-//cuando el usuario hace click en la card, la funcion abre el popup con una imagen
+import { handleOpenPopUp } from "./utils.js";
 
-import Popup from "./Popup.js";
-export default class Card{
+class Card {
   constructor(data,cardSelector){
     this._name = data.name;
     this._link = data.link;
@@ -30,27 +27,6 @@ export default class Card{
 
     return this._element;
   }
-  
-  _handleLikeCard(e){ 
-    e.target.classList.toggle("button-like-active");
-  }
-  
-  _handleDeleteCard(e){
-    e.target.closest(".card").remove();
-  }
-
-  _handleOpenPhoto(e){
-    const openPhotoPopUp = 
-      document.querySelector(".photo-popup");
-    const imgPopup = 
-      document.querySelector(".photo-popup__image");
-    const titlePopup = 
-      document.querySelector(".photo-popup__title");
-    new Popup(openPhotoPopUp).open(openPhotoPopUp);
-    imgPopup.src = e.target.src;
-    imgPopup.alt = e.target.alt;
-    titlePopup.textContent = e.target.alt;
-  }
 
   _setEventListeners(){
     this._element.querySelector(".button-like")
@@ -66,4 +42,23 @@ export default class Card{
       .addEventListener("click", this._handleOpenPhoto)
   }
 
+  _handleLikeCard(e){ 
+    e.target.classList.toggle("button-like-active");
+  }
+  
+  _handleDeleteCard(e){
+    e.target.closest(".card").remove();
+  }
+
+  _handleOpenPhoto(e){
+    const openPhotoPopUp = document.querySelector(".photo-popup");
+    const imgPopup = document.querySelector(".photo-popup__image");
+    const titlePopup = document.querySelector(".photo-popup__title");
+    handleOpenPopUp(openPhotoPopUp);
+    imgPopup.src = e.target.src;
+    imgPopup.alt = e.target.alt;
+    titlePopup.textContent = e.target.alt;
+  }
 }
+
+export default Card;
