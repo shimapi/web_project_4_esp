@@ -12,19 +12,24 @@ export default class Popup{
   
   open(){
     console.log("abrio open")
-    this.modal.classList.add("modal_active");
+    this.modal.classList.add("modal_active"); 
+   // this.setEventListeners();
+
   };
   
-  close(e){
-    modals.forEach((modal) => {
-      modal.classList.remove("modal_active");
-      document.removeEventListener("keydown", 
-        this._handleEscClose(e));
-    });
+  close(){
+    //this.setEventListeners();
+
+    console.log("close")
+   // modals.forEach((modal) => {
+      this.modal.classList.remove("modal_active");
+      document.removeEventListener("keydown", this.close());
+    //});
   };
 
   //cerrar cuando la tecla esc es pulsada
   _handleEscClose(e){ 
+
     if (e.key === "Escape" || e.key === "esc") {
       this.close(e);
     }
@@ -38,11 +43,19 @@ export default class Popup{
   }
 
   //click al icono de cerrar el popup
-  setEventListeners(){ 
+  setEventListeners(e){ 
+    console.log("setEventListeners");
+
     closeModalButtons.forEach((button) => {
       button.addEventListener("click", this.close(e));
+      console.log(closeModalButtons)
     })
+
     document.addEventListener("keydown", this._handleEscClose(e));
+    
+    modals.forEach((modal) => {
+      modal.addEventListener("click", this._handleOutClose(e));
+    })
 
   }
 

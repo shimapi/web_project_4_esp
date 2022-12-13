@@ -12,7 +12,7 @@ export default class Card{
 
   _getTemplate(){
     const cardTemplate = document
-      .querySelector(`.${this._cardSelector}`)
+      .querySelector(this._cardSelector)
       .content
       .cloneNode(true);
     return cardTemplate; 
@@ -46,7 +46,7 @@ export default class Card{
       document.querySelector(".photo-popup__image");
     const titlePopup = 
       document.querySelector(".photo-popup__title");
-    new Popup(openPhotoPopUp).open(openPhotoPopUp);
+    new Popup(openPhotoPopUp).open();
     imgPopup.src = e.target.src;
     imgPopup.alt = e.target.alt;
     titlePopup.textContent = e.target.alt;

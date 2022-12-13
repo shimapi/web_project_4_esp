@@ -3,18 +3,24 @@
 
 //crear una instancia de PopupWithForm para cada popup
 
-import { openEditProfilePopUp, originalAbout, originalName } from "./constants";
-import Popup from "./Popup";
+import { openEditProfilePopUp } from "./constants.js";
+import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup{
-  constructor(modal){
-    super(this.modal)
+  constructor(modal,callback) {
+    super(modal)
+    this.callback = callback;
   }
+
   _getInputValues(){
     //recopila datos de entrada
-    console.log( "name", originalName )
-    console.log( "about", originalAbout )
+
   };
+  close(){
+    //reiniciar formulario cuando se cierra el popup
+    super.close();
+    this.modal.querySelector('.form').reset();
+  }
   setEventListeners(){
     //modifica: debe agregar el formulario un controlador de eventos submit
     //setEventListener click con el icono cerrar
@@ -25,7 +31,5 @@ export default class PopupWithForm extends Popup{
     })
   }
 
-  close(){
-    //reiniciar formulario cuando se cierra el popup
-  }
+
 }
