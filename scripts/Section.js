@@ -19,5 +19,6 @@ export default class Section{
   // toma un elemento del DOM y lo agrega al contenedor
   addItem(element){ 
     this._container.append(element)
+    console.log("element", element)
   };
 }

@@ -1,14 +1,18 @@
 //abre y cierra el popup
 
-import { modals, closeModalButtons } from "./constants.js";
+import { 
+  modals,
+  closeModalButtons
+} from "./constants.js";
 
 export default class Popup{
   constructor(modal){
     this.modal = modal;
   }
   
-  open(modal){
-    modal.classList.add("modal_active");
+  open(){
+    console.log("abrio open")
+    this.modal.classList.add("modal_active");
   };
   
   close(e){

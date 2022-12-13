@@ -1,10 +1,24 @@
-import Card from "./Card.js";
-import FormValidator from "./FormValidator.js";
-import { originalAbout, originalName, initialCards, formSelectorAddPlace, formSelectorProfile, cardsContainer, editProfileName, editProfileAbout, textAbout, textName, config } 
-  from "./constants.js";
 import Section from "./Section.js";
+import Card from "./Card.js";
+import UserInfo from "./UserInfo.js";
+import Popup from "./Popup.js";
 
+import FormValidator from "./FormValidator.js";
+import {
+  originalAbout,
+  originalName,
+  initialCards,
+  formSelectorAddPlace,
+  formSelectorProfile,
+  cardsContainer,
+  editProfileName,
+  editProfileAbout,
+  textAbout,
+  textName,
+  config } 
+  from "./constants.js";
 
+/* 
 const handleInitialCards0 = () => {
   initialCards.forEach((cardItem) => {
     const createNewCard = new Card(cardItem,"card-template");
@@ -21,7 +35,7 @@ const initApp = () => {
   new FormValidator(config,formSelectorProfile).enableValidation();
   new FormValidator(config,formSelectorAddPlace).enableValidation();
   console.log("initt")
-}
+} */
 
 //initApp();
 
@@ -33,11 +47,21 @@ const handleInitialCards = new Section ({
 
       cardsContainer.appendChild(createNewCard.generateCard());
       
-    //const cardElement = card.generateCard();
+    //const cardElement = cardItem.generateCard();
     //handleInitialCards.setItem(cardElement);
   }
-},
-//cardListSection
+} //, cardsContainer 
 );
 
-handleInitialCards.renderItems(); 
+handleInitialCards.renderItems();
+
+//const popup = new Popup("edit-profile")
+//popup.open("edit-profile")
+//popup.close()
+
+const user = new UserInfo(originalName,originalAbout)
+
+user.getUserInfo();
+console.log(user.setUserInfo)
+console.log(user.getUserInfo)
+console.log(user.getUserInfo())
