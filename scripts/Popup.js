@@ -13,23 +13,16 @@ export default class Popup{
   open(){
     console.log("abrio open")
     this.modal.classList.add("modal_active"); 
-   // this.setEventListeners();
-
   };
   
   close(){
-    //this.setEventListeners();
-
     console.log("close")
-   // modals.forEach((modal) => {
-      this.modal.classList.remove("modal_active");
-      document.removeEventListener("keydown", this.close());
-    //});
+    this.modal.classList.remove("modal_active");
+    //document.removeEventListener("keydown", this.close());
   };
 
   //cerrar cuando la tecla esc es pulsada
   _handleEscClose(e){ 
-
     if (e.key === "Escape" || e.key === "esc") {
       this.close(e);
     }
@@ -56,8 +49,5 @@ export default class Popup{
     modals.forEach((modal) => {
       modal.addEventListener("click", this._handleOutClose(e));
     })
-
   }
-
-
 }

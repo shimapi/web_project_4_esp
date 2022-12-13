@@ -13,7 +13,9 @@ import {
   openAddPlaceButton,
   config,
   editProfileName,
-  editProfileAbout
+  editProfileAbout,
+  closeModalButtons,
+  modals
 }from "./constants.js";
 
 const handleInitialCards = new Section ({
@@ -25,13 +27,13 @@ const handleInitialCards = new Section ({
   }
 }
 );
-const setGetUserInfo = { textName: editProfileName,
+/* const setGetUserInfo = { textName: editProfileName,
                          textAbout: editProfileAbout }
 const aa = (setGetUserInfo) => {
    new UserInfo(setGetUserInfo).setUserInfo()
 }
 
-console.log(setGetUserInfo)
+console.log(setGetUserInfo) */
 
 openEditProfileButton.addEventListener("click", () => {
   new PopupWithForm(openEditProfilePopUp).open()
@@ -40,7 +42,17 @@ openAddPlaceButton.addEventListener("click", () => {
   new PopupWithForm(openAddPlacePopUp).open();
 })
 
+closeModalButtons.forEach((button) => {
+  button.addEventListener("click", (e)=>{
+    console.log(modals)
+
+    new Popup(modals.forEach((modal)=>{
+      modal.setEventListeners(e);
+    }))
+    //new Popup(modals.some((openAddPlacePopUp)=>{modal = openAddPlacePopUp})).//setEventListeners(e);
+  });
+})
 
 handleInitialCards.renderItems();
 
-
+console.log(modals)
