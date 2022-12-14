@@ -9,7 +9,7 @@ import {
 
 export class UserInfo {
 
-  constructor({ textName, textAbout }) {
+  constructor( textName, textAbout ) {
     this.textNameElement = document.querySelector(textName);
     this.textAboutElement = document.querySelector(textAbout);
   }
@@ -22,14 +22,12 @@ export class UserInfo {
     return obj;
   };
 
-  setUserInfo({ name, about }) {
+  setUserInfo( name, about ) {
     //toma los datos del nuevo usuario y los agrega a la pag
     this.textNameElement.textContent = name;
     this.textAboutElement.textContent = about;
   };
 }
 
-export const exportUserInfo = new UserInfo({textName,textAbout})
+export const exportUserInfo = new UserInfo(textName,textAbout)
 exportUserInfo.setUserInfo(originalName,originalAbout)
-
-//export default const exportUserInfo

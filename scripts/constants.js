@@ -46,8 +46,6 @@ export const modals = document.querySelectorAll(".modal");
 export const openEditProfileButton = document.querySelector(".button-edit");
 export const openAddPlaceButton = document.querySelector(".button-add");
 export const openEditProfilePopUp = document.querySelector(".edit-profile");
-export const modalActive = document.querySelector(".modal_active");
-
 export const openAddPlacePopUp = document.querySelector(".add-place");
 export const addPlaceName = document.querySelector(".add-place__name");
 export const addPlaceLink = document.querySelector(".add-place__link");

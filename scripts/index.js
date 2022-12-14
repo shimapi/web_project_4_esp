@@ -15,8 +15,7 @@ import {
   editProfileName,
   editProfileAbout,
   closeModalButtons,
-  modals,
-  modalActive
+  modals
 }from "./constants.js";
 
 const handleInitialCards = new Section ({
@@ -30,14 +29,6 @@ const handleInitialCards = new Section ({
 
 
 
-/* const setGetUserInfo = { textName: editProfileName,
-                         textAbout: editProfileAbout }
-const aa = (setGetUserInfo) => {
-   new UserInfo(setGetUserInfo).setUserInfo()
-}
-
-console.log(setGetUserInfo) */
-
 openEditProfileButton.addEventListener("click", () => {
   new PopupWithForm(openEditProfilePopUp).open()
 })
@@ -45,33 +36,41 @@ openAddPlaceButton.addEventListener("click", () => {
   new PopupWithForm(openAddPlacePopUp).open();
 })
 
-closeModalButtons.forEach((button) => {
-  button.addEventListener("click", (e)=>{
-/*     console.log(Array.from(modals))
-    new Popup(Array.from(modals).some( (modal) => {
-      modal.classList.contains("modal")
-      console.log("this closemodalbuttons", this)
-    })
-    ).close(); */
+closeModalButtons.forEach((buttonClose) => {
+  buttonClose.addEventListener("click", () => {
     const modalActive = document.querySelector(".modal_active");
-
     new Popup(modalActive).close();
-
-
-
-/*     new Popup(modals.forEach((modal)=>{
-      //  modal.setEventListeners(e);
-      console.log(modal)
-      const closingModal = modals.some( (modal) => {
-        console.log(modal)
-        return modal.classList == "edit-profile";
-      }
-    )
-    }
-    )) */
-    //new Popup(modals.some((openAddPlacePopUp)=>{modal = openAddPlacePopUp})).//setEventListeners(e);
   });
 })
+
+
+
+
+
+
+
+
+
+
+const handleProfileFormSubmit = (event) => {
+  event.preventDefault();
+  const setGetUserInfo = {  textName: editProfileName.value,
+                            textAbout: editProfileAbout.value }
+  new UserInfo(setGetUserInfo).setUserInfo()
+
+  textName.textContent = editProfileName.value;
+  textAbout.textContent = editProfileAbout.value;
+  //handleClosePopUp();
+  const modalActive = document.querySelector(".modal_active");
+  new Popup(modalActive).close();
+}
+
+openEditProfilePopUp.addEventListener("submit", handleProfileFormSubmit);
+
+
+
+//handle esc key
+//handle out click setEventListeners
 
 handleInitialCards.renderItems();
 

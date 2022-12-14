@@ -10,7 +10,7 @@ export default class Popup{
     this.modal = modal;
   }
   
-  open(){
+  open(e){
     console.log("open popup")
     console.log(this)
     this.modal.classList.add("modal_active"); 
@@ -20,7 +20,7 @@ export default class Popup{
     console.log("close popup")
     console.log(this)
     this.modal.classList.remove("modal_active");
-    //document.removeEventListener("keydown", this.close());
+    //this.removeEventListener("keydown", this.close()); BUG
   };
 
   //cerrar cuando la tecla esc es pulsada
@@ -46,7 +46,7 @@ export default class Popup{
       console.log(closeModalButtons)
     })
 
-    document.addEventListener("keydown", this._handleEscClose(e));
+    this.addEventListener("keydown", this._handleEscClose(e));
     
     modals.forEach((modal) => {
       modal.addEventListener("click", this._handleOutClose(e));
