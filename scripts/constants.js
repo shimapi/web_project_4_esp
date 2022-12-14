@@ -29,9 +29,9 @@ export const initialCards = [
 ];
 
 export const cardsContainer = document.querySelector(".main-cards");
-/* export const textName = document.querySelector(".main-text__name");
-export const textAbout = document.querySelector(".main-text__about"); 
-export const editProfileName = document.querySelector(".edit-profile__name");
+export const textNameSelected = document.querySelector(".main-text__name");
+export const textAboutSelected = document.querySelector(".main-text__about"); 
+/*export const editProfileName = document.querySelector(".edit-profile__name");
 export const editProfileAbout = document.querySelector(".edit-profile__about");
 export const formSelectorProfile = ".edit-profile__form";
 export const formSelectorAddPlace = ".add-place__form";*/

@@ -7,7 +7,7 @@ import {
   originalAbout
 } from "./constants.js";
 
-export class UserInfo {
+export default class UserInfo {
 
   constructor( textName, textAbout ) {
     this.textNameElement = document.querySelector(textName);
@@ -28,6 +28,3 @@ export class UserInfo {
     this.textAboutElement.textContent = about;
   };
 }
-
-export const exportUserInfo = new UserInfo(textName,textAbout)
-exportUserInfo.setUserInfo(originalName,originalAbout)

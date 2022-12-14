@@ -1,8 +1,7 @@
 import Section from "./Section.js";
 import Card from "./Card.js";
 import Popup from "./Popup.js";
-import { exportUserInfo, UserInfo } from "./UserInfo.js"; //aunque no se está usando, 
-// en este archivo, se despliega al exportarla! :0
+import UserInfo from "./UserInfo.js";
 import PopupWithForm from "./PopupWithForm.js";
 import {
   initialCards,
@@ -15,7 +14,10 @@ import {
   editProfileName,
   editProfileAbout,
   closeModalButtons,
-  modals
+  textName,
+  textAbout,
+  originalAbout,
+  originalName
 }from "./constants.js";
 
 const handleInitialCards = new Section ({
@@ -27,13 +29,12 @@ const handleInitialCards = new Section ({
   }
 });
 
-
-
 openEditProfileButton.addEventListener("click", () => {
-  new PopupWithForm(openEditProfilePopUp).open()
+  new UserInfo(textName, textAbout).getUserInfo();
+  new PopupWithForm(openEditProfilePopUp, handleProfileFormSubmit).open()
 })
 openAddPlaceButton.addEventListener("click", () => {
-  new PopupWithForm(openAddPlacePopUp).open();
+  new PopupWithForm(openAddPlacePopUp, handleAddPlaceFormSubmit).open();
 })
 
 closeModalButtons.forEach((buttonClose) => {
@@ -44,19 +45,13 @@ closeModalButtons.forEach((buttonClose) => {
 })
 
 
-
-
-
-
-
-
-
-
 const handleProfileFormSubmit = (event) => {
   event.preventDefault();
-  const setGetUserInfo = {  textName: editProfileName.value,
-                            textAbout: editProfileAbout.value }
+  const setGetUserInfo = {  textName: editProfileName.valueOf,
+                            textAbout: editProfileAbout.valueOf }
   new UserInfo(setGetUserInfo).setUserInfo()
+  new UserInfo.setUserInfo(data.name, data.about);
+
 
   textName.textContent = editProfileName.value;
   textAbout.textContent = editProfileAbout.value;
@@ -65,7 +60,19 @@ const handleProfileFormSubmit = (event) => {
   new Popup(modalActive).close();
 }
 
+const handleAddPlaceFormSubmit = (event) => {
+  event.preventDefault();
+  const cardNewItem = JSON.parse(`{"name": "${addPlaceName.value}", "link": "${addPlaceLink.value}"}`);
+  const createNewCard = new Card(cardNewItem,"card-template");
+  const formSelectorAddPlace = ".add-place__form";
+  cardsContainer.prepend(createNewCard.generateCard());
+  handleClosePopUp();
+  event.target.reset();
+  new FormValidator(config,formSelectorAddPlace).enableValidation();
+}
+
 openEditProfilePopUp.addEventListener("submit", handleProfileFormSubmit);
+openAddPlacePopUp.addEventListener("submit", handleAddPlaceFormSubmit);
 
 
 
@@ -75,3 +82,5 @@ openEditProfilePopUp.addEventListener("submit", handleProfileFormSubmit);
 handleInitialCards.renderItems();
 
 //console.log(Array.from(modals))
+const exportUserInfo = new UserInfo(textName,textAbout)
+exportUserInfo.setUserInfo(originalName,originalAbout)
