@@ -31,7 +31,7 @@ const handleInitialCards = new Section ({
 
 openEditProfileButton.addEventListener("click", () => {
   new UserInfo(textName, textAbout).getUserInfo();
-  new PopupWithForm(openEditProfilePopUp, handleProfileFormSubmit).open()
+  new PopupWithForm(openEditProfilePopUp, handleProfileFormSubmit).open();
 })
 openAddPlaceButton.addEventListener("click", () => {
   new PopupWithForm(openAddPlacePopUp, handleAddPlaceFormSubmit).open();
@@ -53,8 +53,8 @@ const handleProfileFormSubmit = (event) => {
   new UserInfo.setUserInfo(data.name, data.about);
 
 
-  textName.textContent = editProfileName.value;
-  textAbout.textContent = editProfileAbout.value;
+ // textName.textContent = editProfileName.value;
+  //textAbout.textContent = editProfileAbout.value;
   //handleClosePopUp();
   const modalActive = document.querySelector(".modal_active");
   new Popup(modalActive).close();
