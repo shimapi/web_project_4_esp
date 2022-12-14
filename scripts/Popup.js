@@ -11,12 +11,14 @@ export default class Popup{
   }
   
   open(){
-    console.log("abrio open")
+    console.log("open popup")
+    console.log(this)
     this.modal.classList.add("modal_active"); 
   };
   
   close(){
-    console.log("close")
+    console.log("close popup")
+    console.log(this)
     this.modal.classList.remove("modal_active");
     //document.removeEventListener("keydown", this.close());
   };

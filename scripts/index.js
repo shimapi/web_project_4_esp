@@ -15,7 +15,8 @@ import {
   editProfileName,
   editProfileAbout,
   closeModalButtons,
-  modals
+  modals,
+  modalActive
 }from "./constants.js";
 
 const handleInitialCards = new Section ({
@@ -25,8 +26,10 @@ const handleInitialCards = new Section ({
       new Card(cardItem, config.cardTemplate);
       cardsContainer.appendChild(createNewCard.generateCard());     
   }
-}
-);
+});
+
+
+
 /* const setGetUserInfo = { textName: editProfileName,
                          textAbout: editProfileAbout }
 const aa = (setGetUserInfo) => {
@@ -44,15 +47,32 @@ openAddPlaceButton.addEventListener("click", () => {
 
 closeModalButtons.forEach((button) => {
   button.addEventListener("click", (e)=>{
-    console.log(modals)
+/*     console.log(Array.from(modals))
+    new Popup(Array.from(modals).some( (modal) => {
+      modal.classList.contains("modal")
+      console.log("this closemodalbuttons", this)
+    })
+    ).close(); */
+    const modalActive = document.querySelector(".modal_active");
 
-    new Popup(modals.forEach((modal)=>{
-      modal.setEventListeners(e);
-    }))
+    new Popup(modalActive).close();
+
+
+
+/*     new Popup(modals.forEach((modal)=>{
+      //  modal.setEventListeners(e);
+      console.log(modal)
+      const closingModal = modals.some( (modal) => {
+        console.log(modal)
+        return modal.classList == "edit-profile";
+      }
+    )
+    }
+    )) */
     //new Popup(modals.some((openAddPlacePopUp)=>{modal = openAddPlacePopUp})).//setEventListeners(e);
   });
 })
 
 handleInitialCards.renderItems();
 
-console.log(modals)
+//console.log(Array.from(modals))
