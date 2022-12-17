@@ -18,7 +18,7 @@ import {
   textAbout,
   originalAbout,
   originalName
-}from "./constants.js";
+} from "./constants.js";
 
 const handleInitialCards = new Section ({
   data: initialCards,

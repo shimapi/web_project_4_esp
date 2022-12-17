@@ -1,12 +1,5 @@
 // presentar información sobre el usuario en la pag
 
-import {
-  textName,
-  textAbout,
-  originalName,
-  originalAbout
-} from "./constants.js";
-
 export default class UserInfo {
 
   constructor( textName, textAbout ) {
@@ -15,6 +8,7 @@ export default class UserInfo {
   }
 
   getUserInfo(){
+    console.log(this.textNameElement)
     //devuelve un obj con info
     //se usa para mostrar los datos del usuario en el POPUP
     const obj = { name: this.textNameElement.textContent,
