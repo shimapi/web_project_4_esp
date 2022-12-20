@@ -35,7 +35,7 @@ export default class Popup{
   }
 
   //cerrar cuando hacen click fuera del popup
-  _handleOutClose(){ 
+  _handleOutClose(e){ 
     console.log("_______close _handleOutClose")
     console.log("THIS", this)
     console.log("eeeeee",e)
