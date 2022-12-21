@@ -63,14 +63,25 @@
       <form class="edit-profile__form form" action="#" novalidate>
         <fieldset class="form__fieldset">
           <h2 class="edit-profile__title">Editar Perfil</h2>
-          <input type="text" id="edit-profile__name" name="edit-profile__name" 
+          <input type="text"
+            id="edit-profile__name"
+            name="edit-profile__name" 
             class="form__input modal__input edit-profile__input edit-profile__name" 
-            required minlength="2" maxlength="40">
+            required
+            minlength="2"
+            maxlength="40" 
+            data-target="name"
+          >
             <span class="edit-profile__name-error form__input-error"></span>
 
-          <input type="text" id="edit-profile__about" name="edit-profile__about"
+          <input type="text"
+            id="edit-profile__about"
+            name="edit-profile__about"
             class="form__input modal__input edit-profile__input edit-profile__about" 
-            required minlength="2" maxlength="200">
+            required minlength="2"
+            maxlength="200"
+            data-target="about"
+          >
             <span class="edit-profile__about-error form__input-error"></span>
 
           <button type="submit" class="button button-save">Guardar</button>

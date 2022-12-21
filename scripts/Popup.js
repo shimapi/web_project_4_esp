@@ -1,14 +1,14 @@
 //abre y cierra el popup
-
-import {closeModalButton} from "./constants.js";
-
 export default class Popup{
 
   constructor(modal){
     this.modal = modal;
     this.closeButton = this.modal.querySelector(".button-close");
+
     this.close = this.close.bind(this);
     this._handleEscClose = this._handleEscClose.bind(this);
+    this._handleOutClose = this._handleOutClose.bind(this);
+
     this.setEventListeners();
   }
   
@@ -22,7 +22,7 @@ export default class Popup{
     console.log("_______close popup")
     console.log(this)
     this.modal.classList.remove("modal_active");
-    //this.removeEventListener("keydown", this._handleEscClose());
+    this.removeEventListener("keydown", this._handleEscClose);
   };
 
   //cerrar cuando la tecla esc es pulsada
@@ -51,8 +51,8 @@ export default class Popup{
     console.log("THIS", this)
     console.log("MODAL", this.modal)
     console.log("CLOSE BUTTON", this.closeButton)
-    this.closeButton.addEventListener("click", this.close());
-    this.modal.addEventListener("click", this._handleOutClose());
-    //this.addEventListener("keydown", this._handleEscClose(e));
+    this.closeButton.addEventListener("click", this.close);
+    this.modal.addEventListener("click", this._handleOutClose);
+    document.addEventListener("keydown", this._handleEscClose);
   }
 }

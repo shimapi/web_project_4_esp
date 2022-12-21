@@ -60,14 +60,14 @@ const handleProfileFormSubmit = (event) => {
   new Popup(modalActive).close();
 }
 
-const handleAddPlaceFormSubmit = (event) => {
-  event.preventDefault();
+const handleAddPlaceFormSubmit = (e) => {
+  e.preventDefault();
   const cardNewItem = JSON.parse(`{"name": "${addPlaceName.value}", "link": "${addPlaceLink.value}"}`);
   const createNewCard = new Card(cardNewItem,"card-template");
   const formSelectorAddPlace = ".add-place__form";
   cardsContainer.prepend(createNewCard.generateCard());
   handleClosePopUp();
-  event.target.reset();
+  e.target.reset();
   new FormValidator(config,formSelectorAddPlace).enableValidation();
 }
 
