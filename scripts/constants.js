@@ -13,6 +13,7 @@ export const editProfileName = ".edit-profile__name";
 export const editProfileAbout = ".edit-profile__about";
 
 export const closeModalButtons = document.querySelectorAll(".button-close");
+export const cardImages = document.querySelectorAll(".card__image");
 export const modals = document.querySelectorAll(".modal");
 
 export const closeModalButton = document.querySelector(".button-close");
@@ -20,8 +21,10 @@ export const openEditProfileButton = document.querySelector(".button-edit");
 export const openAddPlaceButton = document.querySelector(".button-add");
 export const openEditProfilePopUp = document.querySelector(".edit-profile");
 export const openAddPlacePopUp = document.querySelector(".add-place");
+export const openPhotoPopUp = document.querySelector(".photo-popup");
 export const addPlaceName = document.querySelector(".add-place__name");
 export const addPlaceLink = document.querySelector(".add-place__link");
+
 
 export const config = {
   formSelector: ".form",

@@ -10,12 +10,12 @@ export function handleOpenPopUp(modal) {
   document.addEventListener("keydown", handleEscapeKey);
 }
 
-function handleClosePopUp(){
+/* function handleClosePopUp(){
   modals.forEach((modal) => {
     modal.classList.remove("modal_active");
   });
   document.removeEventListener("keydown", handleEscapeKey);
-} 
+}  */
 
 const handleProfileFormSubmit = (event) => {
   event.preventDefault();

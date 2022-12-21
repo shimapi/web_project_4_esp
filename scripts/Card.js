@@ -1,8 +1,8 @@
 //conecta Card a Popup
 //haz que card lleve la funcion handleCardClick() al constructor
 //cuando el usuario hace click en la card, la funcion abre el popup con una imagen
-
-import Popup from "./Popup.js";
+import { openPhotoPopUp } from "./constants.js";
+import {PopupWithImage} from "./PopupWithImage.js";
 export default class Card{
   constructor(data,cardSelector){
     this._name = data.name;
@@ -19,6 +19,7 @@ export default class Card{
   }
  
   generateCard(){
+    console.log(openPhotoPopUp)
     this._element = this._getTemplate();
     this._setEventListeners();
 
@@ -39,19 +40,10 @@ export default class Card{
     e.target.closest(".card").remove();
   }
 
-  _handleOpenPhoto(e){
-    const openPhotoPopUp = 
-      document.querySelector(".photo-popup");
-    const imgPopup = 
-      document.querySelector(".photo-popup__image");
-    const titlePopup = 
-      document.querySelector(".photo-popup__title");
-    new Popup(openPhotoPopUp).open();
-    imgPopup.src = e.target.src;
-    imgPopup.alt = e.target.alt;
-    titlePopup.textContent = e.target.alt;
+/*   _handleOpenPhoto(e){
+    new PopupWithImage(openPhotoPopUp)
   }
-
+ */
   _setEventListeners(){
     this._element.querySelector(".button-like")
       .addEventListener("click", (e) => {
@@ -62,10 +54,10 @@ export default class Card{
         this._handleDeleteCard(e)
       })
 
-    this._element.querySelector(".card__image")
+/*     this._element.querySelector(".card__image")
       .addEventListener("click", (e) => {
       this._handleOpenPhoto(e)
-    })
+    }) */
   }
 
 }

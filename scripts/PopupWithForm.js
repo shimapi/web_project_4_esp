@@ -28,7 +28,6 @@ export default class PopupWithForm extends Popup{
         input.value = userInfo.getUserInfo()[input.dataset.target]
       })
     }
-    /*  */
   }
 
   _getInputValues(){
@@ -65,13 +64,10 @@ export default class PopupWithForm extends Popup{
     })
     //modifica: debe agregar el formulario un controlador de eventos submit
     //setEventListener click con el icono cerrar
-/*     openEditProfileButton.addEventListener("click", () => {
+    /* openEditProfileButton.addEventListener("click", () => {
       new Popup(openEditProfilePopUp).open(openEditProfilePopUp)
       //handleOpenPopUp(openEditProfilePopUp)
       this.open(this.modal)
     }) */
   }
-
-
-
 }

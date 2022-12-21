@@ -3,6 +3,7 @@ import Card from "./Card.js";
 import Popup from "./Popup.js";
 import UserInfo from "./UserInfo.js";
 import PopupWithForm from "./PopupWithForm.js";
+import { PopupWithImage } from "./PopupWithImage.js";
 import {
   initialCards,
   cardsContainer,
@@ -17,7 +18,9 @@ import {
   textName,
   textAbout,
   originalAbout,
-  originalName
+  originalName,
+  openPhotoPopUp,
+  cardImages
 } from "./constants.js";
 
 const handleInitialCards = new Section ({
@@ -37,7 +40,21 @@ openAddPlaceButton.addEventListener("click", () => {
   new PopupWithForm(openAddPlacePopUp, handleAddPlaceFormSubmit).open();
 })
 
+
+
+
+
+
+
+cardImages.forEach((cardImage) => {
+  console.log("cardImage",cardImage); //no llega aqui
+  cardImage.addEventListener("click", (e) => {
+    new PopupWithImage(openPhotoPopUp).open(e)
+  })
+})
+
 closeModalButtons.forEach((buttonClose) => {
+ 
   buttonClose.addEventListener("click", () => {
     const modalActive = document.querySelector(".modal_active");
     new Popup(modalActive).close();
@@ -45,8 +62,8 @@ closeModalButtons.forEach((buttonClose) => {
 })
 
 
-const handleProfileFormSubmit = (event) => {
-  event.preventDefault();
+const handleProfileFormSubmit = (e) => {
+  e.preventDefault();
   const setGetUserInfo = {  textName: editProfileName.valueOf,
                             textAbout: editProfileAbout.valueOf }
   new UserInfo(setGetUserInfo).setUserInfo()
@@ -60,27 +77,27 @@ const handleProfileFormSubmit = (event) => {
   new Popup(modalActive).close();
 }
 
-const handleAddPlaceFormSubmit = (e) => {
-  e.preventDefault();
+
+const handleAddPlaceFormSubmit = (event) => {
+  event.preventDefault();
   const cardNewItem = JSON.parse(`{"name": "${addPlaceName.value}", "link": "${addPlaceLink.value}"}`);
   const createNewCard = new Card(cardNewItem,"card-template");
   const formSelectorAddPlace = ".add-place__form";
   cardsContainer.prepend(createNewCard.generateCard());
   handleClosePopUp();
-  e.target.reset();
+  event.target.reset();
   new FormValidator(config,formSelectorAddPlace).enableValidation();
 }
+
+openEditProfileButton.addEventListener("click", () => {
+  new Popup(openEditProfilePopUp).open(openEditProfilePopUp)
+  handleOpenPopUp(openEditProfilePopUp)
+})
 
 openEditProfilePopUp.addEventListener("submit", handleProfileFormSubmit);
 openAddPlacePopUp.addEventListener("submit", handleAddPlaceFormSubmit);
 
-
-
-//handle esc key
-//handle out click setEventListeners
-
 handleInitialCards.renderItems();
 
-//console.log(Array.from(modals))
 const exportUserInfo = new UserInfo(textName,textAbout)
 exportUserInfo.setUserInfo(originalName,originalAbout)
