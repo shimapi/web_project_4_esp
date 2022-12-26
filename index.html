@@ -60,12 +60,12 @@
     <div class="modal__container edit-profile__container">
       <button class="close button-close"></button>
 
-      <form class="edit-profile__form form" action="#" novalidate>
+      <form class="edit-profile__form form" action="#" name="editProfile" novalidate>
         <fieldset class="form__fieldset">
           <h2 class="edit-profile__title">Editar Perfil</h2>
           <input type="text"
             id="edit-profile__name"
-            name="edit-profile__name" 
+            name="editProfileName" 
             class="form__input modal__input edit-profile__input edit-profile__name" 
             required
             minlength="2"
@@ -76,7 +76,7 @@
 
           <input type="text"
             id="edit-profile__about"
-            name="edit-profile__about"
+            name="editProfileAbout"
             class="form__input modal__input edit-profile__input edit-profile__about" 
             required minlength="2"
             maxlength="200"

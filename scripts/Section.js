@@ -1,7 +1,3 @@
-//presentar una lista de elementos en una pagina
-//no tiene marcado
-//recibe el marcado a traves de callback y lo inserta en el contenedor
-
 export default class Section{
   constructor({ data, renderer }, containerSelector) {
     this._initialArray = data;
@@ -19,6 +15,6 @@ export default class Section{
   // toma un elemento del DOM y lo agrega al contenedor
   addItem(element){ 
     this._container.append(element)
-    console.log("element", element)
+    console.log("Section: element", element)
   };
 }

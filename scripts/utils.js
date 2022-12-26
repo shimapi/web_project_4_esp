@@ -5,11 +5,11 @@ import { cardsContainer, editProfileName, editProfileAbout, textAbout, textName,
 import Popup from "./Popup.js";
   
 
-export function handleOpenPopUp(modal) {
+/* export function handleOpenPopUp(modal) {
   modal.classList.add("modal_active");
   document.addEventListener("keydown", handleEscapeKey);
 }
-
+ */
 /* function handleClosePopUp(){
   modals.forEach((modal) => {
     modal.classList.remove("modal_active");
@@ -48,7 +48,7 @@ openAddPlaceButton.addEventListener("click", () => {
 
 openEditProfilePopUp.addEventListener("submit", handleProfileFormSubmit);
 openAddPlacePopUp.addEventListener("submit", handleAddPlaceFormSubmit);
-
+/* 
 
 closeModalButtons.forEach((button) => {
   button.addEventListener("click", handleClosePopUp);
@@ -68,3 +68,4 @@ function handleClickOutsideModal(event) {
 modals.forEach((modal) => {
   modal.addEventListener("click", handleClickOutsideModal);
 })
+ */

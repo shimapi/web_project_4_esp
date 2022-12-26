@@ -3,7 +3,6 @@ import Card from "./Card.js";
 import Popup from "./Popup.js";
 import UserInfo from "./UserInfo.js";
 import PopupWithForm from "./PopupWithForm.js";
-import { PopupWithImage } from "./PopupWithImage.js";
 import {
   initialCards,
   cardsContainer,
@@ -14,13 +13,10 @@ import {
   config,
   editProfileName,
   editProfileAbout,
-  closeModalButtons,
   textName,
   textAbout,
   originalAbout,
   originalName,
-  openPhotoPopUp,
-  cardImages
 } from "./constants.js";
 
 const handleInitialCards = new Section ({
@@ -32,49 +28,16 @@ const handleInitialCards = new Section ({
   }
 });
 
-openEditProfileButton.addEventListener("click", () => {
-  new UserInfo(textName, textAbout).getUserInfo();
-  new PopupWithForm(openEditProfilePopUp, handleProfileFormSubmit).open();
-})
-openAddPlaceButton.addEventListener("click", () => {
-  new PopupWithForm(openAddPlacePopUp, handleAddPlaceFormSubmit).open();
-})
 
 
+const handleProfileFormSubmit = () => {
+  const profileForm = document.forms.editProfile;
+  const newName = profileForm.elements.editProfileName;
+  const newAbout = profileForm.elements.editProfileAbout;
 
+  console.log("newName", newName.value)
+  console.log("newAbout", newAbout.value)
 
-
-
-
-cardImages.forEach((cardImage) => {
-  console.log("cardImage",cardImage); //no llega aqui
-  cardImage.addEventListener("click", (e) => {
-    new PopupWithImage(openPhotoPopUp).open(e)
-  })
-})
-
-closeModalButtons.forEach((buttonClose) => {
- 
-  buttonClose.addEventListener("click", () => {
-    const modalActive = document.querySelector(".modal_active");
-    new Popup(modalActive).close();
-  });
-})
-
-
-const handleProfileFormSubmit = (e) => {
-  e.preventDefault();
-  const setGetUserInfo = {  textName: editProfileName.valueOf,
-                            textAbout: editProfileAbout.valueOf }
-  new UserInfo(setGetUserInfo).setUserInfo()
-  new UserInfo.setUserInfo(data.name, data.about);
-
-
- // textName.textContent = editProfileName.value;
-  //textAbout.textContent = editProfileAbout.value;
-  //handleClosePopUp();
-  const modalActive = document.querySelector(".modal_active");
-  new Popup(modalActive).close();
 }
 
 
@@ -89,9 +52,13 @@ const handleAddPlaceFormSubmit = (event) => {
   new FormValidator(config,formSelectorAddPlace).enableValidation();
 }
 
+
 openEditProfileButton.addEventListener("click", () => {
-  new Popup(openEditProfilePopUp).open(openEditProfilePopUp)
-  handleOpenPopUp(openEditProfilePopUp)
+  new UserInfo(textName, textAbout).getUserInfo();
+  new PopupWithForm(openEditProfilePopUp, handleProfileFormSubmit).open();
+})
+openAddPlaceButton.addEventListener("click", () => {
+  new PopupWithForm(openAddPlacePopUp, handleAddPlaceFormSubmit).open();
 })
 
 openEditProfilePopUp.addEventListener("submit", handleProfileFormSubmit);
