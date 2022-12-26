@@ -11,8 +11,6 @@ import {
   openEditProfileButton,
   openAddPlaceButton,
   config,
-  editProfileName,
-  editProfileAbout,
   textName,
   textAbout,
   originalAbout,
@@ -22,9 +20,8 @@ import {
 const handleInitialCards = new Section ({
   data: initialCards,
   renderer: (cardItem) => {
-    const createNewCard = 
-      new Card(cardItem, config.cardTemplate);
-      cardsContainer.appendChild(createNewCard.generateCard());     
+    const createNewCard = new Card(cardItem, config.cardTemplate);
+    cardsContainer.appendChild(createNewCard.generateCard());     
   }
 });
 
@@ -35,21 +32,31 @@ const handleProfileFormSubmit = () => {
   const newName = profileForm.elements.editProfileName;
   const newAbout = profileForm.elements.editProfileAbout;
 
-  console.log("newName", newName.value)
-  console.log("newAbout", newAbout.value)
+/*   console.log("newName", newName.value)
+  console.log("newAbout", newAbout.value) */
+
+  new UserInfo(textName, textAbout).setUserInfo(newName.value, newAbout.value);
+  new Popup(openEditProfilePopUp).close();
 
 }
 
 
-const handleAddPlaceFormSubmit = (event) => {
-  event.preventDefault();
+const handleAddPlaceFormSubmit = () => {
+  console.log("entró a handleAddPlaceFormSubmit")
+/*   const addPlaceForm = document.forms.addPlace;
+  const addPlaceName = addPlaceForm.elements.addPlaceName;
+  const addPlaceLink = addPlaceForm.elements.addPlaceLink;
+  console.log("addPlaceName", addPlaceName.value)
+  console.log("addPlaceLink", addPlaceLink.value)
+
   const cardNewItem = JSON.parse(`{"name": "${addPlaceName.value}", "link": "${addPlaceLink.value}"}`);
   const createNewCard = new Card(cardNewItem,"card-template");
   const formSelectorAddPlace = ".add-place__form";
   cardsContainer.prepend(createNewCard.generateCard());
-  handleClosePopUp();
-  event.target.reset();
-  new FormValidator(config,formSelectorAddPlace).enableValidation();
+  //handleClosePopUp();
+  //event.target.reset(); 
+  //new FormValidator(config,formSelectorAddPlace).enableValidation();  */
+  new Popup(openAddPlacePopUp).close();
 }
 
 
@@ -59,6 +66,7 @@ openEditProfileButton.addEventListener("click", () => {
 })
 openAddPlaceButton.addEventListener("click", () => {
   new PopupWithForm(openAddPlacePopUp, handleAddPlaceFormSubmit).open();
+  console.log("entró a openAddPlaceButton")
 })
 
 openEditProfilePopUp.addEventListener("submit", handleProfileFormSubmit);
