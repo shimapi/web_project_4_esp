@@ -36,7 +36,6 @@ export default class Card {
     e.target.closest(".card").remove();
   }
 
-
   _setEventListeners() {
 
     this._element.querySelector(".button-like")

@@ -43,7 +43,7 @@ const handleProfileFormSubmit = () => {
 
 const handleAddPlaceFormSubmit = () => {
   console.log("entró a handleAddPlaceFormSubmit")
-/*   const addPlaceForm = document.forms.addPlace;
+  const addPlaceForm = document.forms.addPlace;
   const addPlaceName = addPlaceForm.elements.addPlaceName;
   const addPlaceLink = addPlaceForm.elements.addPlaceLink;
   console.log("addPlaceName", addPlaceName.value)
@@ -55,7 +55,7 @@ const handleAddPlaceFormSubmit = () => {
   cardsContainer.prepend(createNewCard.generateCard());
   //handleClosePopUp();
   //event.target.reset(); 
-  //new FormValidator(config,formSelectorAddPlace).enableValidation();  */
+  //new FormValidator(config,formSelectorAddPlace).enableValidation(); 
   new Popup(openAddPlacePopUp).close();
 }
 
@@ -63,10 +63,12 @@ const handleAddPlaceFormSubmit = () => {
 openEditProfileButton.addEventListener("click", () => {
   new UserInfo(textName, textAbout).getUserInfo();
   new PopupWithForm(openEditProfilePopUp, handleProfileFormSubmit).open();
+  console.log("CLICK -> entró a openEditProfileButton")
+
 })
 openAddPlaceButton.addEventListener("click", () => {
   new PopupWithForm(openAddPlacePopUp, handleAddPlaceFormSubmit).open();
-  console.log("entró a openAddPlaceButton")
+  console.log("CLICK -> entró a openAddPlaceButton")
 })
 
 openEditProfilePopUp.addEventListener("submit", handleProfileFormSubmit);
@@ -74,5 +76,5 @@ openAddPlacePopUp.addEventListener("submit", handleAddPlaceFormSubmit);
 
 handleInitialCards.renderItems();
 
-const exportUserInfo = new UserInfo(textName,textAbout)
-exportUserInfo.setUserInfo(originalName,originalAbout)
+const exportUserInfo = new UserInfo(textName,textAbout);
+exportUserInfo.setUserInfo(originalName,originalAbout);
