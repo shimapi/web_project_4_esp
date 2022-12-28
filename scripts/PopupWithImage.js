@@ -6,6 +6,7 @@ export class PopupWithImage extends Popup {
 
   constructor(openPhotoPopUp) {
     super(openPhotoPopUp);
+    this.setEventListeners();
   }
 
   open(e) {
@@ -17,6 +18,9 @@ export class PopupWithImage extends Popup {
     imgPopup.src = e.target.src;
     imgPopup.alt = e.target.alt;
     titlePopup.textContent = e.target.alt;
+  }
+  setEventListeners(){
+    super.setEventListeners();
   }
 
 

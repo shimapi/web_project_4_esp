@@ -8,7 +8,7 @@ export default class Popup{
     this._handleEscClose = this._handleEscClose.bind(this);
     this._handleOutClose = this._handleOutClose.bind(this);
 
-    this.setEventListeners();
+    //this.setEventListeners();
   }
   
   open(){

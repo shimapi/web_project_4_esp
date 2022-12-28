@@ -7,24 +7,19 @@ import { config, userInfo } from "./constants.js";
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup{
-  constructor(modal,handleFormSubmit) {
+  constructor(modal) {
 
     super(modal)
     
-    this.handleFormSubmit = handleFormSubmit;
+    //this.handleFormSubmit = handleFormSubmit;
     this.inputList = this.modal.querySelectorAll(config.inputSelector)
     this.setEventListeners()
   }
  
   _setInputValues(){
-    //console.log(userInfo.getUserInfo())
-    //console.log(this.inputList)
     if(this.inputList){
       this.inputList.forEach((input) => {
-/*         console.log(userInfo.getUserInfo())
-        console.log(input.dataset.target) */
         input.value = userInfo.getUserInfo()[input.dataset.target]
-     //   console.log("input.value",input.value);
       })
     }
   }
@@ -44,7 +39,6 @@ export default class PopupWithForm extends Popup{
   }
 
   close(){
-    //reiniciar formulario cuando se cierra el popup
     super.close();
     this.modal.querySelector('.form').reset();
   }
@@ -58,7 +52,7 @@ export default class PopupWithForm extends Popup{
 
     this.modal.querySelector('.form').addEventListener("submit", (e) => {
       e.preventDefault();
-      this.handleFormSubmit();
+      //this.handleFormSubmit();
     })
 
     console.log("setEventListeners de PopupWithForm")
