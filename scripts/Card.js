@@ -6,17 +6,9 @@ export default class Card {
     this._cardSelector = cardSelector;
     this._getTemplate = this._getTemplate.bind(this);
     this.generateCard = this.generateCard.bind(this);
-    
-
-
   }
 
   _getTemplate() {
-
-    console.log("1)", document.querySelector(this._cardSelector))
-    console.log("2)", document.querySelector(this._cardSelector).content)
-    console.log("3)", document.querySelector(this._cardSelector).content.cloneNode(true))
-
     const cardTemplate = document
       .querySelector(this._cardSelector)
       .content
@@ -25,11 +17,6 @@ export default class Card {
   }
 
   generateCard() {
-console.log("________generate_CARD_________")
-    console.log("this._name: ", this._name);
-    console.log("this._link: ", this._link);
-    console.log("this._cardSelector: ", this._cardSelector);
-
     this._element = this._getTemplate();
     this._setEventListeners();
 
