@@ -41,23 +41,16 @@ const handleAddPlaceFormSubmit = () => {
   const cardNewItem = JSON.parse(`{"name": "${addPlaceName.value}", "link": "${addPlaceLink.value}"}`);
 
   const createNewCard = new Card(cardNewItem, config.cardTemplate);
-  //const formSelectorAddPlace = ".add-place__form";
   cardsContainer.prepend(createNewCard.generateCard());
-  //new FormValidator(config,formSelectorAddPlace).enableValidation(); 
   PopUpAddPhoto.close();
 }
 
 const PopUpEditProfile  = new PopupWithForm(openEditProfilePopUp);
 const PopUpAddPhoto     = new PopupWithForm(openAddPlacePopUp);
 const AddUserInfo       = new UserInfo(textName, textAbout);
-//const NewCard           = new Card(cardNewItem, config.cardTemplate); 
-//no funciona 
 
 
 openEditProfileButton.addEventListener("click", () => {
-/*   console.log("AddUserInfo: ", AddUserInfo)
-  console.log("AddUserInfo.getUserInfo(): ", AddUserInfo.getUserInfo())
-  console.log("PopUpEditProfile.getUserInfo(): ", PopUpEditProfile._getInputValues()) */
   AddUserInfo.getUserInfo();
   PopUpEditProfile._getInputValues();
   PopUpEditProfile.open();
