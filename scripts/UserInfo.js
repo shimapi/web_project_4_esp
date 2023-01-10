@@ -18,10 +18,10 @@ export default class UserInfo {
     this.editProfileName.value = this.textNameElement.innerText;
     this.editProfileAbout.value = this.textAboutElement.innerText;
 
-    const obj = { name: this.textNameElement.innerText,
-                  about: this.textAboutElement.innerText }
+    const UserInfoObject = { name: this.textNameElement.innerText,
+                             about: this.textAboutElement.innerText }
 
-    return obj;
+    return UserInfoObject;
   };
 
   setUserInfo(name,about) {
