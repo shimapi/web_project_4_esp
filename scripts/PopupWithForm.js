@@ -8,44 +8,68 @@ export default class PopupWithForm extends Popup{
     super(modal);
 
     this.setEventListeners();
-    const formAddPlace = this.modal.querySelector(config.formSelectorAddPlace);
-    const formProfile = this.modal.querySelector(config.formSelectorProfile);
+    //const formAddPlace = this.modal.querySelector(config.formSelectorAddPlace);
+    //const formProfile = this.modal.querySelector(config.formSelectorProfile);
   }
   
-
   _setInputValues(){
     return userInfo;
   }
   
+  /**
+   * 
+   * @comment queryselectorall 
+   */
   _getInputValues(){
     return userInfo;
   }
 
+  open(){
+    super.open();
+    console.log("this", this);
+    console.log("this.FormValidator", this.FormValidator);
+    console.log("this.FormValidator._toggleButtonState", this.FormValidator._toggleButtonState());
+    this.FormValidator._toggleButtonState;
+  }
+ 
   close(){
     super.close();
     if(this.modal.className.includes("place")){
       this.modal.querySelector(config.formSelectorAddPlace).reset();
     }
   }
+
+  //creo que por aqui hay que poner que se cargue el formulario con el boton deshabiklitado al principio de carga de la pagina.
+  //popup with form/PLACE debe estar deshablilitado al iniiciar la pagina
   
   setEventListeners(){
     
     super.setEventListeners();
 
+    const newFormValidator = new FormValidator(config,config.formSelector);
+    newFormValidator.enableValidation();
+
     if(this.modal.className.includes("profile")){
       this._setInputValues()
-      const newFormValidator = new FormValidator(config,config.formSelectorProfile);
-      newFormValidator.enableValidation();
+      this.modal.querySelector(config.formSelectorProfile).addEventListener("submit", () => {
+
+        const newFormValidator = new FormValidator(config,config.formSelectorProfile);
+        newFormValidator.enableValidation();
+      })
     }else if(this.modal.className.includes("place")){
-      const newFormValidator = new FormValidator(config,config.formSelectorAddPlace);
-      newFormValidator.enableValidation();
+      this.modal.querySelector(config.formSelectorAddPlace).addEventListener("submit", () => {
+        const newFormValidator = new FormValidator(config,config.formSelectorAddPlace);
+        newFormValidator.enableValidation();
+      })
     }
     
 
     this.modal.querySelector('.form').addEventListener("submit", (e) => {
       e.preventDefault();
-
     })
+
+  
+
     //Aca, donde se abre el popup que tiene un formulario dentro (osea el de perfil y place)
     //podes acceder al formulario en si, fijate que en la linea de arriba justo lo vas a seleccionar 
     //Este elemento formulario dentro del modal, sea cual sea, lo podrias guardar en una variable

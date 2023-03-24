@@ -2,7 +2,7 @@ export default class FormValidator{
   constructor(config,formSelector){
     this._config = config;
     this._formElement = document.querySelector(formSelector)
-    this._inputList= Array.from(this._formElement.querySelectorAll(this._config.inputSelector));
+    this._inputList = Array.from(this._formElement.querySelectorAll(this._config.inputSelector));
     this._buttonElement = this._formElement.querySelector(config.submitButtonSelector);
   }
 
@@ -33,6 +33,16 @@ export default class FormValidator{
        !inputElement.validity.valid);
   };
   
+/*   _isEmptyInput = (inputElement) => {
+    if (inputElement.value === "") {
+      this._buttonElement.classList.add(this._config.inactiveButtonClass);
+      this._buttonElement.disabled = true;
+      console.log("esta vacio")
+    } /* else {
+      this._hideInputError(inputElement);
+    } *
+  };
+ */
   _toggleButtonState = () => {
     if (this._hasInvalidInput()) {
       this._buttonElement.classList.add(this._config.inactiveButtonClass);
@@ -44,14 +54,18 @@ export default class FormValidator{
   };
 
   _setEventListeners = () => {
+    
+    this._toggleButtonState(); 
+
     this._inputList.forEach(inputElement => {
       inputElement.addEventListener("input",  () => {
         this._checkInputValidity(inputElement);
         this._toggleButtonState();
+        this._isEmptyInput();
       })
     })
 
-    this._toggleButtonState(); 
+    
 
     this._formElement.addEventListener("reset", () => {
       this._toggleButtonState();
