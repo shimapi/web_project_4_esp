@@ -26,10 +26,7 @@ export default class PopupWithForm extends Popup{
 
   open(){
     super.open();
-    console.log("this", this);
-    console.log("this.FormValidator", this.FormValidator);
-    console.log("this.FormValidator._toggleButtonState", this.FormValidator._toggleButtonState());
-    this.FormValidator._toggleButtonState;
+    this.FormValidator;
   }
  
   close(){
@@ -38,9 +35,6 @@ export default class PopupWithForm extends Popup{
       this.modal.querySelector(config.formSelectorAddPlace).reset();
     }
   }
-
-  //creo que por aqui hay que poner que se cargue el formulario con el boton deshabiklitado al principio de carga de la pagina.
-  //popup with form/PLACE debe estar deshablilitado al iniiciar la pagina
   
   setEventListeners(){
     

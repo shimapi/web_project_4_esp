@@ -33,30 +33,30 @@ export default class FormValidator{
        !inputElement.validity.valid);
   };
   
-/*   _isEmptyInput = (inputElement) => {
+  _isEmptyInput = (inputElement) => {
     if (inputElement.value === "") {
       this._buttonElement.classList.add(this._config.inactiveButtonClass);
       this._buttonElement.disabled = true;
       console.log("esta vacio")
-    } /* else {
+    } else {
       this._hideInputError(inputElement);
-    } *
+      console.log("esta lleno")
+    } 
   };
- */
+ 
   _toggleButtonState = () => {
     if (this._hasInvalidInput()) {
+      console.log("_toggleButtonState true")
       this._buttonElement.classList.add(this._config.inactiveButtonClass);
       this._buttonElement.disabled = true;
     } else {
+      console.log("_toggleButtonState false")
       this._buttonElement.classList.remove(this._config.inactiveButtonClass);
       this._buttonElement.disabled = false;
     }
   };
 
   _setEventListeners = () => {
-    
-    this._toggleButtonState(); 
-
     this._inputList.forEach(inputElement => {
       inputElement.addEventListener("input",  () => {
         this._checkInputValidity(inputElement);
@@ -64,8 +64,6 @@ export default class FormValidator{
         this._isEmptyInput();
       })
     })
-
-    
 
     this._formElement.addEventListener("reset", () => {
       this._toggleButtonState();
