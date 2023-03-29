@@ -41,7 +41,7 @@ export default class FormValidator{
     } /* else {
       this._hideInputError(inputElement);
     } *
-  };
+  }; 
  */
   _toggleButtonState = () => {
     if (this._hasInvalidInput()) {
@@ -59,7 +59,7 @@ export default class FormValidator{
       inputElement.addEventListener("input",  () => {
         this._checkInputValidity(inputElement);
         this._toggleButtonState();
-       // this._isEmptyInput();
+        //this._isEmptyInput();
       })
     })
     
