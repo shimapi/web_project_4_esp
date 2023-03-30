@@ -7,6 +7,7 @@
 ### Descripción general
 
 Desarrollo de aplicación de Galería de Fotos.
+
 Sprint 8:
 
 - se usa webpack
