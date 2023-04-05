@@ -4,22 +4,14 @@ import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup{
   constructor(modal) {
-
     super(modal);
-
     this.setEventListeners();
-    //const formAddPlace = this.modal.querySelector(config.formSelectorAddPlace);
-    //const formProfile = this.modal.querySelector(config.formSelectorProfile);
   }
   
   _setInputValues(){
     return userInfo;
   }
   
-  /**
-   * 
-   * @comment queryselectorall 
-   */
   _getInputValues(){
     return userInfo;
   }
@@ -36,40 +28,18 @@ export default class PopupWithForm extends Popup{
     }
   }
   
-  setEventListeners(){
-    
+  setEventListeners(){    
     super.setEventListeners();
-
-    const newFormValidator = new FormValidator(config,config.formSelector);
-    newFormValidator.enableValidation();
-
-    if(this.modal.className.includes("profile")){
+    
+    if(this.modal.classList.contains("profile")){
       this._setInputValues()
-      this.modal.querySelector(config.formSelectorProfile).addEventListener("submit", () => {
-
-        const newFormValidator = new FormValidator(config,config.formSelectorProfile);
-        newFormValidator.enableValidation();
-      })
-    }else if(this.modal.className.includes("place")){
-      this.modal.querySelector(config.formSelectorAddPlace).addEventListener("submit", () => {
-        const newFormValidator = new FormValidator(config,config.formSelectorAddPlace);
-        newFormValidator.enableValidation();
-      })
     }
     
-
     this.modal.querySelector('.form').addEventListener("submit", (e) => {
       e.preventDefault();
     })
-
-  
-
-    //Aca, donde se abre el popup que tiene un formulario dentro (osea el de perfil y place)
-    //podes acceder al formulario en si, fijate que en la linea de arriba justo lo vas a seleccionar 
-    //Este elemento formulario dentro del modal, sea cual sea, lo podrias guardar en una variable
-    //Con esa variable podrias usarla para ponerle el evento submit como haces arriba
-    //Ahora tenes que validar al formulario pero eso lo tiene la clase FormValidator asi que tendrias que importarla primero y crear una nueva instancia por cada formulario, asi que aca podrias aprovechar y hacerle new
-    //Fijate que FormValidator ya recibe dos parametros, el objeto config y el selector del formulario para seleccionarlo, pero vos ya lo tenes seleccionado en teoria en los primeros pasos, asi que eso podrias modificarlo levemente en esa clase para adaptarlo
-    //Luego le das inicio a su metodo enableValidation como hacias antes y listo, se supone que la clase deberia funcionar sola
+    
+    const newFormValidator = new FormValidator(config,config.formSelector);
+    newFormValidator.enableValidation();
   }
 }

@@ -32,17 +32,7 @@ export default class FormValidator{
     return this._inputList.some((inputElement) => 
        !inputElement.validity.valid);
   };
-  
-/*   _isEmptyInput = (inputElement) => {
-    if (inputElement.value === "") {
-      this._buttonElement.classList.add(this._config.inactiveButtonClass);
-      this._buttonElement.disabled = true;
-      console.log("esta vacio")
-    } /* else {
-      this._hideInputError(inputElement);
-    } *
-  }; 
- */
+
   _toggleButtonState = () => {
     if (this._hasInvalidInput()) {
       this._buttonElement.classList.add(this._config.inactiveButtonClass);
@@ -59,7 +49,6 @@ export default class FormValidator{
       inputElement.addEventListener("input",  () => {
         this._checkInputValidity(inputElement);
         this._toggleButtonState();
-        //this._isEmptyInput();
       })
     })
     
