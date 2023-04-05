@@ -10,7 +10,7 @@ export default class Popup{
   }
   
   open(){
-    this.modal.classList.add("modal_active"); 
+    this.modal.classList.add("modal_active");
   };
   
   close(){
