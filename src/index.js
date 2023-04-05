@@ -1,3 +1,4 @@
+import "./index.css";
 import Section from "./scripts/Section.js";
 import Card from "./scripts/Card.js";
 import UserInfo from "./scripts/UserInfo.js";

@@ -12,7 +12,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "main.js",
-    publicPath: "",
+    publicPath: "/",
   },
   target: ["web", "es5"],
   stats: { children: true },
@@ -20,7 +20,7 @@ module.exports = {
   devServer: {
     static: path.resolve(__dirname, "./dist"),
     compress: true,
-    port: 8080,
+    port: 8082,
     open: true,
   },
   module: {
@@ -62,4 +62,9 @@ module.exports = {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(), // conecta el plugin para fusionar archivos CSS
   ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'), // Add this line to create an alias for the 'src' folder
+    },
+  },
 };
