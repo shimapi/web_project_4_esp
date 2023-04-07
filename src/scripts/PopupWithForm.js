@@ -18,7 +18,6 @@ export default class PopupWithForm extends Popup{
 
   open(){
     super.open();
-    this.FormValidator;
   }
  
   close(){
@@ -39,7 +38,7 @@ export default class PopupWithForm extends Popup{
       e.preventDefault();
     })
     
-    const newFormValidator = new FormValidator(config,config.formSelector);
+    const newFormValidator = new FormValidator(config,this.modal);
     newFormValidator.enableValidation();
   }
 }
