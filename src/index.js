@@ -23,6 +23,9 @@ import {
   const setNewProfileInfo = async (name, about) => {
     await api.editProfileInfo(name, about);
   };
+  const setNewCard = async (name, about) => {
+    await api.addNewCard(name, about);
+  };
 
   const handleInitialCards = new Section({
     //data: initialCards,
@@ -51,6 +54,9 @@ import {
     const cardNewItem = JSON.parse(
       `{"name": "${addPlaceName.value}", "link": "${addPlaceLink.value}"}`
     );
+
+    setNewCard(addPlaceName.value, addPlaceLink.value);
+    console.log("setNewCard", setNewCard);
 
     const createNewCard = new Card(cardNewItem, config.cardTemplate);
     cardsContainer.prepend(createNewCard.generateCard());

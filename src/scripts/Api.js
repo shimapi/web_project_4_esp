@@ -1,6 +1,7 @@
 export default class Api {
   constructor() {
     this.authorization = "e693c678-e26f-42f9-a95c-4c1ab4d74246";
+    this.originURL = "https://around.nomoreparties.co/v1/web_es_cohort_03";
   }
 
   async _useFetch(url, method, body) {
@@ -21,7 +22,7 @@ export default class Api {
 
   async getProfileInitialInfo() {
     const profileInitialInfo = await this._useFetch(
-      "https://around.nomoreparties.co/v1/web_es_cohort_03/users/me",
+      `${this.originURL}/users/me`,
       "GET"
     );
     console.log("API profileInitialInfo", profileInitialInfo);
@@ -29,36 +30,36 @@ export default class Api {
   }
 
   async getCards() {
-    const cards = await this._useFetch(
-      "https://around.nomoreparties.co/v1/web_es_cohort_03/cards",
-      "GET"
-    );
-    //console.log(cards);
+    const cards = await this._useFetch(`${this.originURL}/cards`, "GET");
     return cards;
-    /*  return fetch(
-      "https://around.nomoreparties.co/v1/web_es_cohort_03/users/me",
-      {
-        headers: {
-          authorization: "e693c678-e26f-42f9-a95c-4c1ab4d74246",
-        },
-      }
-    ).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      // si el servidor devuelve un error, rechaza el promise
-      return Promise.reject(`Error: ${res.status}`);
-    }); */
   }
 
   async editProfileInfo(name, about) {
     const profileInfo = await this._useFetch(
-      "https://around.nomoreparties.co/v1/web_es_cohort_03/users/me",
+      `${this.originURL}/users/me`,
       "PATCH",
       //{ name: "Marie Curie", about: "Física y química" }
       { name: name, about: about }
     );
-    console.log("API profileInfo", profileInfo);
+    //console.log("API profileInfo", profileInfo);
     return profileInfo;
+  }
+
+  async addNewCard(name, link) {
+    const newCard = await this._useFetch(`${this.originURL}/cards`, "POST", {
+      name: name,
+      link: link,
+    });
+    console.log("addNewCard", newCard);
+    return newCard;
+  }
+
+  async deleteCard(cardId) {
+    const deletingCard = await this._useFetch(
+      `${this.originURL}/cards/${cardId}`,
+      "DELETE"
+    );
+    console.log("deleteCard", deletingCard);
+    return deletingCard;
   }
 }
