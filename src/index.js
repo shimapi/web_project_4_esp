@@ -5,7 +5,6 @@ import Card from "./scripts/Card.js";
 import UserInfo from "./scripts/UserInfo.js";
 import PopupWithForm from "./scripts/PopupWithForm.js";
 import {
-  initialCards,
   cardsContainer,
   openAddPlacePopUp,
   openEditProfilePopUp,
@@ -14,14 +13,16 @@ import {
   config,
   textName,
   textAbout,
-  originalAbout,
-  originalName,
 } from "./scripts/constants.js";
 
 (async function () {
   const api = new Api();
   const getApiCards = await api.getCards();
   const getApiProfileInfo = await api.getProfileInitialInfo();
+
+  const setNewProfileInfo = async (name, about) => {
+    await api.editProfileInfo(name, about);
+  };
 
   const handleInitialCards = new Section({
     //data: initialCards,
@@ -38,6 +39,7 @@ import {
     const newAbout = profileForm.elements.editProfileAbout;
 
     AddUserInfo.setUserInfo(newName.value, newAbout.value);
+    setNewProfileInfo(newName.value, newAbout.value);
     PopUpEditProfile.close();
   };
 
@@ -59,8 +61,10 @@ import {
   const PopUpAddPhoto = new PopupWithForm(openAddPlacePopUp);
   const AddUserInfo = new UserInfo(textName, textAbout);
 
+  AddUserInfo.setUserInfo(getApiProfileInfo.name, getApiProfileInfo.about);
+
   openEditProfileButton.addEventListener("click", () => {
-    AddUserInfo.getApiProfileInfo();
+    AddUserInfo.getUserInfo();
     PopUpEditProfile._getInputValues();
     PopUpEditProfile.open();
   });
@@ -73,6 +77,4 @@ import {
   openAddPlacePopUp.addEventListener("submit", handleAddPlaceFormSubmit);
 
   handleInitialCards.renderItems();
-
-  AddUserInfo.setUserInfo(getApiProfileInfo.name, getApiProfileInfo.about);
 })();

@@ -7,6 +7,7 @@ export default class Api {
     const res = await fetch(url, {
       headers: {
         authorization: this.authorization,
+        "Content-Type": "application/json",
       },
       method,
       body: JSON.stringify(body),
@@ -50,5 +51,14 @@ export default class Api {
     }); */
   }
 
-  // otros métodos para trabajar con la API
+  async editProfileInfo(name, about) {
+    const profileInfo = await this._useFetch(
+      "https://around.nomoreparties.co/v1/web_es_cohort_03/users/me",
+      "PATCH",
+      //{ name: "Marie Curie", about: "Física y química" }
+      { name: name, about: about }
+    );
+    console.log("API profileInfo", profileInfo);
+    return profileInfo;
+  }
 }
