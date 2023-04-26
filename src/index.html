@@ -50,7 +50,7 @@
               <h3 class="card__title"></h3>
               <section class="card__like">
                 <button class="button-like"></button>
-                <span class="count-like">3</span>
+                <span class="count-likes">3</span>
               </section>
             </section>
           </article>
@@ -149,6 +149,53 @@
         <button class="close button-close"></button>
         <img src=" " alt=" " class="photo-popup__image" />
         <p class="photo-popup__title"></p>
+      </div>
+    </div>
+
+    <div class="modal delete-card" id="deleteCard">
+      <div class="modal__container delete-card__container">
+        <button class="close button-close"></button>
+
+        <form
+          class="delete-card__form form"
+          action="#"
+          name="deleteCard"
+          novalidate
+        >
+          <h2>¿Estás segur@?</h2>
+          <button type="submit" class="button button-save">
+            Sí, quiero borrar esto!
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal edit-avatar" id="editAvatar">
+      <div class="modal__container edit-avatar__container">
+        <button class="close button-close"></button>
+
+        <form
+          class="edit-avatar__form form"
+          action="#"
+          name="editAvatar"
+          novalidate
+        >
+          <fieldset class="form__fieldset">
+            <h2 class="add-place__title">Cambiar foto de perfil</h2>
+
+            <input
+              type="URL"
+              id="edit-avatar__link"
+              name="editAvatarLink"
+              class="form__input modal__input edit-avatar__link"
+              placeholder="URL de la imagen"
+              required
+            />
+            <span class="edit-avatar__link-error form__input-error"></span>
+
+            <button type="submit" class="button button-save">Guardar</button>
+          </fieldset>
+        </form>
       </div>
     </div>
   </body>

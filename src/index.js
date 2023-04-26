@@ -3,13 +3,18 @@ import Api from "./scripts/Api";
 import Section from "./scripts/Section.js";
 import Card from "./scripts/Card.js";
 import UserInfo from "./scripts/UserInfo.js";
-import PopupWithForm from "./scripts/PopupWithForm.js";
+import {
+  PopupWithForms,
+  popupWithFormsEditAvatar,
+} from "./scripts/PopupWithForms.js";
 import {
   cardsContainer,
   openAddPlacePopUp,
   openEditProfilePopUp,
   openEditProfileButton,
   openAddPlaceButton,
+  openEditAvatarPopUp,
+  openDeleteCardPopUp,
   config,
   textName,
   textAbout,
@@ -25,6 +30,12 @@ import {
   };
   const setNewCard = async (name, about) => {
     await api.addNewCard(name, about);
+  };
+  const deleteCard = async (id) => {
+    await api.deleteCard(id);
+  };
+  const editAvatar = async (id) => {
+    await api.editAvatar(id);
   };
 
   const handleInitialCards = new Section({
@@ -63,8 +74,11 @@ import {
     PopUpAddPhoto.close();
   };
 
-  const PopUpEditProfile = new PopupWithForm(openEditProfilePopUp);
-  const PopUpAddPhoto = new PopupWithForm(openAddPlacePopUp);
+  const PopUpEditProfile = new PopupWithForms(openEditProfilePopUp);
+  //en popupWithForms
+  //const PopUpDeleteCard = new PopupWithForms(openDeleteCardPopUp);
+  //const PopUpEditAvatar = new PopupWithForms(openEditAvatarPopUp);
+  const PopUpAddPhoto = new PopupWithForms(openAddPlacePopUp);
   const AddUserInfo = new UserInfo(textName, textAbout);
 
   AddUserInfo.setUserInfo(getApiProfileInfo.name, getApiProfileInfo.about);

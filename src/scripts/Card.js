@@ -1,3 +1,4 @@
+import { popupWithFormsDeleteCard } from "./PopupWithForms.js";
 import { popupWithImage } from "./PopupWithImage.js";
 export default class Card {
   constructor(data, cardSelector) {
@@ -22,11 +23,24 @@ export default class Card {
 
     const cardImage = this._element.querySelector(".card__image");
     const cardTitle = this._element.querySelector(".card__title");
-    const cardLikes = this._element.querySelector(".count-like");
+    const cardLikes = this._element.querySelector(".count-likes");
 
     cardImage.src = this._link;
     cardImage.alt = this._name;
-    cardLikes.textContent = this._likes.length;
+
+    // cardLikes.textContent = this._likes.length;
+
+    if (
+      this._likes.length === undefined ||
+      this._likes.length === null ||
+      this._likes.length === 0 ||
+      this._likes.length === []
+    ) {
+      cardLikes.textContent = "0";
+    } else {
+      cardLikes.textContent = this._likes.length;
+    }
+
     cardTitle.textContent = this._name;
 
     return this._element;
@@ -50,6 +64,7 @@ export default class Card {
     this._element
       .querySelector(".button-delete")
       .addEventListener("click", (e) => {
+        popupWithFormsDeleteCard.open(e);
         this._handleDeleteCard(e);
       });
 

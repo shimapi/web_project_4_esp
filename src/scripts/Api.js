@@ -55,12 +55,12 @@ export default class Api {
     return newCard;
   }
 
-  /*   async deleteCard(cardId) {
+  async deleteCard(cardId) {
     const deletingCard = await this._useFetch(
       `${this.originURL}/cards/${cardId}`,
       "DELETE"
     );
     console.log("deleteCard", deletingCard);
     return deletingCard;
-  } */
+  }
 }

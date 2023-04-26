@@ -10,7 +10,7 @@ Desarrollo de aplicación de Galería de Fotos.
 
 Sprint 8:
 
-- creación de clases: Section, Popup, PopUpWithImage, PopUpWithForm, UserInfo, Card
+- creación de clases: Section, Popup, PopUpWithImage, PopupWithForms, UserInfo, Card
 - instalación de webpack
 
 Sprint 7:
