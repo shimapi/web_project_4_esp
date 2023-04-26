@@ -1,10 +1,13 @@
 import { popupWithFormsDeleteCard } from "./PopupWithForms.js";
 import { popupWithImage } from "./PopupWithImage.js";
+
+//(async function () {
 export default class Card {
   constructor(data, cardSelector) {
     this._name = data.name;
     this._link = data.link;
     this._likes = data.likes;
+    this._id = data._id;
     this._cardSelector = cardSelector;
     this._getTemplate = this._getTemplate.bind(this);
     this.generateCard = this.generateCard.bind(this);
@@ -27,6 +30,7 @@ export default class Card {
 
     cardImage.src = this._link;
     cardImage.alt = this._name;
+    cardImage.id = this._id;
 
     // cardLikes.textContent = this._likes.length;
 
@@ -52,6 +56,8 @@ export default class Card {
 
   _handleDeleteCard(e) {
     e.target.closest(".card").remove();
+    console.log("llamara a la apiiiii");
+    console.log(this._id);
   }
 
   _setEventListeners() {
@@ -64,9 +70,15 @@ export default class Card {
     this._element
       .querySelector(".button-delete")
       .addEventListener("click", (e) => {
-        popupWithFormsDeleteCard.open(e);
         this._handleDeleteCard(e);
+        popupWithFormsDeleteCard.open(e);
       });
+
+    /*     this._element
+      .querySelector(".button-delete")
+      .addEventListener("submit", (e) => {
+        popupWithFormsDeleteCard.close(e);
+      }); */
 
     this._element
       .querySelector(".card__image")
@@ -75,3 +87,4 @@ export default class Card {
       });
   }
 }
+//})();

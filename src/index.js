@@ -3,18 +3,15 @@ import Api from "./scripts/Api";
 import Section from "./scripts/Section.js";
 import Card from "./scripts/Card.js";
 import UserInfo from "./scripts/UserInfo.js";
-import {
-  PopupWithForms,
-  popupWithFormsEditAvatar,
-} from "./scripts/PopupWithForms.js";
+import { PopupWithForms } from "./scripts/PopupWithForms.js";
 import {
   cardsContainer,
   openAddPlacePopUp,
   openEditProfilePopUp,
   openEditProfileButton,
   openAddPlaceButton,
-  openEditAvatarPopUp,
   openDeleteCardPopUp,
+  //openEditAvatarPopUp,
   config,
   textName,
   textAbout,
@@ -25,18 +22,25 @@ import {
   const getApiCards = await api.getCards();
   const getApiProfileInfo = await api.getProfileInitialInfo();
 
-  const setNewProfileInfo = async (name, about) => {
+  const setNewProfileInfoApi = async (name, about) => {
     await api.editProfileInfo(name, about);
   };
-  const setNewCard = async (name, about) => {
+  const setNewCardApi = async (name, about) => {
     await api.addNewCard(name, about);
   };
-  const deleteCard = async (id) => {
-    await api.deleteCard(id);
+  const deleteCardApi = async (_id) => {
+    await api.deleteCard(_id);
   };
-  const editAvatar = async (id) => {
-    await api.editAvatar(id);
-  };
+  /*   const editAvatarApi = async (_id) => {
+    await api.editAvatar(_id);
+  }; */
+
+  const PopUpEditProfile = new PopupWithForms(openEditProfilePopUp);
+  //en popupWithForms
+  const PopUpDeleteCard = new PopupWithForms(openDeleteCardPopUp);
+  //const PopUpEditAvatar = new PopupWithForms(openEditAvatarPopUp);
+  const PopUpAddPhoto = new PopupWithForms(openAddPlacePopUp);
+  const AddUserInfo = new UserInfo(textName, textAbout);
 
   const handleInitialCards = new Section({
     //data: initialCards,
@@ -53,8 +57,18 @@ import {
     const newAbout = profileForm.elements.editProfileAbout;
 
     AddUserInfo.setUserInfo(newName.value, newAbout.value);
-    setNewProfileInfo(newName.value, newAbout.value);
+    setNewProfileInfoApi(newName.value, newAbout.value);
     PopUpEditProfile.close();
+  };
+
+  const handleDeleteCard = () => {
+    const deleteCardForm = document.forms.deleteCard;
+    const deleteCardId = deleteCardForm.elements._id;
+    console.log(this);
+    deleteCardApi(deleteCardId);
+    console.log("Sí quiero borrar esto");
+    console.log(deleteCardId);
+    PopUpDeleteCard.close();
   };
 
   const handleAddPlaceFormSubmit = () => {
@@ -66,20 +80,13 @@ import {
       `{"name": "${addPlaceName.value}", "link": "${addPlaceLink.value}"}`
     );
 
-    setNewCard(addPlaceName.value, addPlaceLink.value);
-    console.log("setNewCard", setNewCard);
+    setNewCardApi(addPlaceName.value, addPlaceLink.value);
+    console.log("setNewCardApi", setNewCardApi);
 
     const createNewCard = new Card(cardNewItem, config.cardTemplate);
     cardsContainer.prepend(createNewCard.generateCard());
     PopUpAddPhoto.close();
   };
-
-  const PopUpEditProfile = new PopupWithForms(openEditProfilePopUp);
-  //en popupWithForms
-  //const PopUpDeleteCard = new PopupWithForms(openDeleteCardPopUp);
-  //const PopUpEditAvatar = new PopupWithForms(openEditAvatarPopUp);
-  const PopUpAddPhoto = new PopupWithForms(openAddPlacePopUp);
-  const AddUserInfo = new UserInfo(textName, textAbout);
 
   AddUserInfo.setUserInfo(getApiProfileInfo.name, getApiProfileInfo.about);
 
@@ -95,6 +102,7 @@ import {
 
   openEditProfilePopUp.addEventListener("submit", handleProfileFormSubmit);
   openAddPlacePopUp.addEventListener("submit", handleAddPlaceFormSubmit);
+  openDeleteCardPopUp.addEventListener("submit", handleDeleteCard);
 
   handleInitialCards.renderItems();
 })();

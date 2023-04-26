@@ -1,7 +1,7 @@
 import {
   config,
   openDeleteCardPopUp,
-  openEditAvatarPopUp,
+  /*openEditAvatarPopUp, */
   userInfo,
 } from "./constants.js";
 import FormValidator from "./FormValidator.js";
@@ -49,4 +49,5 @@ export class PopupWithForms extends Popup {
 }
 
 export const popupWithFormsDeleteCard = new PopupWithForms(openDeleteCardPopUp);
-export const popupWithFormsEditAvatar = new PopupWithForms(openEditAvatarPopUp);
+/* export const popupWithFormsEditAvatar = new PopupWithForms(openEditAvatarPopUp);
+ */
