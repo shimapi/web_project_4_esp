@@ -28,16 +28,14 @@ import {
   const setNewCardApi = async (name, about) => {
     await api.addNewCard(name, about);
   };
-  const deleteCardApi = async (_id) => {
-    await api.deleteCard(_id);
-  };
+
   /*   const editAvatarApi = async (_id) => {
     await api.editAvatar(_id);
   }; */
 
   const PopUpEditProfile = new PopupWithForms(openEditProfilePopUp);
   //en popupWithForms
-  const PopUpDeleteCard = new PopupWithForms(openDeleteCardPopUp);
+  //const PopUpDeleteCard = new PopupWithForms(openDeleteCardPopUp); -> card
   //const PopUpEditAvatar = new PopupWithForms(openEditAvatarPopUp);
   const PopUpAddPhoto = new PopupWithForms(openAddPlacePopUp);
   const AddUserInfo = new UserInfo(textName, textAbout);
@@ -59,16 +57,6 @@ import {
     AddUserInfo.setUserInfo(newName.value, newAbout.value);
     setNewProfileInfoApi(newName.value, newAbout.value);
     PopUpEditProfile.close();
-  };
-
-  const handleDeleteCard = () => {
-    const deleteCardForm = document.forms.deleteCard;
-    const deleteCardId = deleteCardForm.elements._id;
-    console.log(this);
-    deleteCardApi(deleteCardId);
-    console.log("Sí quiero borrar esto");
-    console.log(deleteCardId);
-    PopUpDeleteCard.close();
   };
 
   const handleAddPlaceFormSubmit = () => {
@@ -102,7 +90,7 @@ import {
 
   openEditProfilePopUp.addEventListener("submit", handleProfileFormSubmit);
   openAddPlacePopUp.addEventListener("submit", handleAddPlaceFormSubmit);
-  openDeleteCardPopUp.addEventListener("submit", handleDeleteCard);
+  // openDeleteCardPopUp.addEventListener("submit", handleDeleteCard);
 
   handleInitialCards.renderItems();
 })();

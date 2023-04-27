@@ -1,7 +1,8 @@
-import { popupWithFormsDeleteCard } from "./PopupWithForms.js";
+import { PopupWithForms, popupWithFormsDeleteCard } from "./PopupWithForms.js";
 import { popupWithImage } from "./PopupWithImage.js";
+import { openDeleteCardPopUp } from "./constants.js";
+import Api from "./Api.js";
 
-//(async function () {
 export default class Card {
   constructor(data, cardSelector) {
     this._name = data.name;
@@ -11,8 +12,13 @@ export default class Card {
     this._cardSelector = cardSelector;
     this._getTemplate = this._getTemplate.bind(this);
     this.generateCard = this.generateCard.bind(this);
-  }
 
+    this._api = new Api();
+    const PopUpDeleteCard = new PopupWithForms(openDeleteCardPopUp);
+    /*     const deleteCardApi = async (_id) => {
+      await this._api.deleteCard(_id);
+    }; */
+  }
   _getTemplate() {
     const cardTemplate = document
       .querySelector(this._cardSelector)
@@ -31,21 +37,9 @@ export default class Card {
     cardImage.src = this._link;
     cardImage.alt = this._name;
     cardImage.id = this._id;
-
-    // cardLikes.textContent = this._likes.length;
-
-    if (
-      this._likes.length === undefined ||
-      this._likes.length === null ||
-      this._likes.length === 0 ||
-      this._likes.length === []
-    ) {
-      cardLikes.textContent = "0";
-    } else {
-      cardLikes.textContent = this._likes.length;
-    }
-
     cardTitle.textContent = this._name;
+    cardLikes.textContent =
+      (Array.isArray(this._likes) && this._likes.length) || 0;
 
     return this._element;
   }
@@ -54,11 +48,19 @@ export default class Card {
     e.target.classList.toggle("button-like-active");
   }
 
-  _handleDeleteCard(e) {
+  _handleDeleteCard = async (e) => {
     e.target.closest(".card").remove();
-    console.log("llamara a la apiiiii");
-    console.log(this._id);
-  }
+    console.log("id", this._id);
+    const result = await this._api.deleteCard(this._id);
+    console.log("result", result);
+    // deleteCardApi;
+
+    const deleteCardForm = document.forms.deleteCard;
+    const deleteCardId = deleteCardForm.elements._id;
+    console.log(this);
+    PopUpDeleteCard.close();
+  };
+  //openDeleteCardPopUp.addEventListener("submit", handleDeleteCard);
 
   _setEventListeners() {
     this._element
@@ -70,13 +72,15 @@ export default class Card {
     this._element
       .querySelector(".button-delete")
       .addEventListener("click", (e) => {
-        this._handleDeleteCard(e);
         popupWithFormsDeleteCard.open(e);
+        console.log("se abre popup", e);
       });
 
     /*     this._element
-      .querySelector(".button-delete")
+      .querySelector(".button-save")
       .addEventListener("submit", (e) => {
+        console.log("button-save", e);
+        this._handleDeleteCard(e);
         popupWithFormsDeleteCard.close(e);
       }); */
 
@@ -87,4 +91,3 @@ export default class Card {
       });
   }
 }
-//})();
