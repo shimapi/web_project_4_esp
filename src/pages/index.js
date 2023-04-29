@@ -9,12 +9,14 @@ import {
   openAddPlacePopUp,
   openEditProfilePopUp,
   openEditProfileButton,
+  openEditAvatarPopUp,
   openAddPlaceButton,
   //openDeleteCardPopUp,
   //openEditAvatarPopUp,
   config,
   textName,
   textAbout,
+  avatar,
 } from "../components/constants.js";
 
 (async function () {
@@ -38,7 +40,7 @@ import {
   //const PopUpDeleteCard = new PopupWithForms(openDeleteCardPopUp); -> card
   //const PopUpEditAvatar = new PopupWithForms(openEditAvatarPopUp);
   const PopUpAddPhoto = new PopupWithForms(openAddPlacePopUp);
-  const AddUserInfo = new UserInfo(textName, textAbout);
+  const AddUserInfo = new UserInfo(textName, textAbout, avatar);
 
   const handleInitialCards = new Section({
     //data: initialCards,
@@ -76,12 +78,22 @@ import {
     PopUpAddPhoto.close();
   };
 
-  AddUserInfo.setUserInfo(getApiProfileInfo.name, getApiProfileInfo.about);
+  AddUserInfo.setUserInfo(
+    getApiProfileInfo.name,
+    getApiProfileInfo.about,
+    getApiProfileInfo.avatar
+  );
 
   openEditProfileButton.addEventListener("click", () => {
     AddUserInfo.getUserInfo();
     PopUpEditProfile._getInputValues();
     PopUpEditProfile.open();
+  });
+
+  openEditAvatarPopUp.addEventListener("click", () => {
+    AddUserInfo.getUserInfo();
+    PopUpEditAvatar._getInputValues();
+    PopUpEditAvatar.open();
   });
 
   openAddPlaceButton.addEventListener("click", () => {

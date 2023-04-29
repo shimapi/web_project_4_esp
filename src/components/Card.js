@@ -61,14 +61,16 @@ export default class Card {
     this._element
       .querySelector(".button-delete")
       .addEventListener("click", (e) => {
-        this._handleDeleteCard(e);
+        //this._handleDeleteCard(e);
         popupWithFormsDeleteCard.open(e);
       });
 
-    /*     this._element
-      .querySelector(".button-delete")
+    /*       // no quiere mostrarme el popup q corresponde
+    this._element
+      .querySelector(".delete-card__form") // NULL
       .addEventListener("submit", (e) => {
-        popupWithFormsDeleteCard.close(e);
+       this._handleDeleteCard(e);
+        //popupWithFormsDeleteCard.close(e);
       }); */
 
     this._element
