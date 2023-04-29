@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   devtool: "inline-source-map",
   entry: {
-    main: "./src/index.js",
+    main: "./src/pages/index.js",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -64,7 +64,7 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'), // Add this line to create an alias for the 'src' folder
+      "@": path.resolve(__dirname, "src"), // Add this line to create an alias for the 'src' folder
     },
   },
 };

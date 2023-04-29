@@ -1,6 +1,5 @@
-import { PopupWithForms, popupWithFormsDeleteCard } from "./PopupWithForms.js";
+import { popupWithFormsDeleteCard } from "./PopupWithForms.js";
 import { popupWithImage } from "./PopupWithImage.js";
-import { openDeleteCardPopUp } from "./constants.js";
 import Api from "./Api.js";
 
 export default class Card {
@@ -14,11 +13,8 @@ export default class Card {
     this.generateCard = this.generateCard.bind(this);
 
     this._api = new Api();
-    const PopUpDeleteCard = new PopupWithForms(openDeleteCardPopUp);
-    /*     const deleteCardApi = async (_id) => {
-      await this._api.deleteCard(_id);
-    }; */
   }
+
   _getTemplate() {
     const cardTemplate = document
       .querySelector(this._cardSelector)
@@ -48,19 +44,12 @@ export default class Card {
     e.target.classList.toggle("button-like-active");
   }
 
-  _handleDeleteCard = async (e) => {
+  async _handleDeleteCard(e) {
     e.target.closest(".card").remove();
     console.log("id", this._id);
     const result = await this._api.deleteCard(this._id);
     console.log("result", result);
-    // deleteCardApi;
-
-    const deleteCardForm = document.forms.deleteCard;
-    const deleteCardId = deleteCardForm.elements._id;
-    console.log(this);
-    PopUpDeleteCard.close();
-  };
-  //openDeleteCardPopUp.addEventListener("submit", handleDeleteCard);
+  }
 
   _setEventListeners() {
     this._element
@@ -72,15 +61,13 @@ export default class Card {
     this._element
       .querySelector(".button-delete")
       .addEventListener("click", (e) => {
+        this._handleDeleteCard(e);
         popupWithFormsDeleteCard.open(e);
-        console.log("se abre popup", e);
       });
 
     /*     this._element
-      .querySelector(".button-save")
+      .querySelector(".button-delete")
       .addEventListener("submit", (e) => {
-        console.log("button-save", e);
-        this._handleDeleteCard(e);
         popupWithFormsDeleteCard.close(e);
       }); */
 

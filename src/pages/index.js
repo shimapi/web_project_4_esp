@@ -1,21 +1,21 @@
 import "./index.css";
-import Api from "./scripts/Api";
-import Section from "./scripts/Section.js";
-import Card from "./scripts/Card.js";
-import UserInfo from "./scripts/UserInfo.js";
-import { PopupWithForms } from "./scripts/PopupWithForms.js";
+import Api from "../components/Api";
+import Section from "../components/Section.js";
+import Card from "../components/Card.js";
+import UserInfo from "../components/UserInfo.js";
+import { PopupWithForms } from "../components/PopupWithForms.js";
 import {
   cardsContainer,
   openAddPlacePopUp,
   openEditProfilePopUp,
   openEditProfileButton,
   openAddPlaceButton,
-  openDeleteCardPopUp,
+  //openDeleteCardPopUp,
   //openEditAvatarPopUp,
   config,
   textName,
   textAbout,
-} from "./scripts/constants.js";
+} from "../components/constants.js";
 
 (async function () {
   const api = new Api();

@@ -2,13 +2,12 @@
   "name": "web_project_4_esp-main",
   "version": "1.0.0",
   "description": "- [GitHub Pages Link](https://shimapi.github.io/web_project_4_esp/)",
-  "main": "index.js",
+  "main": "./src/pages/index.js",
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack serve",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
-
   },
   "repository": {
     "type": "git",
