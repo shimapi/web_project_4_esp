@@ -6,6 +6,7 @@ export const textAboutSelected = document.querySelector(".main-text__about");
 export const textName = ".main-text__name";
 export const textAbout = ".main-text__about";
 export const avatar = ".avatar__circle";
+export const editAvatar = ".avatar__edit";
 export const editProfileName = ".edit-profile__name";
 export const editProfileAbout = ".edit-profile__about";
 export const editProfileAvatar = ".edit-profile__avatar";
@@ -38,4 +39,4 @@ export const config = {
   cardTemplate: ".card-template",
 };
 
-export const userInfo = new UserInfo(textName, textAbout);
+export const userInfo = new UserInfo(textName, textAbout, avatar);

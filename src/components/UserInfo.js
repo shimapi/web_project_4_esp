@@ -1,8 +1,4 @@
-import {
-  editProfileAbout,
-  editProfileName,
-  openEditAvatarPopUp,
-} from "./constants.js";
+import { editProfileAbout, editProfileName } from "./constants.js";
 export default class UserInfo {
   constructor(textName, textAbout, avatar) {
     this.textNameElement = document.querySelector(textName);
@@ -18,18 +14,10 @@ export default class UserInfo {
   }
 
   getUserInfo() {
-    //this._setEventListeners();
-    this.editProfileName.value = this.textNameElement.innerText;
-    this.editProfileAbout.value = this.textAboutElement.innerText;
-    //this.editProfileAvatar.value = this.avatarElement.innerText;
-
-    const UserInfoObject = {
-      name: this.textNameElement.innerText,
-      about: this.textAboutElement.innerText,
-      avatar: this.avatarElement.src,
+    return {
+      textName: this.textNameElement.textContent,
+      textAbout: this.textAboutElement.textContent,
     };
-
-    return UserInfoObject;
   }
 
   setUserInfo(name, about, avatar) {
@@ -40,13 +28,5 @@ export default class UserInfo {
     this.editProfileName.value = name;
     this.editProfileAbout.value = about;
     //this.editProfileAvatar.src = avatar;
-  }
-
-  _setEventListeners() {
-    this._element
-      .querySelector(".avatar__circle")
-      .addEventListener("click", (e) => {
-        openEditAvatarPopUp.open(e);
-      });
   }
 }

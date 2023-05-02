@@ -17,33 +17,35 @@ import {
   textName,
   textAbout,
   avatar,
+  editAvatar,
 } from "../components/constants.js";
 
-(async function () {
+async function main() {
   const api = new Api();
   const getApiCards = await api.getCards();
   const getApiProfileInfo = await api.getProfileInitialInfo();
 
-  const setNewProfileInfoApi = async (name, about) => {
-    await api.editProfileInfo(name, about);
+  const setNewProfileInfoApi = async (name, about, avatar) => {
+    await api.editProfileInfo(name, about, avatar);
   };
   const setNewCardApi = async (name, about) => {
     await api.addNewCard(name, about);
   };
 
-  /*   const editAvatarApi = async (_id) => {
-    await api.editAvatar(_id);
+  /*   const setEditAvatarApi = async (avatar) => {
+    await api.editProfileAvatar(avatar);
   }; */
 
   const PopUpEditProfile = new PopupWithForms(openEditProfilePopUp);
   //en popupWithForms
   //const PopUpDeleteCard = new PopupWithForms(openDeleteCardPopUp); -> card
-  //const PopUpEditAvatar = new PopupWithForms(openEditAvatarPopUp);
+  const PopUpEditAvatar = new PopupWithForms(openEditAvatarPopUp);
   const PopUpAddPhoto = new PopupWithForms(openAddPlacePopUp);
   const AddUserInfo = new UserInfo(textName, textAbout, avatar);
 
+  //  console.log(UserInfo._handleGetAvatar()); ERROR
+
   const handleInitialCards = new Section({
-    //data: initialCards,
     data: getApiCards,
     renderer: (cardNewItem) => {
       const createNewCard = new Card(cardNewItem, config.cardTemplate);
@@ -56,10 +58,26 @@ import {
     const newName = profileForm.elements.editProfileName;
     const newAbout = profileForm.elements.editProfileAbout;
 
-    AddUserInfo.setUserInfo(newName.value, newAbout.value);
-    setNewProfileInfoApi(newName.value, newAbout.value);
+    AddUserInfo.setUserInfo(
+      newName.value,
+      newAbout.value,
+      getApiProfileInfo.avatar
+    );
+    setNewProfileInfoApi(
+      newName.value,
+      newAbout.value,
+      getApiProfileInfo.avatar
+    );
     PopUpEditProfile.close();
   };
+
+  /*   const handleProfileAvatarFormSubmit = () => {
+    const profileForm = document.forms.editProfile;
+    const newAvatar = profileForm.elements.editProfileAvatar;
+
+    setEditAvatarApi(getApiProfileInfo.avatar, editProfileAvatar.avatar);
+    PopUpEditAvatar.close();
+  }; */
 
   const handleAddPlaceFormSubmit = () => {
     const addPlaceForm = document.forms.addPlace;
@@ -71,7 +89,6 @@ import {
     );
 
     setNewCardApi(addPlaceName.value, addPlaceLink.value);
-    console.log("setNewCardApi", setNewCardApi);
 
     const createNewCard = new Card(cardNewItem, config.cardTemplate);
     cardsContainer.prepend(createNewCard.generateCard());
@@ -90,11 +107,10 @@ import {
     PopUpEditProfile.open();
   });
 
-  openEditAvatarPopUp.addEventListener("click", () => {
-    AddUserInfo.getUserInfo();
-    PopUpEditAvatar._getInputValues();
-    PopUpEditAvatar.open();
-  });
+  /*   const editAvatarImg = document.querySelector(editAvatar);
+  console.log(editAvatarImg); */
+
+  //PopUpEditAvatar.addEventListener("click", handleProfileAvatarFormSubmit);
 
   openAddPlaceButton.addEventListener("click", () => {
     PopUpAddPhoto.open();
@@ -105,4 +121,6 @@ import {
   // openDeleteCardPopUp.addEventListener("submit", handleDeleteCard);
 
   handleInitialCards.renderItems();
-})();
+}
+
+main();

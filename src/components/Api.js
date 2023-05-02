@@ -46,6 +46,26 @@ export default class Api {
     return profileInfo;
   }
 
+  async editProfileAvatar(avatar) {
+    const profileAvatar = await this._useFetch(
+      `${this.originURL}/users/me`,
+      "PATCH",
+      { avatar: avatar }
+    );
+    console.log("API profileAvatar", profileAvatar);
+    return profileAvatar;
+  }
+
+  async editProfileInfoAvatar(name, about, avatar) {
+    const profileInfoAvatar = await this._useFetch(
+      `${this.originURL}/users/me`,
+      "PATCH",
+      { name: name, about: about, avatar: avatar }
+    );
+    console.log("API profileInfoAvatar", profileInfoAvatar);
+    return profileInfoAvatar;
+  }
+
   async addNewCard(name, link) {
     const newCard = await this._useFetch(`${this.originURL}/cards`, "POST", {
       name: name,
@@ -56,11 +76,16 @@ export default class Api {
   }
 
   async deleteCard(cardId) {
-    const deletingCard = await this._useFetch(
-      `${this.originURL}/cards/${cardId}`,
-      "DELETE"
-    );
-    console.log("deleteCard", deletingCard);
+    let deletingCard;
+    try {
+      deletingCard = await this._useFetch(
+        `${this.originURL}/cards/${cardId}`,
+        "DELETE"
+      );
+      console.log("deleteCard", deletingCard);
+    } catch (err) {
+      console.log(err);
+    }
     return deletingCard;
   }
 }

@@ -11,7 +11,6 @@ export default class Card {
     this._cardSelector = cardSelector;
     this._getTemplate = this._getTemplate.bind(this);
     this.generateCard = this.generateCard.bind(this);
-
     this._api = new Api();
   }
 
@@ -34,10 +33,13 @@ export default class Card {
     cardImage.alt = this._name;
     cardImage.id = this._id;
     cardTitle.textContent = this._name;
-    cardLikes.textContent =
-      (Array.isArray(this._likes) && this._likes.length) || 0;
+    cardLikes.textContent = this.likeCountNumber();
 
     return this._element;
+  }
+
+  likeCountNumber() {
+    return (Array.isArray(this._likes) && this._likes.length) || 0;
   }
 
   _handleLikeCard(e) {
@@ -61,7 +63,7 @@ export default class Card {
     this._element
       .querySelector(".button-delete")
       .addEventListener("click", (e) => {
-        //this._handleDeleteCard(e);
+        this._handleDeleteCard(e);
         popupWithFormsDeleteCard.open(e);
       });
 
