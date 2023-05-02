@@ -56,7 +56,7 @@ export default class Api {
     return profileAvatar;
   }
 
-  async editProfileInfoAvatar(name, about, avatar) {
+  /*   async editProfileInfoAvatar(name, about, avatar) {
     const profileInfoAvatar = await this._useFetch(
       `${this.originURL}/users/me`,
       "PATCH",
@@ -64,7 +64,7 @@ export default class Api {
     );
     console.log("API profileInfoAvatar", profileInfoAvatar);
     return profileInfoAvatar;
-  }
+  } */
 
   async addNewCard(name, link) {
     const newCard = await this._useFetch(`${this.originURL}/cards`, "POST", {

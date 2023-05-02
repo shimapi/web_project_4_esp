@@ -13,6 +13,7 @@ import {
   openAddPlaceButton,
   //openDeleteCardPopUp,
   //openEditAvatarPopUp,
+  deleteCardForm,
   config,
   textName,
   textAbout,
@@ -38,7 +39,7 @@ async function main() {
 
   const PopUpEditProfile = new PopupWithForms(openEditProfilePopUp);
   //en popupWithForms
-  //const PopUpDeleteCard = new PopupWithForms(openDeleteCardPopUp); -> card
+  const PopUpDeleteCard = new PopupWithForms(openDeleteCardPopUp);
   const PopUpEditAvatar = new PopupWithForms(openEditAvatarPopUp);
   const PopUpAddPhoto = new PopupWithForms(openAddPlacePopUp);
   const AddUserInfo = new UserInfo(textName, textAbout, avatar);
