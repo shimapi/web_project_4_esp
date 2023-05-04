@@ -56,7 +56,7 @@ export default class Api {
     return profileAvatar;
   }
 
-  /*   async editProfileInfoAvatar(name, about, avatar) {
+  async editProfileInfoAvatar(name, about, avatar) {
     const profileInfoAvatar = await this._useFetch(
       `${this.originURL}/users/me`,
       "PATCH",
@@ -64,7 +64,7 @@ export default class Api {
     );
     console.log("API profileInfoAvatar", profileInfoAvatar);
     return profileInfoAvatar;
-  } */
+  }
 
   async addNewCard(name, link) {
     const newCard = await this._useFetch(`${this.originURL}/cards`, "POST", {
@@ -75,17 +75,53 @@ export default class Api {
     return newCard;
   }
 
-  async deleteCard(cardId) {
+  async deleteCard(cardId, userId) {
     let deletingCard;
+
+    //si el creador de la card es igual al userId, que aparezca el botón borrar
+    //(el basurero), sino, no me muestra el basurero.
+    if (userId === cardId) {
+      try {
+        deletingCard = await this._useFetch(
+          `${this.originURL}/cards/${cardId}`,
+          "DELETE"
+        );
+        console.log("deleteCard", deletingCard);
+      } catch (err) {
+        console.log(err);
+      }
+      console.log("MUESTRO BASURERO")
+      return deletingCard;
+    } else {
+      console.log("ESCONDO BASURERO")
+    }
+  }
+
+  async likeCard(cardId) {
+    let likesCard;
     try {
-      deletingCard = await this._useFetch(
-        `${this.originURL}/cards/${cardId}`,
-        "DELETE"
+      likesCard = await this._useFetch(
+        `${this.originURL}/cards/likes/${cardId}`,
+        "PUT"
       );
-      console.log("deleteCard", deletingCard);
+      console.log("likeCard", likesCard);
     } catch (err) {
       console.log(err);
     }
-    return deletingCard;
+    return likesCard;
+  }
+
+  async dislikeCard(cardId) {
+    let dislikesCard;
+    try {
+      dislikesCard = await this._useFetch(
+        `${this.originURL}/cards/likes/${cardId}`,
+        "DELETE"
+      );
+      console.log("dislikeCard", dislikesCard);
+    } catch (err) {
+      console.log(err);
+    }
+    return dislikesCard;
   }
 }

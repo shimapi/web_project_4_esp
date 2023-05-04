@@ -21,7 +21,6 @@ export const openAddPlaceButton = document.querySelector(".button-add");
 export const openEditProfilePopUp = document.querySelector(".edit-profile");
 export const openEditAvatarPopUp = document.querySelector(".edit-avatar");
 export const openDeleteCardPopUp = document.querySelector(".delete-card");
-export const deleteCardForm = document.querySelector(".delete-card__form");
 export const openAddPlacePopUp = document.querySelector(".add-place");
 export const openPhotoPopUp = document.querySelector(".photo-popup");
 export const addPlaceName = document.querySelector(".add-place__name");

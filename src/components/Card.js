@@ -35,12 +35,6 @@ export default class Card {
     cardTitle.textContent = this._name;
     cardLikes.textContent = this.likeCountNumber();
 
-    const deleteButton = this._element.querySelector(".card__delete-button");
-    deleteButton.addEventListener("click", (evt) => {
-      evt.stopPropagation();
-      handleDeleteCard(this._element, this._id);
-    });
-
     return this._element;
   }
 
@@ -53,7 +47,6 @@ export default class Card {
   }
 
   async _handleDeleteCard(e) {
-    e.preventDefault();
     e.target.closest(".card").remove();
     console.log("id", this._id);
     const result = await this._api.deleteCard(this._id);
@@ -80,15 +73,7 @@ export default class Card {
       .addEventListener("submit", (e) => {
        this._handleDeleteCard(e);
         //popupWithFormsDeleteCard.close(e);
-      }); 
-      
-      
-      
-      
-      */
-    this._deleteButton.addEventListener("click", () => {
-      handleDeleteCard(this._element);
-    });
+      }); */
 
     this._element
       .querySelector(".card__image")
