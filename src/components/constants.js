@@ -5,11 +5,11 @@ export const textNameSelected = document.querySelector(".main-text__name");
 export const textAboutSelected = document.querySelector(".main-text__about");
 export const textName = ".main-text__name";
 export const textAbout = ".main-text__about";
-export const avatar = ".avatar__circle";
+export const imgAvatar = ".avatar__circle";
 export const editAvatar = ".avatar__edit";
 export const editProfileName = ".edit-profile__name";
 export const editProfileAbout = ".edit-profile__about";
-export const editProfileAvatar = ".edit-profile__avatar";
+export const editProfileAvatar = ".edit-avatar__link";
 
 export const closeModalButtons = document.querySelectorAll(".button-close");
 export const cardImages = document.querySelectorAll(".card__image");
@@ -39,4 +39,4 @@ export const config = {
   cardTemplate: ".card-template",
 };
 
-export const userInfo = new UserInfo(textName, textAbout, avatar);
+export const userInfo = new UserInfo(textName, textAbout, imgAvatar);

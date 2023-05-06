@@ -1,6 +1,7 @@
 import { popupWithFormsDeleteCard } from "./PopupWithForms.js";
 import { popupWithImage } from "./PopupWithImage.js";
 import Api from "./Api.js";
+import UserInfo from "./UserInfo.js";
 
 export default class Card {
   constructor(data, cardSelector) {
@@ -12,6 +13,7 @@ export default class Card {
     this._getTemplate = this._getTemplate.bind(this);
     this.generateCard = this.generateCard.bind(this);
     this._api = new Api();
+    this._userInfo = new UserInfo();
   }
 
   _getTemplate() {

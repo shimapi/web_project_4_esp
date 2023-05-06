@@ -75,12 +75,13 @@ export default class Api {
     return newCard;
   }
 
-  async deleteCard(cardId, userId) {
+  async deleteCard(cardIdOwner, userId) {
     let deletingCard;
-
+    console.log("cardIdOwner", cardIdOwner);
+    console.log("userId", userId);
     //si el creador de la card es igual al userId, que aparezca el botón borrar
     //(el basurero), sino, no me muestra el basurero.
-    if (userId === cardId) {
+    if (userId === cardIdOwner) {
       try {
         deletingCard = await this._useFetch(
           `${this.originURL}/cards/${cardId}`,
@@ -90,10 +91,10 @@ export default class Api {
       } catch (err) {
         console.log(err);
       }
-      console.log("MUESTRO BASURERO")
+      console.log("MUESTRO BASURERO");
       return deletingCard;
     } else {
-      console.log("ESCONDO BASURERO")
+      console.log("ESCONDO BASURERO");
     }
   }
 

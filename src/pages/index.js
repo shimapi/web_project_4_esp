@@ -16,32 +16,35 @@ import {
   config,
   textName,
   textAbout,
-  avatar,
+  imgAvatar,
   editAvatar,
+  userInfo,
 } from "../components/constants.js";
 
 async function main() {
   const api = new Api();
   const getApiCards = await api.getCards();
-  const getApiProfileInfo = await api.getProfileInitialInfo();
+  const userInfoConstants = new UserInfo(textName, textAbout, imgAvatar);
+  const profileInfo = await userInfoConstants.getUserInfo();
+    
+  console.log("userInfoConstants", userInfoConstants);
 
-  const setNewProfileInfoApi = async (name, about, avatar) => {
+/*   const setNewProfileInfoApi = async (name, about, avatar) => {
     await api.editProfileInfo(name, about, avatar);
-  };
+  }; */
   const setNewCardApi = async (name, about) => {
     await api.addNewCard(name, about);
   };
 
-  /*   const setEditAvatarApi = async (avatar) => {
-    await api.editProfileAvatar(avatar);
-  }; */
+  const setEditAvatarApi = async (imgAvatar) => {
+    await api.editProfileAvatar(imgAvatar);
+  };
 
   const PopUpEditProfile = new PopupWithForms(openEditProfilePopUp);
   //en popupWithForms
   //const PopUpDeleteCard = new PopupWithForms(openDeleteCardPopUp); -> card
   const PopUpEditAvatar = new PopupWithForms(openEditAvatarPopUp);
   const PopUpAddPhoto = new PopupWithForms(openAddPlacePopUp);
-  const AddUserInfo = new UserInfo(textName, textAbout, avatar);
 
   //  console.log(UserInfo._handleGetAvatar()); ERROR
 
@@ -53,31 +56,37 @@ async function main() {
     },
   });
 
-  const handleProfileFormSubmit = () => {
+  const handleProfileFormSubmit = async () => {
     const profileForm = document.forms.editProfile;
     const newName = profileForm.elements.editProfileName;
     const newAbout = profileForm.elements.editProfileAbout;
-
-    AddUserInfo.setUserInfo(
+    const updatedUserInfo = await userInfo.updateUserInfo(
       newName.value,
-      newAbout.value,
-      getApiProfileInfo.avatar
+      newAbout.value
     );
-    setNewProfileInfoApi(
-      newName.value,
-      newAbout.value,
-      getApiProfileInfo.avatar
-    );
+    console.log(updatedUserInfo);
+    userInfo.setUserInfo(updatedUserInfo);
     PopUpEditProfile.close();
   };
 
-  /*   const handleProfileAvatarFormSubmit = () => {
+  const handleProfileAvatarFormSubmit = () => {
     const profileForm = document.forms.editProfile;
     const newAvatar = profileForm.elements.editProfileAvatar;
 
-    setEditAvatarApi(getApiProfileInfo.avatar, editProfileAvatar.avatar);
-    PopUpEditAvatar.close();
-  }; */
+
+/*     const updatedUserInfo = userInfo.updateUserInfo(
+      newAvatar.value
+
+      );
+      console.log(updatedUserInfo);
+      userInfo.setUserInfo(updatedUserInfo);
+      PopUpEditAvatar.close();
+
+     //setEditAvatarApi(getApiProfileInfo.avatar, editProfileAvatar.avatar); */
+
+    //PopUpEditAvatar.close(); 
+
+  };
 
   const handleAddPlaceFormSubmit = () => {
     const addPlaceForm = document.forms.addPlace;
@@ -95,22 +104,17 @@ async function main() {
     PopUpAddPhoto.close();
   };
 
-  AddUserInfo.setUserInfo(
-    getApiProfileInfo.name,
-    getApiProfileInfo.about,
-    getApiProfileInfo.avatar
-  );
+  userInfo.setUserInfo(profileInfo);
 
   openEditProfileButton.addEventListener("click", () => {
-    AddUserInfo.getUserInfo();
     PopUpEditProfile._getInputValues();
     PopUpEditProfile.open();
   });
 
-  /*   const editAvatarImg = document.querySelector(editAvatar);
-  console.log(editAvatarImg); */
+    const editAvatarImg = document.querySelector(editAvatar);
+  console.log(editAvatarImg);
 
-  //PopUpEditAvatar.addEventListener("click", handleProfileAvatarFormSubmit);
+  editAvatarImg.addEventListener("click", handleProfileAvatarFormSubmit);
 
   openAddPlaceButton.addEventListener("click", () => {
     PopUpAddPhoto.open();
@@ -118,7 +122,7 @@ async function main() {
 
   openEditProfilePopUp.addEventListener("submit", handleProfileFormSubmit);
   openAddPlacePopUp.addEventListener("submit", handleAddPlaceFormSubmit);
-  // openDeleteCardPopUp.addEventListener("submit", handleDeleteCard);
+   //openDeleteCardPopUp.addEventListener("submit", handleDeleteCard);
 
   handleInitialCards.renderItems();
 }
