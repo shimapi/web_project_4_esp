@@ -1,19 +1,23 @@
-import { popupWithFormsDeleteCard } from "./PopupWithForms.js";
 import { popupWithImage } from "./PopupWithImage.js";
-import Api from "./Api.js";
-import UserInfo from "./UserInfo.js";
-
 export default class Card {
-  constructor(data, cardSelector) {
+  constructor(
+    data,
+    userId,
+    cardSelector,
+    handleDeleteCard,
+    handleLikeCard,
+    handleDislikeCard
+  ) {
     this._name = data.name;
+    this._userId = userId;
     this._link = data.link;
     this._likes = data.likes;
+    this._ownerId = data.owner._id;
     this._id = data._id;
     this._cardSelector = cardSelector;
-    this._getTemplate = this._getTemplate.bind(this);
-    this.generateCard = this.generateCard.bind(this);
-    this._api = new Api();
-    this._userInfo = new UserInfo();
+    this._handleDeleteCard = handleDeleteCard;
+    this._handleLikeCard = handleLikeCard;
+    this._handleDislikeCard = handleDislikeCard;
   }
 
   _getTemplate() {
@@ -29,13 +33,31 @@ export default class Card {
 
     const cardImage = this._element.querySelector(".card__image");
     const cardTitle = this._element.querySelector(".card__title");
-    const cardLikes = this._element.querySelector(".count-likes");
+    this.cardLikes = this._element.querySelector(".count-likes");
+    this.likeButton = this._element.querySelector(".button-like");
+    this.trashButton = this._element.querySelector(".button-delete");
+
+    console.log(
+      "USER IDDDDD",
+      this._ownerId === this._userId,
+      this._ownerId,
+      this.userId
+    );
+    if (!(this._ownerId === this._userId)) {
+      this.trashButton.remove();
+    }
 
     cardImage.src = this._link;
     cardImage.alt = this._name;
     cardImage.id = this._id;
     cardTitle.textContent = this._name;
-    cardLikes.textContent = this.likeCountNumber();
+    this.cardLikes.textContent = this.likeCountNumber();
+
+    console.log(this._userId);
+
+    if (this._likes.some((like) => like._id === this._userId)) {
+      this.likeButton.classList.add("button-like-active");
+    }
 
     return this._element;
   }
@@ -44,38 +66,34 @@ export default class Card {
     return (Array.isArray(this._likes) && this._likes.length) || 0;
   }
 
-  _handleLikeCard(e) {
-    e.target.classList.toggle("button-like-active");
-  }
-
-  async _handleDeleteCard(e) {
-    e.target.closest(".card").remove();
-    console.log("id", this._id);
-    const result = await this._api.deleteCard(this._id);
-    console.log("result", result);
+  updateLikes() {
+    cardLikes.textContent;
   }
 
   _setEventListeners() {
     this._element
       .querySelector(".button-like")
-      .addEventListener("click", (e) => {
-        this._handleLikeCard(e);
+      .addEventListener("click", async (e) => {
+        if (
+          this._likes.some((like) => {
+            return like._id === this._userId;
+          })
+        ) {
+          this._likes = await this._handleDislikeCard(this._id);
+          this.cardLikes.textContent = this._likes.length;
+          this.likeButton.classList.remove("button-like-active");
+        } else {
+          this._likes = await this._handleLikeCard(this._id);
+          this.cardLikes.textContent = this._likes.length;
+          this.likeButton.classList.add("button-like-active");
+        }
       });
 
     this._element
       .querySelector(".button-delete")
       .addEventListener("click", (e) => {
         this._handleDeleteCard(e);
-        popupWithFormsDeleteCard.open(e);
       });
-
-    /*       // no quiere mostrarme el popup q corresponde
-    this._element
-      .querySelector(".delete-card__form") // NULL
-      .addEventListener("submit", (e) => {
-       this._handleDeleteCard(e);
-        //popupWithFormsDeleteCard.close(e);
-      }); */
 
     this._element
       .querySelector(".card__image")

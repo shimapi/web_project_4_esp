@@ -48,7 +48,7 @@ export default class Api {
 
   async editProfileAvatar(avatar) {
     const profileAvatar = await this._useFetch(
-      `${this.originURL}/users/me`,
+      `${this.originURL}/users/me/avatar`,
       "PATCH",
       { avatar: avatar }
     );
@@ -71,58 +71,31 @@ export default class Api {
       name: name,
       link: link,
     });
-    console.log("addNewCard", newCard);
     return newCard;
   }
 
-  async deleteCard(cardIdOwner, userId) {
-    let deletingCard;
-    console.log("cardIdOwner", cardIdOwner);
-    console.log("userId", userId);
-    //si el creador de la card es igual al userId, que aparezca el botón borrar
-    //(el basurero), sino, no me muestra el basurero.
-    if (userId === cardIdOwner) {
-      try {
-        deletingCard = await this._useFetch(
-          `${this.originURL}/cards/${cardId}`,
-          "DELETE"
+  async deleteCard(cardId) {
+    const deletedCard = await this._useFetch(
+      `${this.originURL}/cards/${cardId}`,
+                "DELETE"
         );
-        console.log("deleteCard", deletingCard);
-      } catch (err) {
-        console.log(err);
-      }
-      console.log("MUESTRO BASURERO");
-      return deletingCard;
-    } else {
-      console.log("ESCONDO BASURERO");
-    }
+          return deletedCard;
+
   }
 
   async likeCard(cardId) {
-    let likesCard;
-    try {
-      likesCard = await this._useFetch(
+    const likesCard = await this._useFetch(
         `${this.originURL}/cards/likes/${cardId}`,
         "PUT"
       );
-      console.log("likeCard", likesCard);
-    } catch (err) {
-      console.log(err);
-    }
     return likesCard;
   }
 
   async dislikeCard(cardId) {
-    let dislikesCard;
-    try {
-      dislikesCard = await this._useFetch(
+      const dislikesCard = await this._useFetch(
         `${this.originURL}/cards/likes/${cardId}`,
         "DELETE"
       );
-      console.log("dislikeCard", dislikesCard);
-    } catch (err) {
-      console.log(err);
-    }
     return dislikesCard;
   }
 }

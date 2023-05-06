@@ -8,20 +8,24 @@ import FormValidator from "./FormValidator.js";
 import Popup from "./Popup.js";
 
 export class PopupWithForms extends Popup {
-  constructor(modal) {
+  constructor(modal, handleFormSubmit) { //logica de guardado
     super(modal);
-    this.setEventListeners();
-  }
-
-  _setInputValues() {
-    return userInfo;
+    this.formElement = this.modal.querySelector(".form");
+    this.handleFormSubmit = handleFormSubmit;
   }
 
   _getInputValues() {
-    return userInfo;
+    this.inputList = this.formElement.querySelectorAll(".form__input");
+    this.formValues = {};
+    console.log(this.inputList)
+    this.inputList.forEach(input => {
+      return this.formValues[input.name] = input.value;
+    });
+    return this.formValues;
   }
 
   open() {
+    this.setEventListeners();
     super.open();
   }
 
@@ -35,12 +39,11 @@ export class PopupWithForms extends Popup {
   setEventListeners() {
     super.setEventListeners();
 
-    if (this.modal.classList.contains("profile")) {
-      this._setInputValues();
-    }
-
-    this.modal.querySelector(".form").addEventListener("submit", (e) => {
+    this.formElement.addEventListener("submit", (e) => {
       e.preventDefault();
+      this.handleFormSubmit(this._getInputValues());
+      //guarde el popup
+      this.close()
     });
 
     const newFormValidator = new FormValidator(config, this.modal);
