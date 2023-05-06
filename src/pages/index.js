@@ -46,7 +46,7 @@ async function main() {
   const PopUpEditAvatar = new PopupWithForms(openEditAvatarPopUp);
   const PopUpAddPhoto = new PopupWithForms(openAddPlacePopUp);
 
-  //  console.log(UserInfo._handleGetAvatar()); ERROR
+  //  console.log(UserInfo._handleGetAvatar()); ERROR 
 
   const handleInitialCards = new Section({
     data: getApiCards,
