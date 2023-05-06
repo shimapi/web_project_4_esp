@@ -1,7 +1,4 @@
-import { editProfileAbout, editProfileName, editProfileAvatar } from "./constants.js";
-import Api from "./Api.js";
 export default class UserInfo {
-  //clase HTML
   constructor(textNameElementSelector, textAboutElementSelector, avatarElementSelector) {
     this.textNameElement = document.querySelector(textNameElementSelector);
     this.textAboutElement = document.querySelector(textAboutElementSelector);

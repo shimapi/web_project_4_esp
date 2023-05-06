@@ -1,55 +1,64 @@
 import {
-  config,
-  openDeleteCardPopUp,
-  openEditAvatarPopUp,
-  userInfo,
+	config,
+	openDeleteCardPopUp,
+	openEditAvatarPopUp,
+	userInfo,
 } from "./constants.js";
 import FormValidator from "./FormValidator.js";
 import Popup from "./Popup.js";
 
 export class PopupWithForms extends Popup {
-  constructor(modal, handleFormSubmit) { //logica de guardado
-    super(modal);
-    this.formElement = this.modal.querySelector(".form");
-    this.handleFormSubmit = handleFormSubmit;
-  }
+	constructor(modal, handleFormSubmit) {
+		super(modal);
+		this.formElement = this.modal.querySelector(".form");
+		this.handleFormSubmit = handleFormSubmit;
+		this.submitForm = this.submitForm.bind(this);
+	}
 
-  _getInputValues() {
-    this.inputList = this.formElement.querySelectorAll(".form__input");
-    this.formValues = {};
-    console.log(this.inputList)
-    this.inputList.forEach(input => {
-      return this.formValues[input.name] = input.value;
-    });
-    return this.formValues;
-  }
+	_setInputValues() {
+		return userInfo;
+	}
 
-  open() {
-    this.setEventListeners();
-    super.open();
-  }
+	_getInputValues() {
+		this.inputList = this.formElement.querySelectorAll(".form__input");
+		this.formValues = {};
+		this.inputList.forEach((input) => {
+			return (this.formValues[input.name] = input.value);
+		});
+		return this.formValues;
+	}
 
-  close() {
-    super.close();
-    if (this.modal.className.includes("place")) {
-      this.modal.querySelector(config.formSelectorAddPlace).reset();
-    }
-  }
+	open() {
+		this.setEventListeners();
+		super.open();
+	}
 
-  setEventListeners() {
-    super.setEventListeners();
+	close() {
+		super.close();
+		if (this.modal.className.includes("place")) {
+			this.modal.querySelector(config.formSelectorAddPlace).reset();
+		}
+	}
 
-    this.formElement.addEventListener("submit", (e) => {
-      e.preventDefault();
-      this.handleFormSubmit(this._getInputValues());
-      //guarde el popup
-      this.close()
-    });
+	submitForm(e) {
+		e.preventDefault();
+		this.handleFormSubmit(this._getInputValues());
+		this.close();
+	}
 
-    const newFormValidator = new FormValidator(config, this.modal);
-    newFormValidator.enableValidation();
-  }
+	setEventListeners() {
+		super.setEventListeners();
+
+		if (this.modal.classList.contains("profile")) {
+			this._setInputValues();
+		}
+
+		this.formElement.addEventListener("submit", this.submitForm);
+
+		const newFormValidator = new FormValidator(config, this.modal);
+		newFormValidator.enableValidation();
+	}
 }
 
 export const popupWithFormsDeleteCard = new PopupWithForms(openDeleteCardPopUp);
- export const popupWithFormsEditAvatar = new PopupWithForms(openEditAvatarPopUp);
+export const popupWithFormsEditAvatar = new PopupWithForms(openEditAvatarPopUp);

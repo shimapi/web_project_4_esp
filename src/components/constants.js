@@ -26,6 +26,8 @@ export const openPhotoPopUp = document.querySelector(".photo-popup");
 export const addPlaceName = document.querySelector(".add-place__name");
 export const addPlaceLink = document.querySelector(".add-place__link");
 
+export const userId = "1a6f012a04b64dbf77f975bf";
+
 export const config = {
   formSelector: ".form",
   inputSelector: ".form__input",
