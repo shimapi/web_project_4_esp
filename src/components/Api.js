@@ -25,13 +25,11 @@ export default class Api {
 			`${this.originURL}/users/me`,
 			"GET"
 		);
-		console.log("API profileInitialInfo", profileInitialInfo);
 		return profileInitialInfo;
 	}
 
 	async getCards() {
 		const cards = await this._useFetch(`${this.originURL}/cards`, "GET");
-		console.log(cards);
 		return cards;
 	}
 
@@ -39,10 +37,8 @@ export default class Api {
 		const profileInfo = await this._useFetch(
 			`${this.originURL}/users/me`,
 			"PATCH",
-			//{ name: "Marie Curie", about: "Física y química" }
 			{ name: name, about: about }
 		);
-		//console.log("API profileInfo", profileInfo);
 		return profileInfo;
 	}
 
@@ -52,18 +48,7 @@ export default class Api {
 			"PATCH",
 			{ avatar: avatar }
 		);
-		console.log("API profileAvatar", profileAvatar);
 		return profileAvatar;
-	}
-
-	async editProfileInfoAvatar(name, about, avatar) {
-		const profileInfoAvatar = await this._useFetch(
-			`${this.originURL}/users/me`,
-			"PATCH",
-			{ name: name, about: about, avatar: avatar }
-		);
-		console.log("API profileInfoAvatar", profileInfoAvatar);
-		return profileInfoAvatar;
 	}
 
 	async addNewCard(name, link) {
