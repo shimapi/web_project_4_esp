@@ -42,6 +42,7 @@ export class PopupWithForms extends Popup {
 
 	submitForm(e) {
 		e.preventDefault();
+		e.target.querySelector(".button-save").textContent = "Guardando...";
 		this.handleFormSubmit(this._getInputValues());
 		this.close();
 	}
