@@ -13,6 +13,8 @@ import {
 	openEditAvatarPopUp,
 	openAddPlaceButton,
 	openDeleteCardPopUp,
+	editProfileName,
+	editProfileAbout,
 	config,
 	textName,
 	textAbout,
@@ -96,6 +98,8 @@ const PopUpAddPhoto = new PopupWithForms(openAddPlacePopUp, async (value) => {
 });
 
 openEditProfileButton.addEventListener("click", () => {
+	editProfileName.value = Object.values(userInfoConstants.getUserInfo())[0];
+	editProfileAbout.value = Object.values(userInfoConstants.getUserInfo())[1];
 	PopUpEditProfile.open();
 });
 
