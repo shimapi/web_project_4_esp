@@ -8,6 +8,18 @@
 
 Desarrollo de aplicación de Galería de Fotos.
 
+Sprint 9:
+
+- Cargar la información del usuario desde el servidor
+- Cargar las cards desde el servidor
+- Editar el perfil
+- Añadir una nueva card
+- Mostrar cuántos "me gusta" tiene una card
+- Crear una ventana emergente (popup) para borrar una card
+- Borrar una card
+- Añadir y eliminar "me gustas"
+- Actualizar la foto de perfil
+
 Sprint 8:
 
 - creación de clases: Section, Popup, PopUpWithImage, PopupWithForms, UserInfo, Card
