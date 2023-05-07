@@ -10,13 +10,11 @@ Desarrollo de aplicación de Galería de Fotos.
 
 Sprint 9:
 
-- Cargar la información del usuario desde el servidor
-- Cargar las cards desde el servidor
-- Editar el perfil
-- Añadir una nueva card
+- Cargar la información del usuario y cards desde el servidor
+- Editar el perfil (nombre y about) desde Api
+- Añadir una nueva card a la Api
 - Mostrar cuántos "me gusta" tiene una card
-- Crear una ventana emergente (popup) para borrar una card
-- Borrar una card
+- Borrar una card, confirmando con popup.
 - Añadir y eliminar "me gustas"
 - Actualizar la foto de perfil
 
